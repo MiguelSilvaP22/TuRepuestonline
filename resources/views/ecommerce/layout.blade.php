@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Shop</title>
+<title>MIGUI BELLOX</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="OneTech shop project">
@@ -39,8 +39,8 @@
 						<div class="top_bar_content ml-auto">
 							<div class="top_bar_user">
 								<div class="user_icon"><img src="images/user.svg" alt=""></div>
-								<div><a href="#">Register</a></div>
-								<div><a href="#">Sign in</a></div>
+								<div><a href="#">Registro</a></div>
+								<div><a href="#">Ingresa</a></div>
 							</div>
 						</div>
 					</div>
@@ -57,7 +57,9 @@
 					<!-- Logo -->
 					<div class="col-lg-2 col-sm-3 col-3 order-1">
 						<div class="logo_container">
-							<div class="logo"><a href="#">OneTech</a></div>
+							<div class="logo">
+							<img src="\ecommerce\images\logo3.png">
+							</div>
 						</div>
 					</div>
 
@@ -67,18 +69,18 @@
 							<div class="header_search_content">
 								<div class="header_search_form_container">
 									<form action="#" class="header_search_form clearfix">
-										<input type="search" required="required" class="header_search_input" placeholder="Search for products...">
+										<input type="search" required="required" class="header_search_input" placeholder="Busca tu Producto...">
 										<div class="custom_dropdown">
 											<div class="custom_dropdown_list">
-												<span class="custom_dropdown_placeholder clc">All Categories</span>
+												<span class="custom_dropdown_placeholder clc">Todas las Categorías</span>
 												<i class="fas fa-chevron-down"></i>
 												<ul class="custom_list clc">
-													<li><a class="clc" href="#">All Categories</a></li>
-													<li><a class="clc" href="#">Computers</a></li>
-													<li><a class="clc" href="#">Laptops</a></li>
-													<li><a class="clc" href="#">Cameras</a></li>
-													<li><a class="clc" href="#">Hardware</a></li>
-													<li><a class="clc" href="#">Smartphones</a></li>
+													
+													<li><a class="clc" href="#">Automóviles</a></li>
+													<li><a class="clc" href="#">Motocicletas</a></li>
+													<li><a class="clc" href="#">Bicicletas</a></li>
+													<li><a class="clc" href="#">Camionetas & Vans</a></li>
+													<li><a class="clc" href="#">Accesorios</a></li>
 												</ul>
 											</div>
 										</div>
@@ -121,14 +123,11 @@
 							<div class="cat_menu_container">
 								<div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
 									<div class="cat_burger"><span></span><span></span><span></span></div>
-									<div class="cat_menu_text">categories</div>
+									<div class="cat_menu_text">categorías</div>
 								</div>
 
 								<ul class="cat_menu">
-									<li><a href="#">Computers & Laptops <i class="fas fa-chevron-right ml-auto"></i></a></li>
-									<li><a href="#">Cameras & Photos<i class="fas fa-chevron-right"></i></a></li>
-									<li class="hassubs">
-										<a href="#">Hardware<i class="fas fa-chevron-right"></i></a>
+									
 										<ul>
 											<li class="hassubs">
 												<a href="#">Menu Item<i class="fas fa-chevron-right"></i></a>
@@ -144,12 +143,12 @@
 											<li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
 										</ul>
 									</li>
-									<li><a href="#">Smartphones & Tablets<i class="fas fa-chevron-right"></i></a></li>
-									<li><a href="#">TV & Audio<i class="fas fa-chevron-right"></i></a></li>
-									<li><a href="#">Gadgets<i class="fas fa-chevron-right"></i></a></li>
-									<li><a href="#">Car Electronics<i class="fas fa-chevron-right"></i></a></li>
-									<li><a href="#">Video Games & Consoles<i class="fas fa-chevron-right"></i></a></li>
-									<li><a href="#">Accessories<i class="fas fa-chevron-right"></i></a></li>
+									<li><a href="#">Automóviles<i class="fas fa-chevron-right"></i></a></li>
+									<li><a href="#">Motocicletas<i class="fas fa-chevron-right"></i></a></li>
+									<li><a href="#">Bicicletas<i class="fas fa-chevron-right"></i></a></li>
+									<li><a href="#">Camionetas & Vans<i class="fas fa-chevron-right"></i></a></li>
+									<li><a href="#">Accesorios<i class="fas fa-chevron-right"></i></a></li>
+								
 								</ul>
 							</div>
 
@@ -159,7 +158,7 @@
 								<ul class="standard_dropdown main_nav_dropdown">
 									<li><a href="#">Home<i class="fas fa-chevron-down"></i></a></li>
 									<li class="hassubs">
-										<a href="#">Super Deals<i class="fas fa-chevron-down"></i></a>
+										<a href="#">Súper Ofertas<i class="fas fa-chevron-down"></i></a>
 										<ul>
 											<li>
 												<a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
@@ -175,7 +174,7 @@
 										</ul>
 									</li>
 									<li class="hassubs">
-										<a href="#">Featured Brands<i class="fas fa-chevron-down"></i></a>
+										<a href="#">Marcas <i class="fas fa-chevron-down"></i></a>
 										<ul>
 											<li>
 												<a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
@@ -191,7 +190,7 @@
 										</ul>
 									</li>
 									<li class="hassubs">
-										<a href="#">Pages<i class="fas fa-chevron-down"></i></a>
+										<a href="#">Páginas<i class="fas fa-chevron-down"></i></a>
 										<ul>
 											<li><a href="shop.html">Shop<i class="fas fa-chevron-down"></i></a></li>
 											<li><a href="product.html">Product<i class="fas fa-chevron-down"></i></a></li>
@@ -203,7 +202,7 @@
 										</ul>
 									</li>
 									<li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
-									<li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
+									<li><a href="contact.html">Contacto<i class="fas fa-chevron-down"></i></a></li>
 								</ul>
 							</div>
 
@@ -444,16 +443,18 @@
 		<div class="container">
 			<div class="row">
 
-				<div class="col-lg-3 footer_col">
+				<div class="col-lg-4 footer_col">
 					<div class="footer_column footer_contact">
 						<div class="logo_container">
-							<div class="logo"><a href="#">OneTech</a></div>
+							<div class="logo"><img src="\ecommerce\images\logo.png"></div>
+							<a></a>
+						
 						</div>
-						<div class="footer_title">Got Question? Call Us 24/7</div>
-						<div class="footer_phone">+38 068 005 3570</div>
+						
+						<div class="footer_phone">+56 9 5678 6578</div>
 						<div class="footer_contact_text">
-							<p>17 Princess Road, London</p>
-							<p>Grester London NW18JR, UK</p>
+							<p>Calle Falsa 666</p>
+							<p>Santiago, CL</p>
 						</div>
 						<div class="footer_social">
 							<ul>
@@ -461,52 +462,48 @@
 								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
 								<li><a href="#"><i class="fab fa-youtube"></i></a></li>
 								<li><a href="#"><i class="fab fa-google"></i></a></li>
-								<li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+								
 							</ul>
 						</div>
 					</div>
 				</div>
 
-				<div class="col-lg-2 offset-lg-2">
-					<div class="footer_column">
-						<div class="footer_title">Find it Fast</div>
+				<div class="col-lg-2 offset-lg-1">
+					<div class="footer_column" >
+						<div class="footer_title">Encuentra tu Repuesto</div>
 						<ul class="footer_list">
-							<li><a href="#">Computers & Laptops</a></li>
-							<li><a href="#">Cameras & Photos</a></li>
-							<li><a href="#">Hardware</a></li>
-							<li><a href="#">Smartphones & Tablets</a></li>
-							<li><a href="#">TV & Audio</a></li>
+							<li><a href="#">Automóviles</a></li>
+							<li><a href="#">Motocicletas</a></li>
+							<li><a href="#">Bicicletas</a></li>
+							<li><a href="#">Camionetas & Vans</a></li>
+							<li><a href="#">Accesorios </a></li>
 						</ul>
-						<div class="footer_subtitle">Gadgets</div>
-						<ul class="footer_list">
-							<li><a href="#">Car Electronics</a></li>
-						</ul>
+						
 					</div>
 				</div>
 
 				<div class="col-lg-2">
 					<div class="footer_column">
 						<ul class="footer_list footer_list_2">
-							<li><a href="#">Video Games & Consoles</a></li>
-							<li><a href="#">Accessories</a></li>
-							<li><a href="#">Cameras & Photos</a></li>
-							<li><a href="#">Hardware</a></li>
-							<li><a href="#">Computers & Laptops</a></li>
+							<li><a href="#"></a></li>
+							<li><a href="#"></a></li>
+							<li><a href="#"></a></li>
+							<li><a href="#"></a></li>
+							<li><a href="#"></a></li>
 						</ul>
 					</div>
 				</div>
 
 				<div class="col-lg-2">
 					<div class="footer_column">
-						<div class="footer_title">Customer Care</div>
+						<div class="footer_title">Servicio al Cliente</div>
 						<ul class="footer_list">
-							<li><a href="#">My Account</a></li>
-							<li><a href="#">Order Tracking</a></li>
-							<li><a href="#">Wish List</a></li>
-							<li><a href="#">Customer Services</a></li>
-							<li><a href="#">Returns / Exchange</a></li>
+							<li><a href="#">Mi Cuenta</a></li>
+							<li><a href="#">Mis Compras</a></li>
+							<li><a href="#">Favoritos</a></li>
+							
 							<li><a href="#">FAQs</a></li>
-							<li><a href="#">Product Support</a></li>
+							
 						</ul>
 					</div>
 				</div>
