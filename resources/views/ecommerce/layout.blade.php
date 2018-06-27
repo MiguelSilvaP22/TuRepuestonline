@@ -19,6 +19,11 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
 @yield('css')
 
+<style>
+	.main_nav_menu{
+		margin-right: 5%;
+	}
+</style>
 
 </head>
 
@@ -91,16 +96,33 @@
 						</div>
 					</div>
 
+					
+
 					<!-- Wishlist -->
 					<div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
 						<div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
+							
+							<!-- Agregar Producto -->
+
+
 							<div class="wishlist d-flex flex-row align-items-center justify-content-end">
-								<div class="wishlist_icon"><img src="images/heart.png" alt=""></div>
+								<div class="wishlist_icon">
+								<div class="wishlist_content">
+									<div class="wishlist_text"><a href="/crearRepuesto">Agregar Producto</a></div>
+									
+								</div>
+							</div>
+							
+							<div class="wishlist d-flex flex-row align-items-center justify-content-end">
+								<div class="wishlist_icon"><img src="/ecommerce/images/heart.png" alt=""></div>
 								<div class="wishlist_content">
 									<div class="wishlist_text"><a href="#">Favoritos</a></div>
 									<div class="wishlist_count">115</div>
 								</div>
 							</div>
+
+							
+
 
 							<!-- Cart -->
 						</div>
@@ -173,34 +195,8 @@
 											<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
 										</ul>
 									</li>
-									<li class="hassubs">
-										<a href="#">Marcas <i class="fas fa-chevron-down"></i></a>
-										<ul>
-											<li>
-												<a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-												<ul>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-												</ul>
-											</li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-										</ul>
-									</li>
-									<li class="hassubs">
-										<a href="#">Páginas<i class="fas fa-chevron-down"></i></a>
-										<ul>
-											<li><a href="shop.html">Shop<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="product.html">Product<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="blog_single.html">Blog Post<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="regular.html">Regular Post<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="cart.html">Cart<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
-										</ul>
-									</li>
+									
+									
 									<li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
 									<li><a href="contact.html">Contacto<i class="fas fa-chevron-down"></i></a></li>
 								</ul>
@@ -326,7 +322,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="viewed_title_container">
-						<h3 class="viewed_title">Recently Viewed</h3>
+						<h3 class="viewed_title">Artículos Destacados</h3>
 						<div class="viewed_nav_container">
 							<div class="viewed_nav viewed_prev"><i class="fas fa-chevron-left"></i></div>
 							<div class="viewed_nav viewed_next"><i class="fas fa-chevron-right"></i></div>
@@ -458,7 +454,7 @@
 						</div>
 						<div class="footer_social">
 							<ul>
-								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="https://www.facebook.com/profile.php?id=100026384449691"><i class="fab fa-facebook-f"></i></a></li>
 								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
 								<li><a href="#"><i class="fab fa-youtube"></i></a></li>
 								<li><a href="#"><i class="fab fa-google"></i></a></li>
