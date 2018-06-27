@@ -31,6 +31,16 @@ Route::get('/detallerepuesto/{id}', 'RepuestoController@show',function($id)
     return $id;
 });
 
+//Marcas Automoviles
+
+Route::get('/selectMarca', 'MarcaController@selectMarca')->name('marca.select');
+Route::get('/selectModelo/{id}', 'MarcaController@selectModelo',function($id)
+{
+    return $id;
+});
+
+
+
 
 
 

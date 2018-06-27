@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repuesto;
+use App\Marca;
 use App\CategoriaRepuesto;
 use App\ImagenRepuesto;
 
@@ -58,8 +59,8 @@ class RepuestoController extends Controller
     public function create()
     {
         $categoriasrepuestos = CategoriaRepuesto::All()->sortBy('nombre_categoriarepuesto')->pluck('nombre_categoriarepuesto','id_categoriarepuesto');
-             
-        return view('repuesto.crearRepuesto',compact('categoriasrepuestos'));
+
+        return view('repuesto.crearRepuesto',compact('categoriasrepuestos', 'marcas'));
     }
 
     public function store(Request $request)

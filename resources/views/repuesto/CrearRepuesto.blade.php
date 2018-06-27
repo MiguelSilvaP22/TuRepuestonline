@@ -39,6 +39,12 @@
                     {!! Form::input('file','imagen_repuesto3', null, ['class' => 'form-control','id'=> 'imagen_repuesto3']) !!}
 
                 </div>	
+
+				<div class='form-group' id="compatibilidad">
+				</div>
+
+				<div class='form-group' id="compatibilidad2">
+   				</div>
 				<div class='form-group'>
 					{!! Form::submit("Agregar Area", ['class' => 'form-control btn btn-success ']) !!}
 				</div>
@@ -51,4 +57,25 @@
 		</div>
     </div>
     
+@stop
+
+
+@section('script-js')
+<script>
+	$(document).ready(function() {
+
+	$.ajax({
+			url: "/selectMarca",
+			type: "GET",
+			success: function (datos) {
+				$("#compatibilidad").html(datos);
+				
+			}
+			});
+	});	
+
+	
+
+		
+</script>
 @stop
