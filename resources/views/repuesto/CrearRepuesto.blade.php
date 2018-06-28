@@ -40,11 +40,18 @@
 
                 </div>	
 
-				<div class='form-group' id="compatibilidad">
+				<div class='form-group' id="compatibilidad23">
+
+					<div class='form-group'>
+						{!! Form::label('nombre_rolesdesempeno', 'Roles de desempeño:') !!}	
+						{!! Form::button('Agregar nueva compatibilidad', ['class' => 'form-control btn btn-success ', 'id'=> 'addRol']) !!}	
+					</div>
+					<div class='form-group' id="compatibilidad"></div>
+					
+					
 				</div>
 
-				<div class='form-group' id="compatibilidad2">
-   				</div>
+				
 				<div class='form-group'>
 					{!! Form::submit("Agregar Area", ['class' => 'form-control btn btn-success ']) !!}
 				</div>
@@ -64,18 +71,36 @@
 <script>
 	$(document).ready(function() {
 
-	$.ajax({
+/*	$.ajax({
+		url: "/selectMarca",
+		type: "GET",
+		success: function (datos) {
+			$("#compatibilidad").after(datos);
+		}
+		});*/
+	});	
+
+	var count =0;
+	$('#addRol').click(function() {
+	count++;
+
+/*	$('#addRol').parent().append('<input class="form-control" name="RolDesempenos[]" id="rolDesempeno'+count+'" type="text" ">');
+	$('#addRol').parent().append('<button type="button" class="btn btn-default" aria-label="Left Align" onclick="eliminarRol('+count+')" id="btnEliminarRol'+count+'">   <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> </button>');
+	$('#addRol').parent().append('<label id="errRolDesempeno'+count+'">');*/
+
+	$('#addRol').parent().append('<div id="'+count+'">');
+		$.ajax({
 			url: "/selectMarca",
 			type: "GET",
 			success: function (datos) {
-				$("#compatibilidad").html(datos);
-				
+				$("#"+count).html(datos);
 			}
 			});
-	});	
-
-	
+	});
+	$('#addRol').parent().append('</div>');
 
 		
+
+
 </script>
 @stop

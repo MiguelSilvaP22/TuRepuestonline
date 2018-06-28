@@ -55,6 +55,40 @@
 				</div>
 
 			</div>
+
+			<div class="row justify-content-md-center mt-5"><h4>Compatibilidad de repuesto</h4> </div>
+			<div class="row justify-content-md-center mt-5">
+				
+				@if($repuesto->compatibilidad->count()>0)
+					<div class="col-lg-6">
+					<table class="table">
+							<thead>
+								<tr>
+								<th scope="col">#</th>
+								<th scope="col">Modelo</th>
+								<th scope="col">Marca</th>
+
+								</tr>
+					</thead>
+						<tbody>
+
+						@foreach($repuesto->compatibilidad as $key => $modelo)
+				
+							<tr >
+							<td >{{$key}}</td>
+							<td>{{$modelo->nombre_modelo}}</td>
+
+								<td>{{$modelo->marca->nombre_marca}}</td>
+							<tr>
+						@endforeach
+						</tbody>
+					</table>
+
+					</div>
+				@else
+					OHHH
+				@endif	
+			</div>
 		</div>
 	</div>
 @stop

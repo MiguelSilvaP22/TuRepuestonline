@@ -31,10 +31,14 @@ Route::get('/detallerepuesto/{id}', 'RepuestoController@show',function($id)
     return $id;
 });
 
-//Marcas Automoviles
+//Compatibilidad Automoviles
 
 Route::get('/selectMarca', 'MarcaController@selectMarca')->name('marca.select');
 Route::get('/selectModelo/{id}', 'MarcaController@selectModelo',function($id)
+{
+    return $id;
+});
+Route::get('/selectMotor/{id}', 'MarcaController@selectMotor',function($id)
 {
     return $id;
 });
@@ -69,3 +73,6 @@ Route::get('/desactivarArea/{id}', 'AreaController@confirmDestroy',function($id)
 
 Route::resource('area', 'AreaController');
 */
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

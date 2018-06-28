@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Repuesto;
+use App\Compatibilidad;
 use App\Marca;
 use App\CategoriaRepuesto;
 use App\ImagenRepuesto;
@@ -72,6 +74,7 @@ class RepuestoController extends Controller
         $repuesto->stock_repuesto = $request->stock_repuesto;
         $repuesto->descripcion_repuesto = $request->descripcion_repuesto;
         $repuesto->estado_repuesto = 1;
+        $repuesto->id_usuario = Auth::user()->id_usuario;
         $repuesto->save();
 
         if($_FILES['imagen_repuesto1']!= null)
@@ -124,8 +127,17 @@ class RepuestoController extends Controller
                 $imagen->save();
             } 
         }
+
+        foreach($request->id_modelos as $key => $id_modelo){
+            $compatibilidad = new Compatibilidad;
+            $compatibilidad->id_modelo = $id_modelo;
+            $compatibilidad->id_repuesto =  $repuesto->id_repuesto;
+            $compatibilidad->estado_repuestomodelo =  1;
+            $compatibilidad->save();
+
+        }
+        echo("OK");
         
-        echo ("OK");
     }
 
        /**

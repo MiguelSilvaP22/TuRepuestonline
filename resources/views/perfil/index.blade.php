@@ -32,7 +32,7 @@
             <table id="tablaPerfil" class="table">
                 <thead>
                     <tr>
-                        <th>Nombre Competencia</th>
+                        <th>Nombre Repuesto</th>
                         <th>Categoria</th>
                         <th>precio</th>
                         <th>Fecha de registro</th>

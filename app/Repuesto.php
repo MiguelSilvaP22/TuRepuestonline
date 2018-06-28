@@ -21,4 +21,9 @@ class Repuesto extends Model
     {
         return $this->hasMany(ImagenRepuesto::Class, 'id_repuesto');
     }
+
+    public function compatibilidad()
+    {
+        return $this->belongsToMany(Modelo::Class, 'repuestomodelo', 'id_repuesto', 'id_modelo');
+    }
 }
