@@ -12,11 +12,9 @@
 <link rel="stylesheet" type="text/css" href="/ecommerce/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
 <link rel="stylesheet" type="text/css" href="/ecommerce/plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="/ecommerce/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
-<link rel="stylesheet" type="text/css" href="/ecommerce/styles/shop_styles.css">
-<link rel="stylesheet" type="text/css" href="/ecommerce/styles/shop_responsive.css">
-<link rel="stylesheet" type="text/css" href="/ecommerce/styles/product_styles.css">
-<link rel="stylesheet" type="text/css" href="/ecommerce/styles/product_responsive.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
+
+
 @yield('css')
 
 <style>
@@ -44,8 +42,33 @@
 						<div class="top_bar_content ml-auto">
 							<div class="top_bar_user">
 								<div class="user_icon"><img src="images/user.svg" alt=""></div>
-								<div><a href="#">Registro</a></div>
-								<div><a href="#">Ingresa</a></div>
+								
+								
+								@guest
+                                <div><a class="nav-link" href="{{ route('login') }}">{{ __('Ingresar') }}</a> </div>
+                                <div><a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a></div>
+                        		@else
+
+								<ul class="standard_dropdown main_nav_dropdown">
+									<li class="hassubs">
+										<a href="#">	{{ Auth::user()->email }}<i class="fas fa-chevron-down"></i></a>
+										
+										<ul>
+										 <li><a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+
+										<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+											@csrf
+										</form></li>
+										<li><a href="/perfil">Mi Perfil<i class="fas fa-chevron-down"></i></a></li>
+
+										</ul>
+										
+
+										
+									</li>
+									
+								</ul>
+                       			 @endguest
 							</div>
 						</div>
 					</div>
@@ -89,7 +112,7 @@
 												</ul>
 											</div>
 										</div>
-										<button type="submit" class="header_search_button trans_300" value="Submit"><img src="images/search.png" alt=""></button>
+										<button type="submit" class="header_search_button trans_300" value="Submit"><img src="/ecommerce/images/search.png" alt=""></button>
 									</form>
 								</div>
 							</div>
@@ -117,7 +140,7 @@
 								<div class="wishlist_icon"><img src="/ecommerce/images/heart.png" alt=""></div>
 								<div class="wishlist_content">
 									<div class="wishlist_text"><a href="#">Favoritos</a></div>
-									<div class="wishlist_count">115</div>
+									<div class="wishlist_count">{{Auth::user()->favorito->count()}}</div>
 								</div>
 							</div>
 

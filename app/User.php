@@ -7,7 +7,23 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    protected $table = 'usuario';
+    protected $primaryKey = 'id_usuario';
+    const CREATED_AT = 'fecha_reg_usuario';
+    const UPDATED_AT = 'fecha_mod_usuario';
+
+    public function perfil()
+    {
+        return $this->belongsTo(Perfil::Class, 'id_perfil');
+    }
+
+    public function favorito()
+    {
+        return $this->belongsToMany(Repuesto::Class, 'favorito', 'id_usuario', 'id_repuesto');
+    }
+
     use Notifiable;
+    
 
     /**
      * The attributes that are mass assignable.
@@ -15,7 +31,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+         'email', 'password', 'id_perfil', 'id_membresia',
     ];
 
     /**
@@ -26,4 +42,5 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
 }

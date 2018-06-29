@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Repuesto;
+use App\Favorito;
+use App\Compatibilidad;
+use App\Marca;
 use App\CategoriaRepuesto;
 use App\ImagenRepuesto;
 
@@ -58,8 +62,8 @@ class RepuestoController extends Controller
     public function create()
     {
         $categoriasrepuestos = CategoriaRepuesto::All()->sortBy('nombre_categoriarepuesto')->pluck('nombre_categoriarepuesto','id_categoriarepuesto');
-             
-        return view('repuesto.crearRepuesto',compact('categoriasrepuestos'));
+
+        return view('repuesto.crearRepuesto',compact('categoriasrepuestos', 'marcas'));
     }
 
     public function store(Request $request)
@@ -71,6 +75,7 @@ class RepuestoController extends Controller
         $repuesto->stock_repuesto = $request->stock_repuesto;
         $repuesto->descripcion_repuesto = $request->descripcion_repuesto;
         $repuesto->estado_repuesto = 1;
+        $repuesto->usuario = Auth::user()->id_usuario;
         $repuesto->save();
 
         if($_FILES['imagen_repuesto1']!= null)
@@ -123,8 +128,41 @@ class RepuestoController extends Controller
                 $imagen->save();
             } 
         }
+
+        foreach($request->id_modelos as $key => $id_modelo){
+            $compatibilidad = new Compatibilidad;
+            $compatibilidad->id_modelo = $id_modelo;
+            $compatibilidad->id_repuesto =  $repuesto->id_repuesto;
+            $compatibilidad->estado_repuestomodelo =  1;
+            $compatibilidad->save();
+
+        }
+        echo("OK");
         
-        echo ("OK");
+    }
+
+    public function EditarFavorito($id){
+        $favorito = Favorito::all()->where('id_repuesto', $id)->where('id_usuario', Auth::user()->id_usuario)->last();
+        \Debugbar::info(Auth::user()->id_usuario);
+        if($favorito!=null)
+        {
+            if($favorito->estado_favorito==1)
+            {
+                $favorito->estado_favorito =0;
+                $favorito->save();
+            }
+            else{
+                $favorito->estado_favorito =1;
+                $favorito->save();
+            }
+        }
+        else{
+            $nuevoFavorito = new Favorito;
+            $nuevoFavorito->id_usuario=Auth::user()->id_usuario;
+            $nuevoFavorito->id_repuesto=$id;
+            $nuevoFavorito->estado_favorito =1;
+            $nuevoFavorito->save();
+        }
     }
 
        /**
@@ -136,7 +174,10 @@ class RepuestoController extends Controller
     public function show($id)
     {
         $repuesto = Repuesto::all()->where('id_repuesto', $id)->last();
-        return view('repuesto.DetalleRepuesto',compact('repuesto'));
+        $favorito = Favorito::all()->where('id_repuesto', $id)->where('id_usuario', Auth::user()->id_usuario)->last();
+        \Debugbar::info($favorito);
+
+        return view('repuesto.DetalleRepuesto',compact('repuesto', 'favorito'));
         
     }
 

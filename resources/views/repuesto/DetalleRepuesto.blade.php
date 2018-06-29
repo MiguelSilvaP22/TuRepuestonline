@@ -1,5 +1,11 @@
 @extends('ecommerce.layout')
 
+@section('css')
+
+<link rel="stylesheet" type="text/css" href="/ecommerce/styles/product_styles.css">
+<link rel="stylesheet" type="text/css" href="/ecommerce/styles/product_responsive.css">
+@stop
+
 @section('content')
 
   <div class="single_product">
@@ -46,7 +52,16 @@
 								<div class="product_price">Precio: ${{$repuesto->precio_repuesto}}</div>
 								<div class="button_container">
 									<button type="button" class="button cart_button">Contactar</button>
-									<div class="product_fav"><i class="fas fa-heart"></i></div>
+									@if($favorito==null)
+										<div class="product_fav "><i class="fas fa-heart "></i></div>
+									@else
+										@if($favorito->estado_favorito==1)
+										<div class="product_fav active"><i class="fas fa-heart active"></i></div>
+										@else
+										<div class="product_fav "><i class="fas fa-heart "></i></div>
+										@endif
+									@endif
+
 								</div>
 								
 							</form>
@@ -55,7 +70,57 @@
 				</div>
 
 			</div>
+
+			<div class="row justify-content-md-center mt-5"><h4>Compatibilidad de repuesto</h4> </div>
+			<div class="row justify-content-md-center mt-5">
+				
+				@if($repuesto->compatibilidad->count()>0)
+					<div class="col-lg-6">
+					<table class="table">
+							<thead>
+								<tr>
+								<th scope="col">#</th>
+								<th scope="col">Modelo</th>
+								<th scope="col">Marca</th>
+
+								</tr>
+					</thead>
+						<tbody>
+
+						@foreach($repuesto->compatibilidad as $key => $modelo)
+				
+							<tr >
+							<td >{{$key}}</td>
+							<td>{{$modelo->nombre_modelo}}</td>
+
+								<td>{{$modelo->marca->nombre_marca}}</td>
+							<tr>
+						@endforeach
+						</tbody>
+					</table>
+
+					</div>
+				@else
+				<p>				No posee información sobre compatibilidad.</p>
+				@endif	
+			</div>
 		</div>
 	</div>
 @stop
 
+
+
+@section('script-js')
+<script>
+$('.product_fav').click(function() {
+		$.ajax({
+			url: "/editarfavorito/{{$repuesto->id_repuesto}}",
+			type: "GET",
+			success: function (datos) {
+				$("#"+count).html(datos);
+			}
+			});
+	});
+</script>
+
+@stop

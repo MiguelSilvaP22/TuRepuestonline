@@ -6,7 +6,7 @@
 @stop
 
 @section('content')
-<div class="row mt-4">
+<div class="row mt-6">
     <div class="col-2"></div>
     <div class="col-md-4 col-sm-12">
         <div class="card">
@@ -14,9 +14,12 @@
                 Perfil
             </div>
             <div class="card-body">
-                <h5 class="card-title">Informacion del perfil</h5>
-                <p class="card-text">Correo Electronico: Prueba</p> 
-                <a href="#" class="btn btn-primary">Editar</a>
+                <h5 class="card-title">Información del perfil</h5>
+                <ul class="card-text mt-4">RUT: Prueba </ul>
+                <ul class="card-text mt-2">Nombre Completo: Armin Burns</ul> 
+                <ul class="card-text mt-2">Teléfono: Prueba  Dirección: Prueba</ul> 
+                <ul class="card-text mt-2">Correo Electronico: Prueba</ul> 
+                <a href="#" class="btn btn-primary mt-2">Editar</a>
             </div>
         </div>
     </div>
@@ -32,10 +35,10 @@
             <table id="tablaPerfil" class="table">
                 <thead>
                     <tr>
-                        <th>Nombre Competencia</th>
-                        <th>Categoria</th>
-                        <th>precio</th>
-                        <th>Fecha de registro</th>
+                        <th>Nombre Repuesto</th>
+                        <th>Categoría</th>
+                        <th>Precio</th>
+                        <th>Fecha de Registro</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
