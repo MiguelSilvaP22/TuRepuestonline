@@ -12,11 +12,8 @@
 <link rel="stylesheet" type="text/css" href="/ecommerce/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
 <link rel="stylesheet" type="text/css" href="/ecommerce/plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="/ecommerce/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
-<link rel="stylesheet" type="text/css" href="/ecommerce/styles/shop_styles.css">
-<link rel="stylesheet" type="text/css" href="/ecommerce/styles/shop_responsive.css">
-<link rel="stylesheet" type="text/css" href="/ecommerce/styles/product_styles.css">
-<link rel="stylesheet" type="text/css" href="/ecommerce/styles/product_responsive.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
+
 
 @yield('css')
 
@@ -62,7 +59,7 @@
 										<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 											@csrf
 										</form></li>
-										<li><a href="#">Mi Perfil<i class="fas fa-chevron-down"></i></a></li>
+										<li><a href="/perfil">Mi Perfil<i class="fas fa-chevron-down"></i></a></li>
 
 										</ul>
 										
@@ -115,7 +112,7 @@
 												</ul>
 											</div>
 										</div>
-										<button type="submit" class="header_search_button trans_300" value="Submit"><img src="images/search.png" alt=""></button>
+										<button type="submit" class="header_search_button trans_300" value="Submit"><img src="/ecommerce/images/search.png" alt=""></button>
 									</form>
 								</div>
 							</div>
@@ -143,7 +140,7 @@
 								<div class="wishlist_icon"><img src="/ecommerce/images/heart.png" alt=""></div>
 								<div class="wishlist_content">
 									<div class="wishlist_text"><a href="#">Favoritos</a></div>
-									<div class="wishlist_count">115</div>
+									<div class="wishlist_count">{{Auth::user()->favorito->count()}}</div>
 								</div>
 							</div>
 

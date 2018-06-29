@@ -17,6 +17,11 @@ class User extends Authenticatable
         return $this->belongsTo(Perfil::Class, 'id_perfil');
     }
 
+    public function favorito()
+    {
+        return $this->belongsToMany(Repuesto::Class, 'favorito', 'id_usuario', 'id_repuesto');
+    }
+
     use Notifiable;
     
 

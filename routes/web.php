@@ -31,6 +31,11 @@ Route::get('/detallerepuesto/{id}', 'RepuestoController@show',function($id)
     return $id;
 });
 
+Route::get('/editarfavorito/{id}', 'RepuestoController@EditarFavorito',function($id)
+{
+    return $id;
+});
+
 //Compatibilidad Automoviles
 
 Route::get('/selectMarca', 'MarcaController@selectMarca')->name('marca.select');
