@@ -51,7 +51,7 @@
 
 								<div class="product_price">Precio: ${{$repuesto->precio_repuesto}}</div>
 								<div class="button_container">
-									<button type="button" class="button cart_button">Contactar</button>
+									<button type="button" class="button cart_button" onclick="confirmarComprar()">Adquirir Repuesto</button>
 									@if($favorito==null)
 										<div class="product_fav "><i class="fas fa-heart "></i></div>
 									@else
@@ -121,6 +121,15 @@ $('.product_fav').click(function() {
 			}
 			});
 	});
+
+
+function confirmarComprar() {
+var r = confirm("¿Esta Seguro Que desea adquirir este producto?");
+	if (r == true) {
+		window.location.href = '/venta/{{$repuesto->id_repuesto}}';
+	} else {
+	}
+}
 </script>
 
 @stop

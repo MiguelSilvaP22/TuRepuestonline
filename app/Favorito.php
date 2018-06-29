@@ -10,4 +10,9 @@ class Favorito extends Model
     protected $primaryKey = 'id_favorito';
     const CREATED_AT = 'fecha_reg_favorito';
     const UPDATED_AT = 'fecha_mod_favorito';
+
+    public function repuesto()
+    {
+        return $this->hasMany(Repuesto::Class, 'id_repuesto');
+    }
 }

@@ -8,6 +8,8 @@ use App\Repuesto;
 use App\Favorito;
 use App\Compatibilidad;
 use App\Marca;
+use App\Venta;
+
 use App\CategoriaRepuesto;
 use App\ImagenRepuesto;
 
@@ -28,13 +30,24 @@ class RepuestoController extends Controller
     }
 
     public function busquedaIndex(){
-        $repuestos = Repuesto::all();
+        if(Auth::user())
+        {
+            $repuestos = Repuesto::all()->where('id_usuario', '!=', Auth::user()->id_usuario);
+        }else{
+            $repuestos = Repuesto::all();
+        }
         $categoriasrepuestos = CategoriaRepuesto::all();
         return view('busqueda.index',compact('repuestos','categoriasrepuestos'));
     }
 
     public function resultadoBusqueda(){
-        $repuestos = Repuesto::all();
+
+        if(Auth::user())
+        {
+            $repuestos = Repuesto::all()->where('id_usuario', '!=', Auth::user()->id_usuario);
+        }else{
+            $repuestos = Repuesto::all();
+        }
         $categoriasrepuestos = CategoriaRepuesto::all();
         return view('busqueda.resultado',compact('repuestos','categoriasrepuestos'));
     }
@@ -75,7 +88,7 @@ class RepuestoController extends Controller
         $repuesto->stock_repuesto = $request->stock_repuesto;
         $repuesto->descripcion_repuesto = $request->descripcion_repuesto;
         $repuesto->estado_repuesto = 1;
-        $repuesto->usuario = Auth::user()->id_usuario;
+        $repuesto->id_usuario = Auth::user()->id_usuario;
         $repuesto->save();
 
         if($_FILES['imagen_repuesto1']!= null)
@@ -164,6 +177,28 @@ class RepuestoController extends Controller
             $nuevoFavorito->save();
         }
     }
+
+    public function favoritos(){
+        $favoritos = Favorito::all()->where('id_usuario', Auth::user()->id_usuario)->where('estado_favorito', 1);
+        return view('perfil.favoritos',compact('favoritos'));
+
+    }
+
+    public function VentaRepuesto($id){
+        if(Auth::user())
+        {
+            $venta = new Venta;
+            $venta->id_usuario = Auth::user()->id_usuario;
+            $venta->id_repuesto = $id;
+            $venta->cantidad_venta = 3;
+            $venta->estado_venta=1;
+            $venta->save();
+            \Debugbar::info("VENDIDO");
+
+        }
+        return redirect('/perfil');
+    }
+
 
        /**
      * Display the specified resource.

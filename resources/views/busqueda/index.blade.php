@@ -3,7 +3,6 @@
 
 <link rel="stylesheet" type="text/css" href="/ecommerce/styles/shop_styles.css">
 <link rel="stylesheet" type="text/css" href="/ecommerce/styles/shop_responsive.css">
-@stop
 @section('content')
 <div class="shop">
 		<div class="container">

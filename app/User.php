@@ -22,6 +22,15 @@ class User extends Authenticatable
         return $this->belongsToMany(Repuesto::Class, 'favorito', 'id_usuario', 'id_repuesto');
     }
 
+    public function repuestos()
+    {
+        return $this->hasMany(Repuesto::Class, 'id_usuario');
+    }
+
+    
+
+
+
     use Notifiable;
     
 

@@ -31,10 +31,7 @@ Route::get('/detallerepuesto/{id}', 'RepuestoController@show',function($id)
     return $id;
 });
 
-Route::get('/editarfavorito/{id}', 'RepuestoController@EditarFavorito',function($id)
-{
-    return $id;
-});
+
 
 //Compatibilidad Automoviles
 
@@ -52,6 +49,18 @@ Route::get('/selectMotor/{id}', 'MarcaController@selectMotor',function($id)
 
 
 
+//FAVORITOS
+Route::get('/editarfavorito/{id}', 'RepuestoController@EditarFavorito',function($id)
+{
+    return $id;
+});
+
+//VENTA
+Route::get('/venta/{id}', 'RepuestoController@VentaRepuesto',function($id)
+{
+    return $id;
+});
+Route::get('/favorito', 'RepuestoController@favoritos');
 
 //PERFIL
 Route::resource('perfil', 'PerfilController');

@@ -8,14 +8,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="/ecommerce/styles/bootstrap4/bootstrap.min.css">
 <link href="/ecommerce/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+
+@yield('css')
+
 <link rel="stylesheet" type="text/css" href="/ecommerce/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
 <link rel="stylesheet" type="text/css" href="/ecommerce/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
 <link rel="stylesheet" type="text/css" href="/ecommerce/plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="/ecommerce/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
 
-
-@yield('css')
 
 <style>
 	.main_nav_menu{
@@ -127,7 +128,8 @@
 							
 							<!-- Agregar Producto -->
 
-
+							@guest
+							@else
 							<div class="wishlist d-flex flex-row align-items-center justify-content-end">
 								<div class="wishlist_icon">
 								<div class="wishlist_content">
@@ -136,13 +138,15 @@
 								</div>
 							</div>
 							
+							
 							<div class="wishlist d-flex flex-row align-items-center justify-content-end">
 								<div class="wishlist_icon"><img src="/ecommerce/images/heart.png" alt=""></div>
 								<div class="wishlist_content">
-									<div class="wishlist_text"><a href="#">Favoritos</a></div>
+									<div class="wishlist_text"><a href="/favoritos">Favoritos</a></div>
 									<div class="wishlist_count">{{Auth::user()->favorito->count()}}</div>
 								</div>
 							</div>
+							@endguest
 
 							
 
