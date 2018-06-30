@@ -62,6 +62,12 @@ Route::get('/venta/{id}', 'RepuestoController@VentaRepuesto',function($id)
 });
 Route::get('/favorito', 'RepuestoController@favoritos');
 
+Route::get('/confirmarventa/{id}', 'VentaController@ConfirmarVenta',function($id)
+{
+    return $id;
+});
+
+
 //PERFIL
 Route::resource('perfil', 'PerfilController');
 Route::get('/personanatural', 'perfilController@PersonaNatural');
