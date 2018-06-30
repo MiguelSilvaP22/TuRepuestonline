@@ -19,6 +19,7 @@ class PerfilController extends Controller
     {
         $repuestos = Repuesto::all()->where('id_usuario', Auth::user()->id_usuario);
         $usuario = Auth::user();
+
        /* \Debugbar::info($usuario->repuestos->last()->venta->last()->comprador);
 
        $*/
@@ -29,7 +30,17 @@ class PerfilController extends Controller
                         ->join('personanatural', 'personanatural.id_usuario', '=','usuario.id_usuario')
                         ->get();
         \Debugbar::info($ventas);
-        return view('perfil.index',compact('repuestos','usuario'));
+
+        $compras = Venta::all()->where('id_usuario', Auth::user()->id_usuario);
+        \Debugbar::info($compras);
+
+        return view('perfil.index',compact('repuestos','usuario', 'ventas', 'compras'));
 
     }
+
+    public function PersonaNatural(){
+        return view('auth.PersonaNatural');
+    }
+
+    
 }

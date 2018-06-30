@@ -13,10 +13,10 @@ class Venta extends Model
 
     public function repuesto()
     {
-        return $this->hasMany(Repuesto::Class, 'id_repuesto');
+        return $this->belongsTo(Repuesto::Class, 'id_repuesto');
     }
     public function comprador()
     {
-        return $this->hasMany(Usuario::Class, 'id_usuario');
+        return $this->belongsTo(Usuario::Class, 'id_usuario');
     }
 }

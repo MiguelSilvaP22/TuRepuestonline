@@ -27,8 +27,10 @@ class User extends Authenticatable
         return $this->hasMany(Repuesto::Class, 'id_usuario');
     }
 
-    
-
+    public function personanatural()
+    {
+        return $this->hasMany(PersonaNatural::Class, 'id_usuario');
+    }
 
 
     use Notifiable;

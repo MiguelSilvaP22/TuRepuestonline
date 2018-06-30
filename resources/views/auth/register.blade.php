@@ -11,19 +11,7 @@
                     <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
                         @csrf
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
 
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
@@ -61,6 +49,19 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Tipo de Usuario') }}</label>
+
+                            <div class="col-md-6">
+                                <select class="form-control" id="selectTipoUsuario" onchange="cambioForm()" name="tipoUsuario">
+                                        <option value="" selected disabled>Seleccionar Tipo de Usuario</option>
+                                        <option value="1">Persona Natural</option>
+                                        <option value="2">Empresa</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="PersonaNatural"></div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -75,3 +76,31 @@
     </div>
 </div>
 @endsection
+
+@section('scripts')
+
+<script>
+    function cambioForm(){
+     console.log($("#selectTipoUsuario").val())
+     $.ajax({
+            url: "/personanatural/",
+            type: "GET",
+            success: function (datos) {
+                $(PersonaNatural).html(datos)
+                }
+            });
+    }
+
+
+       /* var selectMarca = this;
+        $.ajax({
+            url: "/selectModelo/"+this.value,
+            type: "GET",
+            success: function (datos) {
+                $(selectMarca).parent().append(datos)
+                }
+            });*/
+    
+</script>
+@endsection
+

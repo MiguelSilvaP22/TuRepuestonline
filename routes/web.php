@@ -64,6 +64,8 @@ Route::get('/favorito', 'RepuestoController@favoritos');
 
 //PERFIL
 Route::resource('perfil', 'PerfilController');
+Route::get('/personanatural', 'perfilController@PersonaNatural');
+
 
 
 /*

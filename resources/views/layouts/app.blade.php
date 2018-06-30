@@ -75,5 +75,10 @@
             @yield('content')
         </main>
     </div>
+    
+    <script src="/ecommerce/js/jquery-3.3.1.min.js"></script>
+    @yield('scripts')
+
 </body>
 </html>
+

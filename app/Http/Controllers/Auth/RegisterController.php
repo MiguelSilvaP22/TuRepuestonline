@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\PersonaNatural;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -49,7 +50,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
+            'email' => 'required|string|unique:usuario|max:255',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -62,11 +63,26 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return user::create([
+
+        $user = user::create([
             'email' => $data['email'],
             'id_perfil' => 1,
             'id_membresia' => 1,
             'password' => Hash::make($data['password']),
         ]);
+        
+        if( $data['tipoUsuario']==1)
+        {
+            $personanatural = new PersonaNatural;
+            $personanatural->id_usuario = $user->id_usuario;
+            $personanatural->nombres_personanatural = $data['name'];
+            $personanatural->apellidos_personanatural = $data['apellidos'];
+            $personanatural->run_personanatural = $data['run'];
+            $personanatural->fono_personanatural = $data['fono'];
+            $personanatural->save();
+        }
+        return  $user;
     }
+
+    
 }
