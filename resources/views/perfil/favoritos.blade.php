@@ -11,7 +11,7 @@
     <div class="col-7">
         <div class="card" >
             <div class="card-header">
-                Mis Favoritos
+                Mis Favoritoss
             </div>
             <div class="card-body">
             <table id="tablaPerfil" class="table">
@@ -26,10 +26,10 @@
                 <tbody>
                     @foreach ($favoritos as $favorito) 
                     <tr>
-                        <td style="width:25%;">{{ $favorito->repuesto->last()->nombre_repuesto}}</td>
-                        <td style="width:25%;">{{ $favorito->repuesto->last()->categoriaRepuesto->nombre_categoriarepuesto}}</td>
-                        <td style="width:25%;">{{ $favorito->repuesto->last()->precio_repuesto}}</td>
-                        <td><button id="btnVer" onclick="location.href='detallerepuesto/{{$favorito->repuesto->last()->id_repuesto}}';" class="btn btn btn-info"><i class="fa fa-eye"></i>Ver</button></td>
+                        <td style="width:25%;">{{ $favorito->repuesto->nombre_repuesto}}</td>
+                        <td style="width:25%;">{{ $favorito->repuesto->categoriaRepuesto->nombre_categoriarepuesto}}</td>
+                        <td style="width:25%;">{{ $favorito->repuesto->precio_repuesto}}</td>
+                        <td><button id="btnVer" onclick="location.href='detallerepuesto/{{$favorito->repuesto->id_repuesto}}';" class="btn btn btn-info"><i class="fa fa-eye"></i>Ver</button></td>
 
                     </tr>
                     @endforeach

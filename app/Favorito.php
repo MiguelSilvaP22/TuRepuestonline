@@ -13,6 +13,6 @@ class Favorito extends Model
 
     public function repuesto()
     {
-        return $this->hasMany(Repuesto::Class, 'id_repuesto');
+        return $this->belongsTo(Repuesto::Class, 'id_repuesto');
     }
 }

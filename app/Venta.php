@@ -19,4 +19,9 @@ class Venta extends Model
     {
         return $this->belongsTo(Usuario::Class, 'id_usuario');
     }
+
+    public function evaluacion()
+    {
+        return $this->hasMany(Evaluacion::Class, 'id_venta');
+    }
 }

@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::resource('repuesto', 'RepuestoController');
 
@@ -56,6 +54,12 @@ Route::get('/editarfavorito/{id}', 'RepuestoController@EditarFavorito',function(
 });
 
 //VENTA
+Route::resource('Venta', 'VentaController');
+
+Route::post('postrequest', ['as' => 'postrequest', 'uses' => 'VentaController@evaluarcomprador']);
+Route::post('postrequest', ['as' => 'postrequest', 'uses' => 'VentaController@evaluarvendedor']);
+
+
 Route::get('/venta/{id}', 'RepuestoController@VentaRepuesto',function($id)
 {
     return $id;
@@ -71,6 +75,8 @@ Route::get('/confirmarventa/{id}', 'VentaController@ConfirmarVenta',function($id
 //PERFIL
 Route::resource('perfil', 'PerfilController');
 Route::get('/personanatural', 'perfilController@PersonaNatural');
+Route::get('/favoritos', 'perfilController@favoritos');
+
 
 
 
@@ -97,4 +103,4 @@ Route::resource('area', 'AreaController');
 */
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');

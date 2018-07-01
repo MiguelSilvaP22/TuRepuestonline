@@ -9,6 +9,8 @@ use App\Favorito;
 use App\Compatibilidad;
 use App\Marca;
 use App\Venta;
+use App\Evaluacion;
+
 
 use App\CategoriaRepuesto;
 use App\ImagenRepuesto;
@@ -30,6 +32,9 @@ class RepuestoController extends Controller
     }
 
     public function busquedaIndex(){
+        
+        $marcas = Marca::All()->sortBy('nombre_marca')->pluck('nombre_marca','id_marca');
+        
         if(Auth::user())
         {
             $repuestos = Repuesto::all()->where('id_usuario', '!=', Auth::user()->id_usuario);
@@ -37,7 +42,7 @@ class RepuestoController extends Controller
             $repuestos = Repuesto::all();
         }
         $categoriasrepuestos = CategoriaRepuesto::all();
-        return view('busqueda.index',compact('repuestos','categoriasrepuestos'));
+        return view('busqueda.index',compact('repuestos','categoriasrepuestos','marcas'));
     }
 
     public function resultadoBusqueda(){
@@ -75,7 +80,7 @@ class RepuestoController extends Controller
     public function create()
     {
         $categoriasrepuestos = CategoriaRepuesto::All()->sortBy('nombre_categoriarepuesto')->pluck('nombre_categoriarepuesto','id_categoriarepuesto');
-
+        
         return view('repuesto.crearRepuesto',compact('categoriasrepuestos', 'marcas'));
     }
 
@@ -193,6 +198,14 @@ class RepuestoController extends Controller
             $venta->cantidad_venta = 3;
             $venta->estado_venta=1;
             $venta->save();
+            if($venta->save()){
+                $evaluacion = new Evaluacion;
+                $evaluacion->id_venta = $venta->id_venta;
+                $evaluacion->nota_comprador_evaluacion= 0;
+                $evaluacion->nota_vendedor_evaluacion= 0;
+                $evaluacion->estado_evaluacion= 1;
+                $evaluacion->save();
+            }
             \Debugbar::info("VENDIDO");
 
         }

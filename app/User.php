@@ -32,6 +32,12 @@ class User extends Authenticatable
         return $this->hasMany(PersonaNatural::Class, 'id_usuario');
     }
 
+    public function favoritos()
+    {
+        return $this->hasMany(favorito::Class, 'id_usuario');
+    }
+
+
 
     use Notifiable;
     

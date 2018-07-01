@@ -8,15 +8,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="/ecommerce/styles/bootstrap4/bootstrap.min.css">
 <link href="/ecommerce/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
-
-@yield('css')
-
 <link rel="stylesheet" type="text/css" href="/ecommerce/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
 <link rel="stylesheet" type="text/css" href="/ecommerce/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
 <link rel="stylesheet" type="text/css" href="/ecommerce/plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="/ecommerce/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
 
+@yield('css')
 
 <style>
 	.main_nav_menu{
@@ -143,7 +141,7 @@
 								<div class="wishlist_icon"><img src="/ecommerce/images/heart.png" alt=""></div>
 								<div class="wishlist_content">
 									<div class="wishlist_text"><a href="/favoritos">Favoritos</a></div>
-									<div class="wishlist_count">{{Auth::user()->favorito->count()}}</div>
+									<div class="wishlist_count">{{Auth::user()->favoritos->where('estado_favorito', '1')->count()}}</div>
 								</div>
 							</div>
 							@endguest
@@ -205,7 +203,7 @@
 
 							<div class="main_nav_menu ml-auto">
 								<ul class="standard_dropdown main_nav_dropdown">
-									<li><a href="#">Home<i class="fas fa-chevron-down"></i></a></li>
+									<li><a href="/">Inicio<i class="fas fa-chevron-down"></i></a></li>
 									<li class="hassubs">
 										<a href="#">Súper Ofertas<i class="fas fa-chevron-down"></i></a>
 										<ul>
@@ -224,7 +222,7 @@
 									</li>
 									
 									
-									<li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
+									<li><a href="/busqueda">Busqueda<i class="fas fa-chevron-down"></i></a></li>
 									<li><a href="contact.html">Contacto<i class="fas fa-chevron-down"></i></a></li>
 								</ul>
 							</div>
@@ -564,7 +562,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
 
-<script src="/ecommerce/js/jquery-3.3.1.min.js"></script>
+  <script src="/ecommerce/js/jquery-3.3.1.min.js"></script>
 <script src="/ecommerce/styles/bootstrap4/popper.js"></script>
 <script src="/ecommerce/styles/bootstrap4/bootstrap.min.js"></script>
 <script src="/ecommerce/plugins/greensock/TweenMax.min.js"></script>
@@ -577,8 +575,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="/ecommerce/plugins/Isotope/isotope.pkgd.min.js"></script>
 <script src="/ecommerce/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 <script src="/ecommerce/plugins/parallax-js-master/parallax.min.js"></script>
-<script src="/ecommerce/js/shop_custom.js"></script>
-<script src="/ecommerce/js/product_custom.js"></script>
+{{--<script src="/ecommerce/js/shop_custom.js"></script>
+<script src="/ecommerce/js/product_custom.js"></script>--}}
+
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
 @yield('script-js')
 

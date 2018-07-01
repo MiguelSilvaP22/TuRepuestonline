@@ -13,13 +13,8 @@
 					<div class="shop_sidebar">
 						<div class="sidebar_section">
 								<div class="sidebar_title">Busqueda repuesto</div>
-								<select class="form-control" id="exampleFormControlSelect1">
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-										<option>5</option>
-								</select>
+                                
+                                {!! Form::select('id_categoriarepuesto', $marcas,null ,['class' => 'form-control mt-3','placeholder'=>'Seleccione una Marca de Vehiculo','id'=>'selectMarcas', 'style'=>'width:100%']) !!}         
 
 						</div>
 						
@@ -68,6 +63,7 @@
 
 
 @section('script-js')
+<script src="/ecommerce/js/shop_custom.js"></script>
 <script>
 
 	$(document).ready(function() {
@@ -98,6 +94,20 @@
             }
         })
         });
+
+    $('#selectMarcas').change(function() {
+    $.ajax({
+        url: "/selectModelo/"+this.value,
+        type: "GET",
+        success: function (datos) {
+            console.log(datos);
+            $('#selectMarcas').parent().append(datos)
+            }
+        });
+    });
+
+
+
 </script>
 @stop
 

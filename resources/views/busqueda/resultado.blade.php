@@ -24,7 +24,7 @@
             <div class="product_border"></div>
             <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="ecommerce/images/productos/{{$repuesto->imagenrepuesto->last()->ruta_imagenrepuesto}}" alt=""></div>
             <div class="product_content">
-                <div class="product_price">{{$repuesto->precio_repuesto}}</div>
+                <div class="product_price number">${{  number_format($repuesto->precio_repuesto,0) }}</div>
                 <div class="product_name"><div><a href="detallerepuesto/{{$repuesto->id_repuesto}}" tabindex="0">{{$repuesto->nombre_repuesto}}</a></div></div>
             </div>
             <ul class="product_marks">

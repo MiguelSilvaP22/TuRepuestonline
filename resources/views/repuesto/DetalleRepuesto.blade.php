@@ -49,7 +49,7 @@
 
 								</div>
 
-								<div class="product_price">Precio: ${{$repuesto->precio_repuesto}}</div>
+								<div class="product_price">Precio: ${{  number_format($repuesto->precio_repuesto) }}</div>
 								<div class="button_container">
 									<button type="button" class="button cart_button" onclick="confirmarComprar()">Adquirir Repuesto</button>
 									@if($favorito==null)
@@ -111,6 +111,8 @@
 
 
 @section('script-js')
+<script src="/ecommerce/js/product_custom.js"></script>
+
 <script>
 $('.product_fav').click(function() {
 		$.ajax({

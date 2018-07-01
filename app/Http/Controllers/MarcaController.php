@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Marca;
+use DB;
 use App\Modelo;
 
 use Illuminate\Http\Request;
@@ -15,8 +16,20 @@ class MarcaController extends Controller
 
     public function selectModelo($id){
         $marca = Marca::find($id);
-        $modelos = $marca->modelos->sortBy('nombre_modelo')->pluck('nombre_modelo', 'id_modelo');
-        \Debugbar::info($modelos);
+
+       /*$modelos = DB::selectRaw('modelo')
+        ->select('(modelo.nombre_modelo," ",modelo.ano_modelo) as modelo_prueba')
+        ->where('modelo.estado_modelo', '=', 1)
+        ->where('modelo.id_marca', '=', $id)
+        ->get()
+        ->pluck('modelo_prueba', 'modelo.id_modelo');*/
+
+        $modelos= Modelo::select('modelo.*', DB::raw('CONCAT(modelo.nombre_modelo," ",modelo.ano_modelo) as modelo_prueba'))
+        ->where('modelo.estado_modelo', '=', 1)
+        ->where('modelo.id_marca', '=', $id)
+        ->pluck('modelo_prueba', 'modelo.id_modelo');
+
+        /*$modelos = Modelo::selectRaw('CONCAT(nombre_modelo," ",ano_modelo) as modelo_prueba')->pluck('modelo_prueba', 'id_modelo');*/
         return view('modelo.compatibilidad',compact('modelos'));
     }
 
