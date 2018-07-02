@@ -51,14 +51,36 @@
 
 								<div class="product_price">Precio: ${{  number_format($repuesto->precio_repuesto) }}</div>
 								<div class="button_container">
-									<button type="button" class="button cart_button" onclick="confirmarComprar()">Adquirir Repuesto</button>
+									<button type="button" class="button cart_button"  data-toggle="modal"  data-target="#exampleModal">Adquirir Repuesto</button>
+
+									<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal-dialog" role="document">
+										  <div class="modal-content">
+											<div class="modal-header">
+											  <h5 class="modal-title" id="exampleModalLabel">Confirmar</h5>
+											  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </button>
+											</div>
+											<div class="modal-body">
+											 <p> ¿Esta seguro que desea Adquirir el siguiente repuesto?</p>
+											 <p> Se enviaran los datos del vendedor poder contactarse con el.</p>
+											</div>
+											<div class="modal-footer">
+											  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+											  <button type="button" class="btn btn-primary" onclick="confirmarComprar()">Adquirir Repuesto</button>
+											</div>
+										  </div>
+										</div>
+									</div>
+									
 									@if($favorito==null)
 										<div class="product_fav "><i class="fas fa-heart "></i></div>
-									@else
-										@if($favorito->estado_favorito==1)
-										<div class="product_fav active"><i class="fas fa-heart active"></i></div>
 										@else
-										<div class="product_fav "><i class="fas fa-heart "></i></div>
+											@if($favorito->estado_favorito==1)
+											<div class="product_fav active"><i class="fas fa-heart active"></i></div>
+											@else
+											<div class="product_fav "><i class="fas fa-heart "></i></div>
 										@endif
 									@endif
 								</div>
@@ -125,11 +147,8 @@ $('.product_fav').click(function() {
 
 
 function confirmarComprar() {
-var r = confirm("¿Esta Seguro Que desea adquirir este producto?");
-	if (r == true) {
+
 		window.location.href = '/venta/{{$repuesto->id_repuesto}}+'+$("#quantity_input").val();
-	} else {
-	}
 }
 </script>
 
