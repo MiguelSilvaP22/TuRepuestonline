@@ -61,7 +61,6 @@
 										<div class="product_fav "><i class="fas fa-heart "></i></div>
 										@endif
 									@endif
-
 								</div>
 								
 							</form>
@@ -116,7 +115,7 @@
 <script>
 $('.product_fav').click(function() {
 		$.ajax({
-			url: "/editarfavorito/{{$repuesto->id_repuesto}}",
+			url: "/editarfavorito/{{ $repuesto->id_repuesto }}",
 			type: "GET",
 			success: function (datos) {
 				$("#"+count).html(datos);
@@ -128,7 +127,7 @@ $('.product_fav').click(function() {
 function confirmarComprar() {
 var r = confirm("¿Esta Seguro Que desea adquirir este producto?");
 	if (r == true) {
-		window.location.href = '/venta/{{$repuesto->id_repuesto}}';
+		window.location.href = '/venta/{{$repuesto->id_repuesto}}+'+$("#quantity_input").val();
 	} else {
 	}
 }

@@ -57,9 +57,9 @@
 @stop 
 @section('content')
 
-<div class="row mt-6">
-    <div class="col-2"></div>
-    <div class="col-md-4 col-sm-12">
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-md-4 col-sm-12 mt-5 ">
         <div class="card">
             <div class="card-header">
                 Perfil
@@ -72,7 +72,9 @@
                 <ul class="card-text mt-2">Apellido: {{ $usuario->personanatural->last()->apellidos_personanatural }}</ul>
                 <ul class="card-text mt-2">Teléfono: {{ $usuario->personanatural->last()->fono_personanatural }}a</ul>
                 <ul class="card-text mt-2">Correo Electronico: {{ $usuario->email }}</ul>
-                <a href="#" class="btn btn-primary mt-2">Editar</a>
+                <div class="botonesPerfil mt-3"></div>
+                    <a href="#" class="btn btn-info mr-3">Editar perfil</a><a href="#" class="btn btn-info">Comprar Suscripción</a>
+                </div>
             </div>
             @else EMPRESA @endif
 
@@ -80,20 +82,26 @@
     </div>
 </div>
 
-<div class="row justify-content-md-center mt-4">
-    <div class="col-7">
-        <p>
-            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
-                Ver Repuestos Publicados
-            </a>
-            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample">
-                Ver Repuestos Comprados
-            </a>
-            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
-                Ver Repuestos Vendidos
-            </a>
-        </p>
-        <div class="collapse" id="collapseExample2">
+<div class="row justify-content-md-center mb-5">
+    <div class="col-md-7 col align-self-center mt-5">
+        <h4>Informacion de Repuestos</h4>
+            <div class="card text-center">
+                    <div class="card-header">
+                      <ul class="nav nav-tabs card-header-tabs">
+                        <li class="nav-item">
+                          <a class="nav-link active" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="true" aria-controls="collapseExample">Publicados</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="true" aria-controls="collapseExample">Comprados</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link"data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="true" aria-controls="collapseExample">Vendidos</a>
+                        </li>
+                      </ul>
+                    </div>
+                  
+
+        <div class="collapse active" id="collapseExample2">
             <div class="card card-body">
                 <div class="card">
                     <div class="card-header">
@@ -133,6 +141,7 @@
                 </div>
             </div>
         </div>
+        
 
         <div class="collapse" id="collapseExample3">
             <div class="card card-body">
@@ -360,6 +369,7 @@
             </div>
         </div>
     </div>
+    </div>
 </div>
 
 
@@ -372,8 +382,9 @@
     $(document).ready(function() {
 
         $('#tablaPerfil').DataTable({
-
             });
+        
+        $('#collapseExample2').collapse('show');
 } );
 
 </script>

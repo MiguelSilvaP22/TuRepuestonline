@@ -133,7 +133,7 @@
                                                     <div class="product_price">${{  number_format($repuesto->precio_repuesto) }}</div>
                                                     <div class="product_name"><div><a href="product.html">{{ $repuesto->nombre_repuesto }}</a></div></div>
                                                     <div class="product_extras">
-                                                        <button class="product_cart_button active" onclick="location.href='detallerepuesto/{{$repuesto->id_repuesto}}';">Ver información</button>
+                                                        <button class="product_cart_button active" onclick="location.href='detallerepuesto/{{$repuesto->id_repuesto}}';">Ver Repuesto</button>
                                                     </div>
                                                 </div>
                                                 <div class="product_fav"><i class="fas fa-heart"></i></div>

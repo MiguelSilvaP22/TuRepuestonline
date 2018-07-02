@@ -12,10 +12,10 @@
 					<!-- Shop Sidebar -->
 					<div class="shop_sidebar">
 						<div class="sidebar_section">
-								<div class="sidebar_title">Busqueda repuesto</div>
-                                
+                            <form id="formBusqueda2">
+                                <div class="sidebar_title">Busqueda repuesto</div>
                                 {!! Form::select('id_categoriarepuesto', $marcas,null ,['class' => 'form-control mt-3','placeholder'=>'Seleccione una Marca de Vehiculo','id'=>'selectMarcas', 'style'=>'width:100%']) !!}         
-
+                            </form>
 						</div>
 						
 						<div class="sidebar_section filter_by_section">
@@ -41,8 +41,6 @@
                                 @endforeach
                             </div>
                             <div class="form-group">
-
-                            <button class="btn btn-success btn-submit">Submit</button>
 
                             </form>
                         </div>
@@ -77,7 +75,6 @@
 
     });
     $('#formBusqueda').change(function(e){
-
         e.preventDefault(e);
             $.ajax({
             type:"GET",
@@ -94,6 +91,25 @@
             }
         })
         });
+
+    $('#formBusqueda2').change(function(e){
+        e.preventDefault(e);
+            $.ajax({
+            type:"GET",
+            url:'/generarBusqueda',
+            data:$(this).serialize(),
+            success: function(data){
+                $(".shopContent").empty();
+
+                $(".shopContent").html(data);
+            },
+            error: function(data){
+                console.log(data);
+
+            }
+        })
+    });
+
 
     $('#selectMarcas').change(function() {
     $.ajax({

@@ -192,10 +192,11 @@ class RepuestoController extends Controller
     public function VentaRepuesto($id){
         if(Auth::user())
         {
+            $request = explode('+', $id);
             $venta = new Venta;
             $venta->id_usuario = Auth::user()->id_usuario;
-            $venta->id_repuesto = $id;
-            $venta->cantidad_venta = 3;
+            $venta->id_repuesto = $request[0];
+            $venta->cantidad_venta = $request[1];
             $venta->estado_venta=1;
             $venta->save();
             if($venta->save()){
@@ -206,10 +207,12 @@ class RepuestoController extends Controller
                 $evaluacion->estado_evaluacion= 1;
                 $evaluacion->save();
             }
-            \Debugbar::info("VENDIDO");
-
+            return redirect('/perfil');
         }
-        return redirect('/perfil');
+        else{
+            return redirect('/login');
+        }
+       
     }
 
 
@@ -222,8 +225,12 @@ class RepuestoController extends Controller
     public function show($id)
     {
         $repuesto = Repuesto::all()->where('id_repuesto', $id)->last();
-        $favorito = Favorito::all()->where('id_repuesto', $id)->where('id_usuario', Auth::user()->id_usuario)->last();
-        \Debugbar::info($favorito);
+        if(Auth::user()){
+            $favorito = Favorito::all()->where('id_repuesto', $id)->where('id_usuario', Auth::user()->id_usuario)->last();
+        }
+        else{
+            $favorito =null;
+        }
 
         return view('repuesto.DetalleRepuesto',compact('repuesto', 'favorito'));
         
