@@ -187,7 +187,7 @@ class RepuestoController extends Controller
             $compatibilidad->save();
 
         }
-        echo("OK");
+        return redirect('/perfil');
         
     }
 
