@@ -15,9 +15,9 @@
 				<!-- Images -->
 				<div class="col-lg-2 order-lg-1 order-2">
 					<ul class="image_list">
-            @foreach($repuesto->imagenrepuesto as $imagen)
-						<li data-image="/ecommerce/images/productos/{{$imagen->ruta_imagenrepuesto}}"><img src="/ecommerce/images/productos/{{$imagen->ruta_imagenrepuesto}}" alt=""></li>
-            @endforeach
+					@foreach($repuesto->imagenrepuesto as $imagen)
+							<li data-image="/ecommerce/images/productos/{{$imagen->ruta_imagenrepuesto}}"><img src="/ecommerce/images/productos/{{$imagen->ruta_imagenrepuesto}}" alt=""></li>
+					@endforeach
 					</ul>
 				</div>
 

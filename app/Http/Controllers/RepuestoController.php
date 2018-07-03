@@ -132,14 +132,14 @@ class RepuestoController extends Controller
         {
             $dir_subida = public_path()."/ecommerce/images/productos/";
             $ext = pathinfo($_FILES['imagen_repuesto1']['name'], PATHINFO_EXTENSION);
-            $nombreImagenRepuesto =$repuesto->nombre_repuesto."_".$repuesto->id_repuesto."_1_".$ext;
+            $nombreImagenRepuesto =$repuesto->nombre_repuesto."_".$repuesto->id_repuesto."_1.".$ext;
             $fichero_subido = $dir_subida .$nombreImagenRepuesto;
             
             if (move_uploaded_file($_FILES['imagen_repuesto1']['tmp_name'], $fichero_subido)) {
                 $imagen = new ImagenRepuesto;
                 $imagen->id_repuesto = $repuesto->id_repuesto;
                 $imagen->nombre_imagenrepuesto = $repuesto->nombre_repuesto."_".$repuesto->id_repuesto;
-                $imagen->ruta_imagenrepuesto = $repuesto->nombre_repuesto."_".$repuesto->id_repuesto."_1_".$ext;
+                $imagen->ruta_imagenrepuesto = $repuesto->nombre_repuesto."_".$repuesto->id_repuesto."_1.".$ext;
                 $imagen->estado_imagenrepuesto =1;
                 $imagen->save();
             } 
@@ -149,14 +149,14 @@ class RepuestoController extends Controller
         {
             $dir_subida = public_path()."/ecommerce/images/productos/";
             $ext = pathinfo($_FILES['imagen_repuesto2']['name'], PATHINFO_EXTENSION);
-            $nombreImagenRepuesto =$repuesto->nombre_repuesto."_".$repuesto->id_repuesto."_2_".$ext;
+            $nombreImagenRepuesto =$repuesto->nombre_repuesto."_".$repuesto->id_repuesto."_2.".$ext;
             $fichero_subido = $dir_subida .$nombreImagenRepuesto;
             
             if (move_uploaded_file($_FILES['imagen_repuesto2']['tmp_name'], $fichero_subido)) {
                 $imagen = new ImagenRepuesto;
                 $imagen->id_repuesto = $repuesto->id_repuesto;
                 $imagen->nombre_imagenrepuesto = $repuesto->nombre_repuesto."_".$repuesto->id_repuesto;
-                $imagen->ruta_imagenrepuesto = $repuesto->nombre_repuesto."_".$repuesto->id_repuesto."_2_".$ext;
+                $imagen->ruta_imagenrepuesto = $repuesto->nombre_repuesto."_".$repuesto->id_repuesto."_2.".$ext;
                 $imagen->estado_imagenrepuesto =1;
                 $imagen->save();
             } 
@@ -166,14 +166,14 @@ class RepuestoController extends Controller
         {
             $dir_subida = public_path()."/ecommerce/images/productos/";
             $ext = pathinfo($_FILES['imagen_repuesto3']['name'], PATHINFO_EXTENSION);
-            $nombreImagenRepuesto =$repuesto->nombre_repuesto."_".$repuesto->id_repuesto."_3_".$ext;
+            $nombreImagenRepuesto =$repuesto->nombre_repuesto."_".$repuesto->id_repuesto."_3.".$ext;
             $fichero_subido = $dir_subida .$nombreImagenRepuesto;
             
             if (move_uploaded_file($_FILES['imagen_repuesto3']['tmp_name'], $fichero_subido)) {
                 $imagen = new ImagenRepuesto;
                 $imagen->id_repuesto = $repuesto->id_repuesto;
                 $imagen->nombre_imagenrepuesto = $repuesto->nombre_repuesto."_".$repuesto->id_repuesto;
-                $imagen->ruta_imagenrepuesto = $repuesto->nombre_repuesto."_".$repuesto->id_repuesto."_3_".$ext;
+                $imagen->ruta_imagenrepuesto = $repuesto->nombre_repuesto."_".$repuesto->id_repuesto."_3.".$ext;
                 $imagen->estado_imagenrepuesto =1;
                 $imagen->save();
             } 
