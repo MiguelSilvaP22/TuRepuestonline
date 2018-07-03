@@ -271,9 +271,25 @@ class RepuestoController extends Controller
         else{
             return view('repuesto.repuestoFinalizado');
         }
-       
-
         
+    }
+
+    public function EliminarRepuesto($id)
+    {
+        if(Auth::user()){
+            $repuesto = Repuesto::find($id);
+            $repuesto->estado_repuesto =0;
+            $repuesto->save();
+            if(Auth::user()->id_perfil==3){
+                return redirect('/admin');
+            }
+            else{
+                return redirect('/perfil');
+            }
+        }
+        else{
+            return redirect('/login');
+        }    
     }
 
 }

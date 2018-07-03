@@ -40,7 +40,6 @@
 					<div class="col d-flex flex-row">
 						<div class="top_bar_content ml-auto">
 							<div class="top_bar_user">
-								<div class="user_icon"><img src="images/user.svg" alt=""></div>
 								
 								
 								@guest
@@ -50,6 +49,7 @@
 
 								<ul class="standard_dropdown main_nav_dropdown">
 									<li class="hassubs">
+
 										<a href="#">	{{ Auth::user()->email }}<i class="fas fa-chevron-down"></i></a>
 										
 										<ul>

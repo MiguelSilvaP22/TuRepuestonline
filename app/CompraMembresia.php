@@ -11,4 +11,9 @@ class CompraMembresia extends Model
     const CREATED_AT = 'fecha_reg_compramembresia';
     const UPDATED_AT = 'fecha_mod_compramembresia';
 
+    public function membresia()
+    {
+        return $this->belongsTo(Membresia::Class, 'id_membresia');
+    }
+
 }

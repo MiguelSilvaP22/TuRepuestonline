@@ -30,6 +30,11 @@ Route::get('/detallerepuesto/{id}', 'RepuestoController@show',function($id)
     return $id;
 });
 
+Route::get('/eliminarRepuesto/{id}', 'RepuestoController@EliminarRepuesto',function($id)
+{
+    return $id;
+});
+
 
 
 //Compatibilidad Automoviles
@@ -85,11 +90,27 @@ Route::get('/solicitudMembresia/{id}', 'perfilController@SolicitudMembresia',fun
 {
     return $id;
 });
+Route::get('/activarMembresia/{id}', 'perfilController@ActivarMembresia',function($id)
+{
+    return $id;
+});
 
 Route::get('/blog/{id}', 'perfilController@blog',function($id)
 {
     return $id;
 });
+
+//USUARIO
+Route::resource('usuario', 'UsuarioController');
+
+Route::get('/eliminarUsuario/{id}', 'UsuarioController@EliminarUsuario',function($id)
+{
+    return $id;
+});
+
+//ADMIN
+Route::resource('admin', 'AdminController');
+
 
 /*
 

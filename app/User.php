@@ -46,6 +46,13 @@ class User extends Authenticatable
         return $this->belongsTo(Membresia::Class, 'id_membresia');
     }
 
+    public function compramembresia()
+    {
+        return $this->hasMany(CompraMembresia::Class, 'id_usuario');
+    }
+
+
+
 
 
     use Notifiable;
@@ -57,7 +64,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-         'email', 'password', 'id_perfil', 'id_membresia',
+         'email', 'password', 'id_perfil', 'id_membresia', 'estado_usuario',
     ];
 
     /**
