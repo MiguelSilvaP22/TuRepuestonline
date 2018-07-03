@@ -81,8 +81,8 @@
 
 <script>
     function cambioForm(){
-     console.log($("#selectTipoUsuario").val())
-     $.ajax({
+     if($("#selectTipoUsuario").val()==1){
+        $.ajax({
             url: "/personanatural/",
             type: "GET",
             success: function (datos) {
@@ -90,6 +90,18 @@
                 }
             });
     }
+
+    if($("#selectTipoUsuario").val()==2){
+        $.ajax({
+            url: "/FormularioEmpresa/",
+            type: "GET",
+            success: function (datos) {
+                $(PersonaNatural).html(datos)
+                }
+            });
+    }
+
+}
 
 
        /* var selectMarca = this;

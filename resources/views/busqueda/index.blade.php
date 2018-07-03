@@ -14,7 +14,7 @@
 						<div class="sidebar_section">
                             <form id="formBusqueda2">
                                 <div class="sidebar_title">Busqueda repuesto</div>
-                                {!! Form::select('id_categoriarepuesto', $marcas,null ,['class' => 'form-control mt-3','placeholder'=>'Seleccione una Marca de Vehiculo','id'=>'selectMarcas', 'style'=>'width:100%']) !!}         
+                                {!! Form::select('id_marca', $marcas,null ,['class' => 'form-control mt-3','placeholder'=>'Seleccione una Marca de Vehiculo','id'=>'selectMarcas', 'style'=>'width:100%']) !!}         
                             </form>
 						</div>
 						
@@ -93,10 +93,10 @@
         });
 
     $('#formBusqueda2').change(function(e){
-        e.preventDefault(e);
+            e.preventDefault(e);
             $.ajax({
             type:"GET",
-            url:'/generarBusqueda',
+            url:'/generarBusquedaMarca',
             data:$(this).serialize(),
             success: function(data){
                 $(".shopContent").empty();
@@ -116,7 +116,8 @@
         url: "/selectModelo/"+this.value,
         type: "GET",
         success: function (datos) {
-            console.log(datos);
+            $('#selectMarcas').siblings('.modelo').remove();
+			$('#selectMarcas').siblings('.motor').remove();
             $('#selectMarcas').parent().append(datos)
             }
         });

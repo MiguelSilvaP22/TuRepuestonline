@@ -31,10 +31,19 @@ class User extends Authenticatable
     {
         return $this->hasMany(PersonaNatural::Class, 'id_usuario');
     }
+    public function empresa()
+    {
+        return $this->hasMany(Empresa::Class, 'id_usuario');
+    }
 
     public function favoritos()
     {
         return $this->hasMany(favorito::Class, 'id_usuario');
+    }
+
+    public function membresia()
+    {
+        return $this->belongsTo(Membresia::Class, 'id_membresia');
     }
 
 

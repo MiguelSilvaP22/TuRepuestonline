@@ -92,38 +92,54 @@
 
 			</div>
 
-			<div class="row justify-content-md-center mt-5"><h4>Compatibilidad de repuesto</h4> </div>
+			<div class="row justify-content-md-center mt-5"></div>
 			<div class="row justify-content-md-center mt-5">
-				
-				@if($repuesto->compatibilidad->count()>0)
-					<div class="col-lg-6">
-					<table class="table">
-							<thead>
+				<div class="col-md-5">
+					<h4 class="mb-4">Compatibilidad de repuesto</h4> 
+					@if($repuesto->compatibilidad->count()>0)
+						<div class="col-lg-6">
+						<table class="table">
+								<thead>
+									<tr>
+									<th scope="col">#</th>
+									<th scope="col">Modelo</th>
+									<th scope="col">Marca</th>
+
+									</tr>
+						</thead>
+							<tbody>
+
+							@foreach($repuesto->compatibilidad as $key => $modelo)
+					
+								<tr >
+								<td >{{$key}}</td>
+								<td>{{$modelo->nombre_modelo}}</td>
+
+									<td>{{$modelo->marca->nombre_marca}}</td>
 								<tr>
-								<th scope="col">#</th>
-								<th scope="col">Modelo</th>
-								<th scope="col">Marca</th>
+							@endforeach
+							</tbody>
+						</table>
 
-								</tr>
-					</thead>
-						<tbody>
-
-						@foreach($repuesto->compatibilidad as $key => $modelo)
+						</div>
+					@else
+					<p>	No posee información sobre compatibilidad.</p>
+					@endif
+				</div>
 				
-							<tr >
-							<td >{{$key}}</td>
-							<td>{{$modelo->nombre_modelo}}</td>
+				<div class="col-md-5">
+					<h4 class="mb-4">Información del vendor</h4> 
 
-								<td>{{$modelo->marca->nombre_marca}}</td>
-							<tr>
-						@endforeach
-						</tbody>
-					</table>
+					@if($repuesto->usuario->id_perfil==2)
+						<ul class="card-text mt-2">Nombre: {{ $repuesto->usuario->empresa->last()->nombre_empresa }}</ul>
+						<ul class="card-text mt-2">Dirección: {{ $repuesto->usuario->empresa->last()->direccion_empresa }}</ul>
+						<ul class="card-text mt-2">Pagina Web:<a href="{{ $repuesto->usuario->empresa->last()->web_empresa }}"> {{ $repuesto->usuario->empresa->last()->web_empresa }} </a></ul>
+					@else 
+						<ul class="card-text mt-2">Nombre: {{ $repuesto->usuario->personanatural->last()->nombres_personanatural }}</ul>
+						<ul class="card-text mt-2">Apellido: {{  $repuesto->usuario->personanatural->last()->apellidos_personanatural }}</ul>
+					@endif
+			</div>
 
-					</div>
-				@else
-				<p>				No posee información sobre compatibilidad.</p>
-				@endif	
 			</div>
 		</div>
 	</div>
@@ -147,7 +163,6 @@ $('.product_fav').click(function() {
 
 
 function confirmarComprar() {
-
 		window.location.href = '/venta/{{$repuesto->id_repuesto}}+'+$("#quantity_input").val();
 }
 </script>

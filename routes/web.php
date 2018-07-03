@@ -17,7 +17,8 @@ Route::resource('repuesto', 'RepuestoController');
 
 Route::get('/busqueda', 'RepuestoController@busquedaIndex')->name('repuesto.busqueda');
 Route::get('/resultadoBusqueda', 'RepuestoController@resultadoBusqueda');
-Route::get('/generarBusqueda', 'RepuestoController@generarBusqueda')->name('repuesto.crear');
+Route::get('/generarBusqueda', 'RepuestoController@generarBusquedaCategoria')->name('repuesto.BusquedaCategoria');
+Route::get('/generarBusquedaMarca', 'RepuestoController@generarBusquedaMarca')->name('repuesto.BusquedaMarca');
 
 //Repuestos
 
@@ -56,8 +57,9 @@ Route::get('/editarfavorito/{id}', 'RepuestoController@EditarFavorito',function(
 //VENTA
 Route::resource('Venta', 'VentaController');
 
-Route::post('postrequest', ['as' => 'postrequest', 'uses' => 'VentaController@evaluarcomprador']);
 Route::post('postrequest', ['as' => 'postrequest', 'uses' => 'VentaController@evaluarvendedor']);
+Route::post('postrequest2', ['as' => 'postrequest2', 'uses' => 'VentaController@evaluarcomprador']);
+
 
 
 Route::get('/venta/{id}', 'RepuestoController@VentaRepuesto',function($id)
@@ -75,10 +77,19 @@ Route::get('/confirmarventa/{id}', 'VentaController@ConfirmarVenta',function($id
 //PERFIL
 Route::resource('perfil', 'PerfilController');
 Route::get('/personanatural', 'perfilController@PersonaNatural');
+Route::get('/FormularioEmpresa', 'perfilController@FormEmpresa');
+
 Route::get('/favoritos', 'perfilController@favoritos');
+Route::get('/favoritos', 'perfilController@favoritos');
+Route::get('/solicitudMembresia/{id}', 'perfilController@SolicitudMembresia',function($id)
+{
+    return $id;
+});
 
-
-
+Route::get('/blog/{id}', 'perfilController@blog',function($id)
+{
+    return $id;
+});
 
 /*
 

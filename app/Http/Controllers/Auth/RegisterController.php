@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\PersonaNatural;
+use App\Empresa;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -29,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -66,7 +68,7 @@ class RegisterController extends Controller
 
         $user = user::create([
             'email' => $data['email'],
-            'id_perfil' => 1,
+            'id_perfil' => $data['tipoUsuario'],
             'id_membresia' => 1,
             'password' => Hash::make($data['password']),
         ]);
@@ -79,7 +81,21 @@ class RegisterController extends Controller
             $personanatural->apellidos_personanatural = $data['apellidos'];
             $personanatural->run_personanatural = $data['run'];
             $personanatural->fono_personanatural = $data['fono'];
+            $personanatural->estado_personanatural = 1;
             $personanatural->save();
+        }
+
+        if( $data['tipoUsuario']==2)
+        {
+            $empresa = new Empresa;
+            $empresa->id_usuario = $user->id_usuario;
+            $empresa->nombre_empresa = $data['name'];
+            $empresa->direccion_empresa = $data['direccion'];
+            $empresa->rut_empresa = $data['rut'];
+            $empresa->fono_empresa = $data['fono'];
+            $empresa->web_empresa = $data['web'];
+            $empresa->estado_empresa = 1;
+            $empresa->save();
         }
         return  $user;
     }

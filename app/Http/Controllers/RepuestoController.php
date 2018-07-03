@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Repuesto;
+use DB;
+use Carbon\Carbon;
+
 use App\Favorito;
 use App\Compatibilidad;
 use App\Marca;
@@ -49,25 +52,54 @@ class RepuestoController extends Controller
 
         if(Auth::user())
         {
-            $repuestos = Repuesto::all()->where('id_usuario', '!=', Auth::user()->id_usuario);
+            $repuestos = Repuesto::all()->where('id_usuario', '!=', Auth::user()->id_usuario)->where('estado_repuesto',1);
         }else{
-            $repuestos = Repuesto::all();
+            $repuestos = Repuesto::all()->where('estado_repuesto',1);
         }
         $categoriasrepuestos = CategoriaRepuesto::all();
         return view('busqueda.resultado',compact('repuestos','categoriasrepuestos'));
     }
 
-    public function generarBusqueda(){
+    public function generarBusquedaCategoria(){
         $input = request()->all();
         /*\Debugbar::info($input["id_categoria"][0]);
         $repuestos = Repuesto::all()->where('id_categoriarepuesto', $input["id_categoria"][0]);
         $final = $repuestos->merge(Repuesto::all()->where('id_categoriarepuesto', $input["id_categoria"][1]));
         \Debugbar::info($final);*/
-        $repuestos = Repuesto::all()->whereIn('id_categoriarepuesto', $input["id_categoria"]);
-
-        \Debugbar::info($repuestos);
-
+        $repuestos = Repuesto::all()->whereIn('id_categoriarepuesto', $input["id_categoria"])->where('estado_repuesto',1);
         return view('busqueda.resultado',compact('repuestos','categoriasrepuestos'));   
+    }
+
+    public function generarBusquedaMarca(){
+        $input = request()->all();
+
+        /*\Debugbar::info($input["id_categoria"][0]);
+        $repuestos = Repuesto::all()->where('id_categoriarepuesto', $input["id_categoria"][0]);
+        $final = $repuestos->merge(Repuesto::all()->where('id_categoriarepuesto', $input["id_categoria"][1]));
+        \Debugbar::info($final);*/
+
+        if( $input["id_modelos"][0]==null)
+        {
+            $repuestos = DB::table('marca')
+                        ->where("marca.id_marca", '=', $input["id_marca"])
+                        ->join('modelo', 'modelo.id_marca', '=', 'marca.id_marca')
+                        ->join('repuestomodelo', 'repuestomodelo.id_modelo', '=','modelo.id_modelo')
+                        ->join('repuesto', 'repuestomodelo.id_repuesto', '=','repuesto.id_repuesto')
+                        ->join('imagenrepuesto', 'imagenrepuesto.id_repuesto', '=','repuesto.id_repuesto')
+                        ->get();
+        }
+        else{
+            $repuestos = DB::table('marca')
+                        ->where("marca.id_marca", '=', $input["id_marca"])
+                        ->join('modelo', 'modelo.id_marca', '=', 'marca.id_marca')
+                        ->where("modelo.id_modelo", '=', $input["id_modelos"][0])
+                        ->join('repuestomodelo', 'repuestomodelo.id_modelo', '=','modelo.id_modelo')
+                        ->join('repuesto', 'repuestomodelo.id_repuesto', '=','repuesto.id_repuesto')
+                        ->join('imagenrepuesto', 'imagenrepuesto.id_repuesto', '=','repuesto.id_repuesto')
+                        ->get();
+        }
+
+        return view('busqueda.resultadoMarca',compact('repuestos','categoriasrepuestos'));   
     }
 
         /**
@@ -224,15 +256,23 @@ class RepuestoController extends Controller
      */
     public function show($id)
     {
+        $now = Carbon::now();
         $repuesto = Repuesto::all()->where('id_repuesto', $id)->last();
-        if(Auth::user()){
-            $favorito = Favorito::all()->where('id_repuesto', $id)->where('id_usuario', Auth::user()->id_usuario)->last();
+        if($now->diffInDays($repuesto->fecha_reg_repuesto->addDays($repuesto->usuario->membresia->dias_duracion_publidacion_membresia), false)>0){
+            if(Auth::user()){
+                $favorito = Favorito::all()->where('id_repuesto', $id)->where('id_usuario', Auth::user()->id_usuario)->last();
+            }
+            else{
+                $favorito =null;
+            }
+            return view('repuesto.DetalleRepuesto',compact('repuesto', 'favorito'));
+
         }
         else{
-            $favorito =null;
+            return view('repuesto.repuestoFinalizado');
         }
+       
 
-        return view('repuesto.DetalleRepuesto',compact('repuesto', 'favorito'));
         
     }
 

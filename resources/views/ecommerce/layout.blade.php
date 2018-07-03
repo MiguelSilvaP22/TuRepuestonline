@@ -562,7 +562,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
 
-  <script src="/ecommerce/js/jquery-3.3.1.min.js"></script>
+<script src="/ecommerce/js/jquery-3.3.1.min.js"></script>
 <script src="/ecommerce/styles/bootstrap4/popper.js"></script>
 <script src="/ecommerce/styles/bootstrap4/bootstrap.min.js"></script>
 <script src="/ecommerce/plugins/greensock/TweenMax.min.js"></script>

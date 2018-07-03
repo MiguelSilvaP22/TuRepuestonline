@@ -9,11 +9,10 @@
 
 	<!-- Characteristics -->
 
-	<div class="characteristics">
+	<!-- <div class="characteristics">
 		<div class="container">
 			<div class="row">
 
-				<!-- Char. Item -->
 				<div class="col-lg-3 col-md-6 char_col">
 					
 					<div class="char_item d-flex flex-row align-items-center justify-content-start">
@@ -25,7 +24,6 @@
 					</div>
 				</div>
 
-				<!-- Char. Item -->
 				<div class="col-lg-3 col-md-6 char_col">
 					
 					<div class="char_item d-flex flex-row align-items-center justify-content-start">
@@ -37,7 +35,6 @@
 					</div>
 				</div>
 
-				<!-- Char. Item -->
 				<div class="col-lg-3 col-md-6 char_col">
 					
 					<div class="char_item d-flex flex-row align-items-center justify-content-start">
@@ -49,7 +46,6 @@
 					</div>
 				</div>
 
-				<!-- Char. Item -->
 				<div class="col-lg-3 col-md-6 char_col">
 					
 					<div class="char_item d-flex flex-row align-items-center justify-content-start">
@@ -62,7 +58,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<!-- Deals of the week -->
 

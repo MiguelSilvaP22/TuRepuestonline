@@ -32,6 +32,11 @@ class Repuesto extends Model
         return $this->belongsToMany(Usuario::Class, 'favorito', 'id_repuesto', 'id_usuario');
     }
 
+    public function usuario()
+    {
+        return $this->belongsTo(User::Class, 'id_usuario');
+    }
+
     public function venta()
     {
         return $this->hasMany(Venta::Class, 'id_repuesto');
