@@ -66,9 +66,9 @@ class RepuestoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if(Auth::user()->id_perfil==3){
+        $repuesto = Repuesto::find($id);
+        if(Auth::user()->id_perfil==3 || $repuesto->usuario->id_usuario =Auth::user()->id_usuario ){
 
-            $repuesto = Repuesto::find($id);
             $repuesto->nombre_repuesto = $request->nombre_repuesto;
             $repuesto->id_categoriarepuesto = $request->id_categoriarepuesto;
             $repuesto->precio_repuesto = $request->precio_repuesto;
@@ -90,11 +90,18 @@ class RepuestoController extends Controller
                 $compatibilidad->estado_repuestomodelo =  1;
                 $compatibilidad->save();
             }    
-            echo("OK");
+            if(Auth::user()->id_perfil==3)
+            {
+                return redirect('/admin');
+            }
+            if(Auth::user()->id_perfil==2)
+            {
+                return redirect('/perfil');
+            }
 
         }
         else{
-            return redirect('/perfil');
+            return redirect('/');
         }
 
     }
