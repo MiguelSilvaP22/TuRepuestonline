@@ -107,6 +107,10 @@ Route::get('/eliminarUsuario/{id}', 'UsuarioController@EliminarUsuario',function
 {
     return $id;
 });
+Route::get('/editarUsuario/{id}', 'UsuarioController@edit',function($id)
+{
+    return $id;
+});
 
 //ADMIN
 Route::resource('admin', 'AdminController');

@@ -59,8 +59,8 @@
 @section('content')
 
 <div class="row mt-5">
-    <div class="col-2 ml-5"></div>
-    <div class="col-1 ml-5">
+    <div class="col-1 ml-5"></div>
+    <div class="col-2 ml-5">
         <div class="list-group" id="list-tab" role="tablist">
             <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab"
                 aria-controls="home">Home</a>
