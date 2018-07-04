@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use App\Favorito;
 use App\Compatibilidad;
 use App\Marca;
+use App\Modelo;
 use App\Venta;
 use App\Evaluacion;
 
@@ -33,6 +34,71 @@ class RepuestoController extends Controller
         return view('ecommerce.prueba',compact('repuestos','categoriasrepuestos'));
 
     }
+
+    public function edit($id)
+    {   
+        if(Auth::user()){
+            if(Auth::user()->id_perfil==3 ){
+                $repuesto = Repuesto::find($id);
+                $marcas = Marca::All()->sortBy('nombre_marca')->pluck('nombre_marca','id_marca');
+                $marcas = Marca::All()->sortBy('nombre_marca')->pluck('nombre_marca','id_marca');
+
+                \Debugbar::info($repuesto);
+                $categoriasrepuestos = CategoriaRepuesto::All()->sortBy('nombre_categoriarepuesto')->pluck('nombre_categoriarepuesto','id_categoriarepuesto');
+                return view('repuesto.update',compact('repuesto','categoriasrepuestos', 'marcas'));    
+            }
+            else{
+                return redirect('/');
+            }
+        }        
+        else{
+            return redirect('/');
+        }
+        
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        if(Auth::user()->id_perfil==3){
+
+            $repuesto = Repuesto::find($id);
+            $repuesto->nombre_repuesto = $request->nombre_repuesto;
+            $repuesto->id_categoriarepuesto = $request->id_categoriarepuesto;
+            $repuesto->precio_repuesto = $request->precio_repuesto;
+            $repuesto->stock_repuesto = $request->stock_repuesto;
+            $repuesto->descripcion_repuesto = $request->descripcion_repuesto;
+            $repuesto->estado_repuesto = 1;
+            $repuesto->save();
+
+            $compatibilidades = Compatibilidad::all()->where('id_repuesto', $id);
+            foreach($compatibilidades as $comp){
+                $comp->delete();
+            }
+
+
+            foreach($request->id_modelos as $key => $id_modelo){
+                $compatibilidad = new Compatibilidad;
+                $compatibilidad->id_modelo = $id_modelo;
+                $compatibilidad->id_repuesto =  $repuesto->id_repuesto;
+                $compatibilidad->estado_repuestomodelo =  1;
+                $compatibilidad->save();
+            }    
+            echo("OK");
+
+        }
+        else{
+            return redirect('/perfil');
+        }
+
+    }
+
 
     public function busquedaIndex(){
         

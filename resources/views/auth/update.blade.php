@@ -41,10 +41,50 @@
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Fono') }}</label>
                             <div class="col-md-6">
-                                    {!! Form::text('RUN', $usuario->personanatural->last()->fono_personanatural, ['class' => 'form-control']) !!}
+                                    {!! Form::text('fono', $usuario->personanatural->last()->fono_personanatural, ['class' => 'form-control']) !!}
                             </div>
                         </div>
                         @endif
+                        @if($usuario->id_perfil==2)
+                        
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+                            <div class="col-md-6">
+                                    {!! Form::text('nombres', $usuario->empresa->last()->nombre_empresa, ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Direccion') }}</label>
+                            <div class="col-md-6">
+                                    {!! Form::text('direccion', $usuario->empresa->last()->direccion_empresa, ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('RUT') }}</label>
+                            <div class="col-md-6">
+                                    {!! Form::text('rut', $usuario->empresa->last()->rut_empresa, ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Telefono') }}</label>
+                            <div class="col-md-6">
+                                    {!! Form::text('fono', $usuario->empresa->last()->fono_empresa, ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Sitio Web') }}</label>
+                            <div class="col-md-6">
+                                    {!! Form::text('web', $usuario->empresa->last()->web_empresa, ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+
+                        @endif
+
+
                     
                         <div class='form-group'>
                             </div>

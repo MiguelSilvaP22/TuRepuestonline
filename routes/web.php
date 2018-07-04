@@ -35,6 +35,10 @@ Route::get('/eliminarRepuesto/{id}', 'RepuestoController@EliminarRepuesto',funct
     return $id;
 });
 
+Route::get('/editarRepuesto/{id}', 'RepuestoController@edit',function($id)
+{
+    return $id;
+});
 
 
 //Compatibilidad Automoviles

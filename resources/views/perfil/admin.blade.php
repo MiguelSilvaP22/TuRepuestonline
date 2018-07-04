@@ -149,7 +149,7 @@
                                         <td>{{ $usuario->membresia->nombre_membresia }}</td>
                                         <td>{{ $usuario->repuestos->count() }}</td>
                                         <td>
-                                            <button class="btn btn btn-warning" id="editCompetencia" value=""><i class="fa fa-edit"></i>Editar</button>
+                                            <button class="btn btn btn-warning" id="editUsuario"  onclick="location.href='editarUsuario/{{ $usuario->id_usuario }}';" value=""><i class="fa fa-edit"></i>Editar</button>
                                             <button class="btn btn btn-danger" data-toggle="modal" data-target="#eliminarUsuarioModal{{ $usuario->id_usuario }}" ><i class="fa fa-eraser"></i>Eliminar</button></td>
 
                                         <!-- Modal -->
@@ -206,7 +206,7 @@
                                                 <td>{{ $repuesto->fecha_reg_repuesto }}</td>
                                                 <td>{{ $repuesto->usuario->email}}</td>
                                                 <td>
-                                                    <button class="btn btn btn-warning" id="editCompetencia" value=""><i class="fa fa-edit"></i>Editar</button>
+                                                    <button class="btn btn btn-warning" id="editCompetencia" value="" onclick="location.href='editarRepuesto/{{ $repuesto->id_repuesto }}';"><i class="fa fa-edit"></i>Editar</button>
                                                     <button class="btn btn btn-danger" data-toggle="modal" data-target="#eliminarRepuestoModal{{ $repuesto->id_repuesto  }}" ><i class="fa fa-eraser"></i>Eliminar</button></td>
         
                                                     <!-- Modal -->
