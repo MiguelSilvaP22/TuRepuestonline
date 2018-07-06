@@ -186,7 +186,7 @@ class RepuestoController extends Controller
     {
         $categoriasrepuestos = CategoriaRepuesto::All()->sortBy('nombre_categoriarepuesto')->pluck('nombre_categoriarepuesto','id_categoriarepuesto');
         
-        return view('repuesto.crearRepuesto',compact('categoriasrepuestos'));
+        return view('repuesto.CrearRepuesto',compact('categoriasrepuestos'));
     }
 
     public function store(Request $request)
