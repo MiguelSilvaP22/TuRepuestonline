@@ -84,7 +84,7 @@ Route::get('/confirmarventa/{id}', 'VentaController@ConfirmarVenta',function($id
 
 
 //PERFIL
-Route::resource('perfil', 'PerfilController');
+Route::resource('/perfil', 'perfilController');
 Route::get('/personanatural', 'perfilController@PersonaNatural');
 Route::get('/FormularioEmpresa', 'perfilController@FormEmpresa');
 
