@@ -58,8 +58,8 @@
 @section('content')
 
 <div class="row mt-5">
-    <div class="col-1 ml-5"></div>
-    <div class="col-2 ml-5">
+    <div class="col-md-1 col-sm-12 ml-5"></div>
+    <div class="col-md-2 col-sm-12 pb-3">
         <div class="list-group" id="list-tab" role="tablist">
             <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab"
                 aria-controls="home">Mi Perfil</a>
@@ -72,8 +72,10 @@
         </div>
     </div>
 
-    <div class="col-7">
+    <div class="col-md-7 col-sm-11">
         <div class="tab-content" id="nav-tabContent">
+
+            <!-- PERFIL -->
             <div class="tab-pane fade  show active" id="list-home" role="tabpanel" aria-labelledby="list-messages-list">
                 <div class="card">
                             <div class="card-header">
@@ -177,7 +179,8 @@
                                     
                                     </ul>
                                     <div class="botonesPerfil mt-3"></div>
-                                        <a href="#" class="btn btn-info mr-3">Editar perfil</a><a href="#" class="btn btn-info" data-toggle="modal" data-target="#ModalMembresiaUsuarioNatural">Comprar Membresia</a>
+                                        <a href="#" class="btn btn-info mr-3">Editar perfil</a>
+                                        <a href="#" class="btn btn-info " data-toggle="modal" data-target="#ModalMembresiaUsuarioNatural">Comprar Membresia</a>
                                     </div>
                 
                                     <!-- Modal Compra Membresia  -->
@@ -226,6 +229,8 @@
                             @endif
                 
             </div>
+
+            <!-- PUBLICACIONES -->
             <div class="tab-pane fade" id="list-membresias" role="tabpanel" aria-labelledby="list-home-list">
                 <div class="card">
                             <div class="card-header">
@@ -271,6 +276,8 @@
         
                         </div>
             </div>
+
+            <!-- COMPRAS -->
             <div class="tab-pane fade" id="list-usuarios" role="tabpanel" aria-labelledby="list-profile-list">
                 <div class="card">
                             <div class="card-header">
@@ -412,6 +419,8 @@
         
                         </div>
             </div>
+
+            <!-- VENTAS -->
             <div class="tab-pane fade" id="list-repuestos" role="tabpanel" aria-labelledby="list-messages-list">
                 <div class="card">
                             <div class="card-header">

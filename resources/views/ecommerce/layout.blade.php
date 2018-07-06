@@ -79,13 +79,13 @@
 
 		<div class="header_main">
 			<div class="container">
-				<div class="row">
+				<div class="row mb-5 mt-3">
 
 					<!-- Logo -->
-					<div class="col-lg-2 col-sm-3 col-3 order-1">
+					<div class="col-lg-2 col-sm-3 col-3 order-1 ">
 						<div class="logo_container">
 							<div class="logo">
-							<img src="\ecommerce\images\logo3.png">
+								<a href="/"><img src="\ecommerce\images\logo3.png" ></a>
 							</div>
 						</div>
 					</div>
