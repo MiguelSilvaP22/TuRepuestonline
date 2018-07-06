@@ -48,17 +48,18 @@
 					</div>
 
 					<div class='form-group' id="compatibilidad23">
+						<div class='form-group' id="compatibilidad">
 
-						<div class='form-group'>
-							{!! Form::label('nombre_rolesdesempeno', 'Roles de desempeño:') !!} {!! Form::button('Agregar nueva compatibilidad', ['class'
-							=> 'form-control btn btn-success text-white', 'id'=> 'addRol']) !!}
 						</div>
-						<div class='form-group' id="compatibilidad"></div>
+					</div>
+					<div class='form-group'>
+							{!! Form::label('nombre_rolesdesempeno', 'Roles de desempeño:') !!} {!! Form::button('Agregar nueva compatibilidad', ['class'
+							=> 'form-control btn btn-info text-white', 'id'=> 'addRol']) !!}
 					</div>
 
 
 					<div class='form-group'>
-						{!! Form::submit("Agregar Area", ['class' => 'form-control btn btn-success text-white']) !!}
+						{!! Form::submit("Agregar Repuesto", ['class' => 'form-control btn btn-success text-white']) !!}
 					</div>
 					{!! Form::close() !!}
 					<div class='form-group'>
