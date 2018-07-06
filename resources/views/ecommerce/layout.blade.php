@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>MIGUI BELLOX</title>
+<title>TuRepuestOnline</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="OneTech shop project">
@@ -203,23 +203,8 @@
 
 							<div class="main_nav_menu ml-auto">
 								<ul class="standard_dropdown main_nav_dropdown">
-									<li><a href="/">Inicio<i class="fas fa-chevron-down"></i></a></li>
-									<li class="hassubs">
-										<a href="#">Súper Ofertas<i class="fas fa-chevron-down"></i></a>
-										<ul>
-											<li>
-												<a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-												<ul>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-												</ul>
-											</li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-										</ul>
-									</li>
+									<li><a href="/">Inicio<i class="fas fa-chevron-down "></i></a></li>
+									
 									
 									
 									<li><a href="/busqueda">Busqueda<i class="fas fa-chevron-down"></i></a></li>
@@ -244,7 +229,7 @@
 			</div>
 		</nav>
 		
-		<!-- Menu -->
+		<!-- Menu  celular-->
 
 		<div class="page_menu">
 			<div class="container">
@@ -260,44 +245,15 @@
 							</div>
 							<ul class="page_menu_nav">
 								<li class="page_menu_item has-children">
-									<a href="#">Language<i class="fa fa-angle-down"></i></a>
-									<ul class="page_menu_selection">
-										<li><a href="#">English<i class="fa fa-angle-down"></i></a></li>
-										<li><a href="#">Italian<i class="fa fa-angle-down"></i></a></li>
-										<li><a href="#">Spanish<i class="fa fa-angle-down"></i></a></li>
-										<li><a href="#">Japanese<i class="fa fa-angle-down"></i></a></li>
-									</ul>
+									<a href="/login">Regístrate<i class=""></i></a>
+									
 								</li>
 								<li class="page_menu_item has-children">
-									<a href="#">Currency<i class="fa fa-angle-down"></i></a>
-									<ul class="page_menu_selection">
-										<li><a href="#">US Dollar<i class="fa fa-angle-down"></i></a></li>
-										<li><a href="#">EUR Euro<i class="fa fa-angle-down"></i></a></li>
-										<li><a href="#">GBP British Pound<i class="fa fa-angle-down"></i></a></li>
-										<li><a href="#">JPY Japanese Yen<i class="fa fa-angle-down"></i></a></li>
-									</ul>
+									<a href="/busqueda">Busca tu Repuesto<i class=""></i></a>
+									
 								</li>
-								<li class="page_menu_item">
-									<a href="#">Home<i class="fa fa-angle-down"></i></a>
-								</li>
-								<li class="page_menu_item has-children">
-									<a href="#">Super Deals<i class="fa fa-angle-down"></i></a>
-									<ul class="page_menu_selection">
-										<li><a href="#">Super Deals<i class="fa fa-angle-down"></i></a></li>
-										<li class="page_menu_item has-children">
-											<a href="#">Menu Item<i class="fa fa-angle-down"></i></a>
-											<ul class="page_menu_selection">
-												<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-												<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-												<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-												<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-											</ul>
-										</li>
-										<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-										<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-										<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-									</ul>
-								</li>
+								
+								
 								<li class="page_menu_item has-children">
 									<a href="#">Featured Brands<i class="fa fa-angle-down"></i></a>
 									<ul class="page_menu_selection">
@@ -321,8 +277,8 @@
 							</ul>
 							
 							<div class="menu_contact">
-								<div class="menu_contact_item"><div class="menu_contact_icon"><img src="/ecommerce/images/phone_white.png" alt=""></div>+38 068 005 3570</div>
-								<div class="menu_contact_item"><div class="menu_contact_icon"><img src="/ecommerce/images/mail_white.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
+								<div class="menu_contact_item"><div class="menu_contact_icon"><img src="/ecommerce/images/phone_white.png" alt=""></div>+56 9 666 333 444/div>
+								<div class="menu_contact_item"><div class="menu_contact_icon"><img src="/ecommerce/images/mail_white.png" alt=""></div><a href="mailto:fastsales@gmail.com">ventas@turepuestonline.cl</a></div>
 							</div>
 						</div>
 					</div>
@@ -378,11 +334,15 @@
 					<div class="footer_column" >
 						<div class="footer_title">Encuentra tu Repuesto</div>
 						<ul class="footer_list">
-							<li><a href="#">Automóviles</a></li>
-							<li><a href="#">Motocicletas</a></li>
-							<li><a href="#">Bicicletas</a></li>
-							<li><a href="#">Camionetas & Vans</a></li>
-							<li><a href="#">Accesorios </a></li>
+							<li><a href="#">Neumáticos</a></li>
+							<li><a href="#">Accesorios</a></li>
+							<li><a href="#">Filtros</a></li>
+							<li><a href="#">Motor</a></li>
+							<li><a href="#">Rodamientos y Retenes</a></li>
+							<li><a href="#">Kit de Afinamiento</a></li>
+							<li><a href="#">Interior</a></li>
+							<li><a href="#">Lubricantes</a></li>
+							<li><a href="#">Carrocería</a></li>
 						</ul>
 						
 					</div>
@@ -404,7 +364,7 @@
 					<div class="footer_column">
 						<div class="footer_title">Servicio al Cliente</div>
 						<ul class="footer_list">
-							<li><a href="#">Mi Cuenta</a></li>
+							
 							<li><a href="#">Mis Compras</a></li>
 							<li><a href="#">Favoritos</a></li>
 							
