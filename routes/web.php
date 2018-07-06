@@ -84,22 +84,22 @@ Route::get('/confirmarventa/{id}', 'VentaController@ConfirmarVenta',function($id
 
 
 //PERFIL
-Route::resource('/perfil', 'perfilController');
-Route::get('/personanatural', 'perfilController@PersonaNatural');
-Route::get('/FormularioEmpresa', 'perfilController@FormEmpresa');
+Route::resource('/perfil', 'PerfilController');
+Route::get('/personanatural', 'PerfilController@PersonaNatural');
+Route::get('/FormularioEmpresa', 'PerfilController@FormEmpresa');
 
-Route::get('/favoritos', 'perfilController@favoritos');
-Route::get('/favoritos', 'perfilController@favoritos');
-Route::get('/solicitudMembresia/{id}', 'perfilController@SolicitudMembresia',function($id)
+Route::get('/favoritos', 'PerfilController@favoritos');
+Route::get('/favoritos', 'PerfilController@favoritos');
+Route::get('/solicitudMembresia/{id}', 'PerfilController@SolicitudMembresia',function($id)
 {
     return $id;
 });
-Route::get('/activarMembresia/{id}', 'perfilController@ActivarMembresia',function($id)
+Route::get('/activarMembresia/{id}', 'PerfilController@ActivarMembresia',function($id)
 {
     return $id;
 });
 
-Route::get('/blog/{id}', 'perfilController@blog',function($id)
+Route::get('/blog/{id}', 'PerfilController@blog',function($id)
 {
     return $id;
 });
