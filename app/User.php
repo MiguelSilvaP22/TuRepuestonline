@@ -19,7 +19,7 @@ class User extends Authenticatable
 
     public function favorito()
     {
-        return $this->belongsToMany(Repuesto::Class, 'favorito', 'id_usuario', 'id_repuesto');
+        return $this->belongsToMany(Repuesto::Class, 'Favorito', 'id_usuario', 'id_repuesto');
     }
 
     public function repuestos()
@@ -38,7 +38,7 @@ class User extends Authenticatable
 
     public function favoritos()
     {
-        return $this->hasMany(favorito::Class, 'id_usuario');
+        return $this->hasMany(Favorito::Class, 'id_usuario');
     }
 
     public function membresia()
