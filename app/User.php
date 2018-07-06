@@ -38,7 +38,7 @@ class User extends Authenticatable
 
     public function favoritos()
     {
-        return $this->hasMany(favorito::Class, 'id_usuario');
+        return $this->hasMany(Favorito::Class, 'id_usuario');
     }
 
     public function membresia()
