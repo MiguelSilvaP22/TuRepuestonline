@@ -1,7 +1,7 @@
 
 <div class="form-group">
     {!! Form::label('', 'Marca:') !!}
-    {!! Form::select('id_marca[]', $marcas,null ,['class' => 'form-control','placeholder'=>'Seleccione una Marca de Vehiculo','id'=>'select_marca', 'style'=>'width:100%']) !!}         
+    {!! Form::select('id_marca[]', $marcas,null ,['class' => 'form-control','placeholder'=>'Seleccione una Marca de Vehiculo','id'=>'select_marca', 'style'=>'width:100%', 'required']) !!}         
 </div>
 
 
