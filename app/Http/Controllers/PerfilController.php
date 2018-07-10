@@ -11,7 +11,7 @@ use App\User;
 
 use App\CompraMembresia;
 
-use App\venta;
+use App\Venta;
 use App\Membresia;
 
 use Illuminate\Support\Facades\Auth;

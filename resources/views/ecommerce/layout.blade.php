@@ -44,7 +44,8 @@
 								
 								@guest
                                 <div><a class="nav-link" href="{{ route('login') }}">{{ __('Ingresar') }}</a> </div>
-                                <div><a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a></div>
+								<div><a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a></div>
+								
                         		@else
 
 								<ul class="standard_dropdown main_nav_dropdown">
@@ -58,7 +59,10 @@
 										<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 											@csrf
 										</form></li>
-										<li><a href="/perfil">Mi Perfil<i class="fas fa-chevron-down"></i></a></li>
+											<li><a href="/perfil">Mi Perfil<i class="fas fa-chevron-down"></i></a></li>
+											@if(Auth::user()->id_perfil ==3)
+												<li><a href="/admin">Administración<i class="fas fa-chevron-down"></i></a></li>
+											@endif
 
 										</ul>
 										
@@ -102,12 +106,6 @@
 												<span class="custom_dropdown_placeholder clc">Todas las Categorías</span>
 												<i class="fas fa-chevron-down"></i>
 												<ul class="custom_list clc">
-													
-													<li><a class="clc" href="#">Automóviles</a></li>
-													<li><a class="clc" href="#">Motocicletas</a></li>
-													<li><a class="clc" href="#">Bicicletas</a></li>
-													<li><a class="clc" href="#">Camionetas & Vans</a></li>
-													<li><a class="clc" href="#">Accesorios</a></li>
 												</ul>
 											</div>
 										</div>
