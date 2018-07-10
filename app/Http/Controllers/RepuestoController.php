@@ -113,7 +113,7 @@ class RepuestoController extends Controller
         
         if(Auth::user())
         {
-            $repuestos = Repuesto::all()->where('id_usuario', '!=', Auth::user()->id_usuario);
+            $repuestos = Repuesto::all()->where('id_usuario', '!=', Auth::user()->id_usuario)->where('estado_repuesto','1');
         }else{
             $repuestos = Repuesto::all();
         }
