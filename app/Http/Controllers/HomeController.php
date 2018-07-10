@@ -47,7 +47,7 @@ class HomeController extends Controller
         ->join('imagenrepuesto', 'imagenrepuesto.id_repuesto','=','repuesto.id_repuesto')
         ->join('categoriarepuesto','repuesto.id_categoriarepuesto','=','categoriarepuesto.id_categoriarepuesto')
         ->where('usuario.id_membresia', '=', 4)
-        ->where('usuario.id_membresia', '=', 3)
+        ->orwhere('usuario.id_membresia', '=', 3)
         ->orWhere('usuario.id_membresia', '=', 2)
         ->inRandomOrder()
         ->get()
