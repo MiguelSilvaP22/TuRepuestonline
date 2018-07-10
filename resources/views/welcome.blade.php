@@ -78,19 +78,21 @@
 								
                                 <!-- Deals Item -->
                                 
-                                @foreach($repuestosSuper as $repuesto)
-								<div class="owl-item deals_item">
-									<div class="deals_image"><img src="/ecommerce/images/productos/{{ $repuesto->ruta_imagenrepuesto }}" alt=""></div>
-									<div class="deals_content">
-										<div class="deals_info_line d-flex flex-row justify-content-start">
-											<div class="deals_item_category"><a href="#">{{ $repuesto->nombre_categoriarepuesto }}</a></div>
+								@foreach($repuestosSuper as $repuesto)
+									@if($repuesto->estado_repuesto == 1)
+										<div class="owl-item deals_item">
+											<div class="deals_image"><img src="/ecommerce/images/productos/{{ $repuesto->ruta_imagenrepuesto }}" alt=""></div>
+											<div class="deals_content">
+												<div class="deals_info_line d-flex flex-row justify-content-start">
+													<div class="deals_item_category"><a href="#">{{ $repuesto->nombre_categoriarepuesto }}</a></div>
+												</div>
+												<div class="deals_info_line d-flex flex-row justify-content-start">
+													<div class="deals_item_name"><a href="repuesto/{{ $repuesto->id_repuesto }}">{{ $repuesto->nombre_repuesto }}</a></div>
+													<div class="deals_item_price ml-auto">${{  number_format($repuesto->precio_repuesto) }}</div>
+												</div>
+											</div>
 										</div>
-										<div class="deals_info_line d-flex flex-row justify-content-start">
-											<div class="deals_item_name"><a href="repuesto/{{ $repuesto->id_repuesto }}">{{ $repuesto->nombre_repuesto }}</a></div>
-											<div class="deals_item_price ml-auto">${{  number_format($repuesto->precio_repuesto) }}</div>
-										</div>
-									</div>
-                                </div>
+									@endif
                                 @endforeach
 
 							</div>
@@ -119,26 +121,26 @@
 								<div class="featured_slider slider">
 
                                    @foreach($repuestosOro as $repuesto)    
-
-                                        <!-- Slider Item -->
-                                        <div class="featured_slider_item">
-                                            <div class="border_active"></div>
-                                            <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                                <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="/ecommerce/images/productos/{{ $repuesto->ruta_imagenrepuesto }}" alt=""></div>
-                                                <div class="product_content">
-                                                    <div class="product_price">${{  number_format($repuesto->precio_repuesto) }}</div>
-                                                    <div class="product_name"><div><a href="product.html">{{ $repuesto->nombre_repuesto }}</a></div></div>
-                                                    <div class="product_extras">
-                                                        <button class="product_cart_button active" onclick="location.href='detallerepuesto/{{$repuesto->id_repuesto}}';">Ver Repuesto</button>
-                                                    </div>
-                                                </div>
-                                                <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                                <ul class="product_marks">
-                                                    <li class="product_mark product_discount"></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
+										@if($repuesto->estado_repuesto == 1)
+											<!-- Slider Item -->
+											<div class="featured_slider_item">
+												<div class="border_active"></div>
+												<div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+													<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="/ecommerce/images/productos/{{ $repuesto->ruta_imagenrepuesto }}" alt=""></div>
+													<div class="product_content">
+														<div class="product_price">${{  number_format($repuesto->precio_repuesto) }}</div>
+														<div class="product_name"><div><a href="product.html">{{ $repuesto->nombre_repuesto }}</a></div></div>
+														<div class="product_extras">
+															<button class="product_cart_button active" onclick="location.href='detallerepuesto/{{$repuesto->id_repuesto}}';">Ver Repuesto</button>
+														</div>
+													</div>
+													<div class="product_fav"><i class="fas fa-heart"></i></div>
+													<ul class="product_marks">
+														<li class="product_mark product_discount"></li>
+													</ul>
+												</div>
+											</div>
+										@endif
                                     @endforeach
 
 								</div>
@@ -151,25 +153,26 @@
 								<div class="featured_slider slider">
 
                                     @foreach($repuestosNuevos as $repuesto)    
-
-                                    <!-- Slider Item -->
-                                    <div class="featured_slider_item">
-                                        <div class="border_active"></div>
-                                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="/ecommerce/images/productos/{{ $repuesto->ruta_imagenrepuesto }}" alt=""></div>
-                                            <div class="product_content">
-                                                <div class="product_price">${{  number_format($repuesto->precio_repuesto) }}</div>
-                                                <div class="product_name"><div><a href="product.html">{{ $repuesto->nombre_repuesto }}</a></div></div>
-                                                <div class="product_extras">
-                                                    <button class="product_cart_button active" onclick="location.href='detallerepuesto/{{$repuesto->id_repuesto}}';">Ver información</button>
-                                                </div>
-                                            </div>
-                                            <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                            <ul class="product_marks">
-                                                <li class="product_mark product_discount"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+										@if($repuesto->estado_repuesto == 1)
+										<!-- Slider Item -->
+										<div class="featured_slider_item">
+											<div class="border_active"></div>
+											<div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+												<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="/ecommerce/images/productos/{{ $repuesto->ruta_imagenrepuesto }}" alt=""></div>
+												<div class="product_content">
+													<div class="product_price">${{  number_format($repuesto->precio_repuesto) }}</div>
+													<div class="product_name"><div><a href="product.html">{{ $repuesto->nombre_repuesto }}</a></div></div>
+													<div class="product_extras">
+														<button class="product_cart_button active" onclick="location.href='detallerepuesto/{{$repuesto->id_repuesto}}';">Ver información</button>
+													</div>
+												</div>
+												<div class="product_fav"><i class="fas fa-heart"></i></div>
+												<ul class="product_marks">
+													<li class="product_mark product_discount"></li>
+												</ul>
+											</div>
+										</div>
+										@endif
 
                                 @endforeach
 
