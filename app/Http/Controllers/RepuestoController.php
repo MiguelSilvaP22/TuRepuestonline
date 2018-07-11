@@ -165,7 +165,7 @@ class RepuestoController extends Controller
                         ->join('repuestomodelo', 'repuestomodelo.id_modelo', '=','modelo.id_modelo')
                         ->join('repuesto', 'repuestomodelo.id_repuesto', '=','repuesto.id_repuesto')
                         ->join('imagenrepuesto', 'imagenrepuesto.id_repuesto', '=','repuesto.id_repuesto')
-                        ->get();
+                        ->paginate(10);
         }
         else{
             $repuestos = DB::table('marca')
@@ -175,7 +175,7 @@ class RepuestoController extends Controller
                         ->join('repuestomodelo', 'repuestomodelo.id_modelo', '=','modelo.id_modelo')
                         ->join('repuesto', 'repuestomodelo.id_repuesto', '=','repuesto.id_repuesto')
                         ->join('imagenrepuesto', 'imagenrepuesto.id_repuesto', '=','repuesto.id_repuesto')
-                        ->get();
+                        ->paginate(10);
         }
 
         return view('busqueda.resultadoMarca',compact('repuestos','categoriasrepuestos'));   

@@ -15,9 +15,6 @@
 <link rel="stylesheet" type="text/css" href="/ecommerce/styles/bootstrap4/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/ecommerce/styles/bootstrap4/bootstrap.min.css.map">
 
-
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
-
 @yield('css')
 
 <style>
@@ -368,8 +365,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
 <script src="/ecommerce/js/jquery-3.3.1.min.js"></script>
-<script src="/ecommerce/js/jquery.easyPaginate.js"></script>
-<script src="/ecommerce/styles/jquery.twbsPagination.js"></script>
+<script src="/ecommerce/styles/bootstrap4/popper.js"></script>
 <script src="/ecommerce/styles/bootstrap4/bootstrap.min.js"></script>
 <script src="/ecommerce/plugins/greensock/TweenMax.min.js"></script>
 <script src="/ecommerce/plugins/greensock/TimelineMax.min.js"></script>
@@ -385,8 +381,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="/ecommerce/plugins/parallax-js-master/parallax.min.js"></script>
 {{--<script src="/ecommerce/js/shop_custom.js"></script>
 <script src="/ecommerce/js/product_custom.js"></script>--}}
-
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
 
 <script>
 	function formBusqueda(e){
