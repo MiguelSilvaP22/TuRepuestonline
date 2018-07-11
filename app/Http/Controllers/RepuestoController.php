@@ -115,7 +115,11 @@ class RepuestoController extends Controller
         {
             $repuestos = Repuesto::all()->where('id_usuario', '!=', Auth::user()->id_usuario)->where('estado_repuesto','1')->paginate(15);
         }else{
+<<<<<<< HEAD
             $repuestos = Repuesto::paginate(15);
+=======
+            $repuestos = Repuesto::where('estado_repuesto', 1)->paginate(10);
+>>>>>>> c19513c73cc344c46851ab5059d7b715d8c2c526
         }
         $categoriasrepuestos = CategoriaRepuesto::all();
         return view('busqueda.index',compact('repuestos','categoriasrepuestos','marcas'));
