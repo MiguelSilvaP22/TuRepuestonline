@@ -17,16 +17,7 @@
                                 {!! Form::select('id_marca', $marcas,null ,['class' => 'form-control mt-3','placeholder'=>'Seleccione una Marca de Vehiculo','id'=>'selectMarcas', 'style'=>'width:100%']) !!}         
                             </form>
 						</div>
-						
-						<div class="sidebar_section filter_by_section">
-							<div class="sidebar_title">Filtros</div>
-							<div class="sidebar_subtitle">Precios</div>
-							<div class="filter_price">
-								<div id="slider-range" class="slider_range"></div>
-								<p>Rango: </p>
-								<p><input type="text" id="amount" class="amount" readonly style="border:0; font-weight:bold;"></p>
-							</div>
-						</div>
+
                         <form id="formBusqueda">
                             <div class="sidebar_section">
                                 <div class="sidebar_subtitle brands_subtitle">Categorias</div>
@@ -63,15 +54,36 @@
 @section('script-js')
 <script src="/ecommerce/js/shop_custom.js"></script>
 <script>
+    $.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if(results==null){
+        return null
+    }else{
+        return results[1] || 0;
+    }
+    }
 
 	$(document).ready(function() {
-        $.ajax({
+
+        if(($.urlParam("nombre") !=null)){
+             $.ajax({
+            url: "/busquedaNombreRepuesto/"+$.urlParam("nombre"),
+            type: "GET",
+            success: function (datos) {
+                $(".shopContent").html(datos);
+            }
+             });
+        }
+        else{
+            $.ajax({
             url: "/resultadoBusqueda/",
             type: "GET",
             success: function (datos) {
                 $(".shopContent").html(datos);
             }
-        });
+             });
+        }
+      
 
     });
     $('#formBusqueda').change(function(e){

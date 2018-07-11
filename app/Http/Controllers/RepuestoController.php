@@ -113,9 +113,9 @@ class RepuestoController extends Controller
         
         if(Auth::user())
         {
-            $repuestos = Repuesto::all()->where('id_usuario', '!=', Auth::user()->id_usuario)->where('estado_repuesto','1');
+            $repuestos = Repuesto::all()->where('id_usuario', '!=', Auth::user()->id_usuario)->where('estado_repuesto','1')->paginate(15);
         }else{
-            $repuestos = Repuesto::all();
+            $repuestos = Repuesto::paginate(15);
         }
         $categoriasrepuestos = CategoriaRepuesto::all();
         return view('busqueda.index',compact('repuestos','categoriasrepuestos','marcas'));
@@ -133,6 +133,12 @@ class RepuestoController extends Controller
         return view('busqueda.resultado',compact('repuestos','categoriasrepuestos'));
     }
 
+    
+    public function busquedaNombreRepuesto($nombre){
+        $repuestos = Repuesto::where('estado_repuesto',1)->Where('nombre_repuesto','like','%'.$nombre.'%')->get();
+        \Debugbar::info($repuestos);
+        return view('busqueda.resultado',compact('repuestos'));   
+    }
     public function generarBusquedaCategoria(){
         $input = request()->all();
         /*\Debugbar::info($input["id_categoria"][0]);

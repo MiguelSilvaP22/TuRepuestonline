@@ -6,12 +6,16 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="OneTech shop project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="/ecommerce/styles/bootstrap4/bootstrap.min.css">
+
 <link href="/ecommerce/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="/ecommerce/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
 <link rel="stylesheet" type="text/css" href="/ecommerce/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
 <link rel="stylesheet" type="text/css" href="/ecommerce/plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="/ecommerce/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="/ecommerce/styles/bootstrap4/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/ecommerce/styles/bootstrap4/bootstrap.min.css.map">
+
+
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
 
 @yield('css')
@@ -99,14 +103,23 @@
 						<div class="header_search">
 							<div class="header_search_content">
 								<div class="header_search_form_container">
-									<form action="#" class="header_search_form clearfix">
+									<form action="#" class="header_search_form clearfix" id="formBusqueda3" onsubmit="formBusqueda(this)">
 										<input type="search" required="required" class="header_search_input" placeholder="Busca tu Producto...">
-										<div class="custom_dropdown">
+										<div class="custom_dropdown" style="display: none;">
 											<div class="custom_dropdown_list">
-												<span class="custom_dropdown_placeholder clc">Todas las Categorías</span>
-												<i class="fas fa-chevron-down"></i>
-												<ul class="custom_list clc">
-												</ul>
+												<div style="display: none;">
+													<span class="custom_dropdown_placeholder clc">All Categories</span>
+													<i class="fas fa-chevron-down"></i>
+													<ul class="custom_list clc">
+														<li><a class="clc" href="/prueba">All Categories</a></li>
+														<li><a class="clc" href="/FUNCIONA">Computers</a></li>
+														<li><a class="clc" href="#">Laptops</a></li>
+														<li><a class="clc" href="#">Cameras</a></li>
+														<li><a class="clc" href="#">Hardware</a></li>
+														<li><a class="clc" href="#">Smartphones</a></li>
+													</ul>
+												</div>
+												
 											</div>
 										</div>
 										<button type="submit" class="header_search_button trans_300" value="Submit"><img src="/ecommerce/images/search.png" alt=""></button>
@@ -355,7 +368,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
 <script src="/ecommerce/js/jquery-3.3.1.min.js"></script>
-<script src="/ecommerce/styles/bootstrap4/popper.js"></script>
+<script src="/ecommerce/js/jquery.easyPaginate.js"></script>
+<script src="/ecommerce/styles/jquery.twbsPagination.js"></script>
 <script src="/ecommerce/styles/bootstrap4/bootstrap.min.js"></script>
 <script src="/ecommerce/plugins/greensock/TweenMax.min.js"></script>
 <script src="/ecommerce/plugins/greensock/TimelineMax.min.js"></script>
@@ -366,11 +380,24 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="/ecommerce/plugins/easing/easing.js"></script>
 <script src="/ecommerce/plugins/Isotope/isotope.pkgd.min.js"></script>
 <script src="/ecommerce/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+<script src="/ecommerce/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+
 <script src="/ecommerce/plugins/parallax-js-master/parallax.min.js"></script>
 {{--<script src="/ecommerce/js/shop_custom.js"></script>
 <script src="/ecommerce/js/product_custom.js"></script>--}}
 
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
+
+<script>
+	function formBusqueda(e){
+		busqueda=$(".header_search_input").val();
+		tipo = $("#selectBusqueda3").val();
+
+		$(location).attr('href','/busqueda?nombre='+busqueda);
+
+		
+	}
+</script>
 @yield('script-js')
 
 </body>

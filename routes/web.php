@@ -19,7 +19,10 @@ Route::get('/busqueda', 'RepuestoController@busquedaIndex')->name('repuesto.busq
 Route::get('/resultadoBusqueda', 'RepuestoController@resultadoBusqueda');
 Route::get('/generarBusqueda', 'RepuestoController@generarBusquedaCategoria')->name('repuesto.BusquedaCategoria');
 Route::get('/generarBusquedaMarca', 'RepuestoController@generarBusquedaMarca')->name('repuesto.BusquedaMarca');
-
+Route::get('/busquedaNombreRepuesto/{id}', 'RepuestoController@busquedaNombreRepuesto',function($id)
+{
+    return $id;
+});
 //Repuestos
 
 
