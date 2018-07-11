@@ -75,7 +75,21 @@
     <div class="col-7">
         <div class="tab-content" id="nav-tabContent">
 
-            <div class="tab-pane fade  show active" id="list-home" role="tabpanel" aria-labelledby="list-messages-list">.asd..</div>
+            <div class="tab-pane fade  show active" id="list-home" role="tabpanel" aria-labelledby="list-messages-list">
+
+                    <div class="row">
+                        <div class="col-5">
+                                <canvas id="myChart" width="200" height="200"></canvas>
+                        </div>
+                        <div class="col-1"></div>
+                        <div class="col-5">
+                                <canvas id="myChart2" width="200" height="200"></canvas>
+                        </div>
+
+                    </div>
+                    
+
+            </div>
 
             <div class="tab-pane fade" id="list-membresias" role="tabpanel" aria-labelledby="list-home-list">
                 <div class="card card-body">
@@ -274,6 +288,82 @@ $(document).ready( function () {
 
 </script>
 
+<script>
+
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [ 
+            @foreach($membresias as $membresia)
+                "{!! $membresia !!}",
+            @endforeach
+        ],
+        datasets: [{
+            label: '# Cantidad de ventas de membresias',
+            data: [
+                @foreach($ventasMembresias as $ventaMembresia)
+                {!! $ventaMembresia !!},
+                    @endforeach
+            ],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.4)',
+                'rgba(54, 162, 235, 0.4)',
+                'rgba(255, 206, 86, 0.4)',
+                'rgba(75, 192, 192, 0.4)',
+                'rgba(153, 102, 255, 0.4)',
+                'rgba(255, 159, 64, 0.4)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+
+
+<script>
+    var ctx2 = document.getElementById("myChart2");
+
+		var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+		var myChart = new Chart(ctx2, {
+			type: 'line',
+			data: {
+				labels: ['Enero', 'Ferero', 'Marzo'],
+				datasets: [{
+					label: 'Número de repuestos',
+					data: [
+                        @foreach($catidadRepuestos as $numrep)
+                        {!! $numrep !!},
+                        @endforeach
+					],
+                    backgroundColor: 'rgba(255, 99, 132, 0.4)',
+                    borderColor: 'rgba(255, 99, 132, 0.4)',
+					fill: false,
+				}, {
+					label: 'Número de usuarios',
+					fill: false,
+					data: [
+                        @foreach($cantidadUsuarios as $numuser)
+                        {!! $numuser !!},
+                        @endforeach
+					],
+                    backgroundColor: 'rgba(54, 162, 235, 0.4)',
+                    borderColor: 'rgba(54, 162, 235, 0.4)',
+				}]
+			}
+		});
+
+	
+</script>
 
 
 @stop

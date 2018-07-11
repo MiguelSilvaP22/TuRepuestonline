@@ -374,6 +374,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="/ecommerce/plugins/greensock/ScrollToPlugin.min.js"></script>
 <script src="/ecommerce/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
 <script src="/ecommerce/plugins/easing/easing.js"></script>
+<script src="/ecommerce/js/Chart.js"></script>
 <script src="/ecommerce/plugins/Isotope/isotope.pkgd.min.js"></script>
 <script src="/ecommerce/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 <script src="/ecommerce/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
