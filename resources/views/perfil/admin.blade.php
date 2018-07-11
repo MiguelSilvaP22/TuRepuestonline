@@ -337,7 +337,7 @@ var myChart = new Chart(ctx, {
 		var myChart = new Chart(ctx2, {
 			type: 'line',
 			data: {
-				labels: ['Enero', 'Ferero', 'Marzo'],
+				labels: ['Mayo', 'Junio', 'Julio'],
 				datasets: [{
 					label: 'Número de repuestos',
 					data: [
