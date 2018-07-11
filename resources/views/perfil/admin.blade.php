@@ -85,7 +85,7 @@
                         </div>
 
                         <div class="card-body">
-                            <table id="tablaPerfil" class="table">
+                            <table id="tablaSusucripciones" class="table">
                                 <thead>
                                     <tr>
                                         <th>Nombre Usuario</th>
@@ -131,7 +131,7 @@
                         </div>
 
                         <div class="card-body">
-                            <table id="tablaPerfil" class="table">
+                            <table id="tablaUsuarios" class="table">
                                 <thead>
                                     <tr>
                                         <th>Email</th>
@@ -188,7 +188,7 @@
                                 </div>
         
                                 <div class="card-body">
-                                    <table id="tablaPerfil" class="table">
+                                    <table id="tablaRepuesto" class="table">
                                         <thead>
                                             <tr>
                                                 <th>Nombre Usuario</th>
@@ -206,7 +206,10 @@
                                                 <td>{{ $repuesto->fecha_reg_repuesto }}</td>
                                                 <td>{{ $repuesto->usuario->email}}</td>
                                                 <td>
+                                                     <button id="btnVer" onclick="location.href='detallerepuesto/{{$repuesto->id_repuesto}}';" class="btn btn btn-info"><i class="fa fa-eye"></i>Ver</button>
+                                                    <br>
                                                     <button class="btn btn btn-warning" id="editCompetencia" value="" onclick="location.href='editarRepuesto/{{ $repuesto->id_repuesto }}';"><i class="fa fa-edit"></i>Editar</button>
+                                                    <br>
                                                     <button class="btn btn btn-danger" data-toggle="modal" data-target="#eliminarRepuestoModal{{ $repuesto->id_repuesto  }}" ><i class="fa fa-eraser"></i>Eliminar</button></td>
         
                                                     <!-- Modal -->
@@ -248,6 +251,26 @@
 @section('script-js')
 
 <script>
+$(document).ready( function () {
+    $('#tablaRepuesto').DataTable({
+        "language": {
+        "url":   '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
+        }  
+    });
+
+    $('#tablaSusucripciones').DataTable({
+        "language": {
+        "url":   '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
+        }  
+    });
+    $('#tablaUsuarios').DataTable({
+        "language": {
+        "url":   '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
+        }  
+    });
+
+
+} );
 
 </script>
 

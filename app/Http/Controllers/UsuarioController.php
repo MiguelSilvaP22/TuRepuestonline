@@ -44,6 +44,7 @@ class UsuarioController extends Controller
             $personanatural = PersonaNatural::all()->where('id_usuario', $id)->last();
             $personanatural->nombres_personanatural = $request->nombres;
             $personanatural->apellidos_personanatural =$request->Apellidos;
+            $personanatural->fono_personanatural = $request->fono;
             $personanatural->run_personanatural = $request->RUN;
             $personanatural->save(); 
         }

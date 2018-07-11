@@ -106,7 +106,8 @@
                                         @endif
                                     </ul>
                                     <div class="botonesPerfil mt-3"></div>
-                                        <a href="#" class="btn btn-info mr-3">Editar perfil</a><a href="#" class="btn btn-info" data-toggle="modal" data-target="#ModalMembresiaUsuarioNatural">Comprar Membresia</a>
+                                                                                    <button class="btn btn btn-warning" id="editUsuario"  onclick="location.href='editarUsuario/{{ $usuario->id_usuario }}';" value=""><i class="fa fa-edit"></i>Editar</button>
+<a href="#" class="btn btn-info" data-toggle="modal" data-target="#ModalMembresiaUsuarioNatural">Comprar Membresia</a>
                                     </div>
                 
                 
@@ -255,7 +256,7 @@
                                             <td >{{ $repuesto->nombre_repuesto}}</td>
                                             <td >{{ $repuesto->categoriaRepuesto->nombre_categoriarepuesto}}</td>
                                             <td >{{ $repuesto->precio_repuesto}}</td>
-                                            <td >{{ $repuesto->fecha_reg_repuesto}}</td>)
+                                            <td >{{ $repuesto->fecha_reg_repuesto}}</td>
                                             <td>
                                                 @if($now->diffInDays($repuesto->fecha_reg_repuesto->addDays($repuesto->usuario->membresia->dias_duracion_publidacion_membresia), false)>0)
                                                  {{ $now->diffInDays($repuesto->fecha_reg_repuesto->addDays($repuesto->usuario->membresia->dias_duracion_publidacion_membresia), false) }} dias restantes.
@@ -265,8 +266,29 @@
                                             </td>
                                             <td>
                                                 <button id="btnVer" onclick="location.href='detallerepuesto/{{$repuesto->id_repuesto}}';" class="btn btn btn-info"><i class="fa fa-eye"></i>Ver</button>
-                                                <button class="btn btn btn-info" id="editCompetencia" value=""><i class="fa fa-edit"></i>Editar</button>
-                                                <button class="btn btn btn-info" onclick=""><i class="fa fa-eraser"></i>Eliminar</button>
+                                                <button class="btn btn btn-warning" id="editRepuesto" value="" onclick="location.href='editarRepuesto/{{ $repuesto->id_repuesto }}';"><i class="fa fa-edit"></i>Editar</button>
+                                                <button class="btn btn btn-danger" data-toggle="modal" data-target="#eliminarRepuestoModal{{ $repuesto->id_repuesto  }}" ><i class="fa fa-eraser"></i>Eliminar</button></td>
+                                            
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="eliminarRepuestoModal{{ $repuesto->id_repuesto }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Confirmar Eliminar Repuesto</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                ¿Esta seguro que desea eliminar el Repuesto: {{ $repuesto->nombre_repuesto }} ?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                                <button type="button" class="btn btn-danger" onclick="location.href='eliminarRepuesto/{{ $repuesto->id_repuesto }}';">Eliminar</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -285,7 +307,7 @@
                             </div>
         
                             <div class="card-body">
-                                <table id="tablaPerfil" class="table">
+                                <table id="tablaCompras" class="table">
                                     <thead>
                                         <tr>
                                             <th>Repuesto</th>
@@ -428,7 +450,7 @@
                             </div>
         
                             <div class="card-body">
-                                <table id="tablaPerfil" class="table">
+                                <table id="tablaVentas" class="table">
                                     <thead>
                                         <tr>
                                             <th>Repuesto</th>
@@ -652,7 +674,20 @@
     $(document).ready(function() {
 
         $('#tablaPerfil').DataTable({
-            });
+            "language": {
+            "url":   '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
+            }  
+        });
+        $('#tablaCompras').DataTable({
+            "language": {
+            "url":   '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
+            }  
+        });
+        $('#tablaVentas').DataTable({
+            "language": {
+            "url":   '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
+            }  
+        });
         
         $('#collapseExample2').collapse('show');
 } );

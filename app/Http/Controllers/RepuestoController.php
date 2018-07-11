@@ -37,8 +37,9 @@ class RepuestoController extends Controller
 
     public function edit($id)
     {   
+        $repuesto = Repuesto::find($id);
         if(Auth::user()){
-            if(Auth::user()->id_perfil==3 ){
+            if(Auth::user()->id_perfil==3 || $repuesto->id_usuario == Auth::user()->id_usuario ){
                 $repuesto = Repuesto::find($id);
                 $marcas = Marca::All()->sortBy('nombre_marca')->pluck('nombre_marca','id_marca');
                 $marcas = Marca::All()->sortBy('nombre_marca')->pluck('nombre_marca','id_marca');

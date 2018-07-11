@@ -25,9 +25,13 @@ class PerfilController extends Controller
     public function index()
     {
         $now = Carbon::now();
+        if(Auth::user()->id_perfil==3){
+                return redirect('/admin');
+            
+        }
         if(Auth::user())
         { 
-            $repuestos = Repuesto::all()->where('id_usuario', Auth::user()->id_usuario);
+            $repuestos = Repuesto::all()->where('id_usuario', Auth::user()->id_usuario)->where('estado_repuesto',1);
             // dd($repuestos->last()->usuario->membresia);
             $usuario = Auth::user();
 

@@ -129,7 +129,7 @@
 													<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="/ecommerce/images/productos/{{ $repuesto->ruta_imagenrepuesto }}" alt=""></div>
 													<div class="product_content">
 														<div class="product_price">${{  number_format($repuesto->precio_repuesto) }}</div>
-														<div class="product_name"><div><a href="product.html">{{ $repuesto->nombre_repuesto }}</a></div></div>
+														<div class="product_name"><div><a href="detallerepuesto/{{$repuesto->id_repuesto}}">{{ $repuesto->nombre_repuesto }}</a></div></div>
 														<div class="product_extras">
 															<button class="product_cart_button active" onclick="location.href='detallerepuesto/{{$repuesto->id_repuesto}}';">Ver Repuesto</button>
 														</div>

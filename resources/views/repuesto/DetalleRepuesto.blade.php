@@ -31,7 +31,6 @@
 					<div class="product_description">
 						<div class="product_category">{{$repuesto->categoriaRepuesto->nombre_categoriarepuesto}}</div>
 						<div class="product_name">{{$repuesto->nombre_repuesto}}</div>
-						<div class="rating_r rating_r_4 product_rating"><i></i><i></i><i></i><i></i><i></i></div>
 						<div class="product_text"><p>{{$repuesto->descripcion_repuesto}}</p></div>
 						<div class="order_info d-flex flex-row">
 							<form action="#">
@@ -40,7 +39,7 @@
 									<!-- Product Quantity -->
 									<div class="product_quantity clearfix">
 										<span>Cantidad: </span>
-										<input id="quantity_input" type="text" pattern="[0-9]*" value="1">
+										<input id="quantity_input" type="text" pattern="[0-9]*" value="1" min="0" max="{!! $repuesto->stock_repuesto !!}" >
 										<div class="quantity_buttons">
 											<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fas fa-chevron-up"></i></div>
 											<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fas fa-chevron-down"></i></div>
@@ -95,10 +94,10 @@
 			<div class="row justify-content-md-center mt-5"></div>
 			<div class="row justify-content-md-center mt-5">
 				<div class="col-md-5">
-					<h4 class="mb-4">Compatibilidad de repuesto</h4> 
+					<h4 class="mb-4">Este repuesto es compatible con:</h4> 
 					@if($repuesto->compatibilidad->count()>0)
 						<div class="col-lg-6">
-						<table class="table">
+						<table class="table table-bordered table-hover">
 								<thead>
 									<tr>
 									<th scope="col">#</th>
@@ -163,7 +162,14 @@ $('.product_fav').click(function() {
 
 
 function confirmarComprar() {
+		stockRepuesto= {!! $repuesto->stock_repuesto !!} ;
+		if(stockRepuesto < $("#quantity_input").val() ){
+			alert("no existe stock para el repuesto, Cantidad maxima ="+stockRepuesto);
+		}
+		else{
 		window.location.href = '/venta/{{$repuesto->id_repuesto}}+'+$("#quantity_input").val();
+
+		}
 }
 </script>
 

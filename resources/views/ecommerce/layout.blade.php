@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" href="/ecommerce/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="/ecommerce/styles/bootstrap4/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/ecommerce/styles/bootstrap4/bootstrap.min.css.map">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/sc-1.5.0/datatables.min.css"/>
 
 @yield('css')
 
@@ -55,22 +56,21 @@
 										<a href="#">	{{ Auth::user()->email }}<i class="fas fa-chevron-down"></i></a>
 										
 										<ul>
-										 <li><a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+										 	<li><a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
 
-										<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-											@csrf
-										</form></li>
+											<form id="logout-form" action="{{ route('logout') }}" method="POST" >
+												@csrf
+											</form></li>
+
+											@if(Auth::user()->id_perfil ==2 && Auth::user()->id_perfil ==1)
 											<li><a href="/perfil">Mi Perfil<i class="fas fa-chevron-down"></i></a></li>
+											@endif
+
 											@if(Auth::user()->id_perfil ==3)
 												<li><a href="/admin">Administración<i class="fas fa-chevron-down"></i></a></li>
 											@endif
-
-										</ul>
-										
-
-										
-									</li>
-									
+										</ul>		
+									</li>	
 								</ul>
                        			 @endguest
 							</div>
@@ -377,7 +377,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="/ecommerce/plugins/Isotope/isotope.pkgd.min.js"></script>
 <script src="/ecommerce/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 <script src="/ecommerce/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
-
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/sc-1.5.0/datatables.min.js"></script>
 <script src="/ecommerce/plugins/parallax-js-master/parallax.min.js"></script>
 {{--<script src="/ecommerce/js/shop_custom.js"></script>
 <script src="/ecommerce/js/product_custom.js"></script>--}}
