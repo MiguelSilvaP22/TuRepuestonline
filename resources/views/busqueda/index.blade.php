@@ -62,38 +62,10 @@
                             </div>
                         
                             <div class="product_grid">
-                                <div class="product_grid_border"></div>
-                                
-                                @foreach($repuestos as $repuesto)
-                                    @if($repuesto->estado_repuesto==1)
-                                    <!-- Product Item -->
-                                    <div class="product_item is_new">
-                                        <div class="product_border"></div>
-                                        @if($repuesto->imagenrepuesto->count()>0)
-                                        <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="ecommerce/images/productos/{{$repuesto->imagenrepuesto->last()->ruta_imagenrepuesto}}" alt=""></div>
-                                        @endif
-                                        <div class="product_content">
-                                            <div class="product_price number">${{  number_format($repuesto->precio_repuesto,0) }}</div>
-                                            <div class="product_name"><div><a href="detallerepuesto/{{$repuesto->id_repuesto}}" tabindex="0">{{$repuesto->nombre_repuesto}}</a></div></div>
-                                        </div>
-                                        <ul class="product_marks">
-                                            <li class="product_mark product_discount">-25%</li>
-                                            <li class="product_mark product_new">new</li>
-                                        </ul>
-                                    </div>
-                                    @endif
-                                @endforeach
-                                
+                            
                         
                             </div>
                         
-                        
-                            <!-- Shop Page Navigation -->
-                        
-                            <div class="shop_page_nav d-flex flex-row">
-                                {{ $repuestos->links() }}
-
-                            </div>
                         
                         </div>
                     </div>
@@ -107,6 +79,9 @@
 @section('script-js')
 <script src="/ecommerce/js/shop_custom.js"></script>
 <script>
+
+   
+
     $.urlParam = function(name){
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
     if(results==null){
@@ -117,30 +92,30 @@
     }
 
 	$(document).ready(function() {
-<<<<<<< HEAD
 
         if(($.urlParam("nombre") !=null)){
              $.ajax({
             url: "/busquedaNombreRepuesto/"+$.urlParam("nombre"),
             type: "GET",
             success: function (datos) {
+                $(".shopContent").empty();
                 $(".shopContent").html(datos);
             }
              });
         }
         else{
-            $.ajax({
+
+             $.ajax({
             url: "/resultadoBusqueda/",
             type: "GET",
             success: function (datos) {
+                $(".shopContent").empty();
                 $(".shopContent").html(datos);
             }
-             });
+        });
+
         }
       
-=======
->>>>>>> c19513c73cc344c46851ab5059d7b715d8c2c526
-
     });
     $('#formBusqueda').change(function(e){
         e.preventDefault(e);
@@ -150,7 +125,6 @@
             data:$(this).serialize(),
             success: function(data){
                 $(".shopContent").empty();
-
                 $(".shopContent").html(data);
             },
             error: function(data){
@@ -192,6 +166,24 @@
     });
 
 
+  ////////// PAGINATION //////////////
+
+    $(document).on('click','.pagination a', function(e){
+            e.preventDefault();
+            var page = this.pathname+"?page="+$(this).attr('href').split('page=')[1];
+            getProducts(page);
+        });
+
+    function getProducts(page){
+        $.ajax({
+            url: page,
+            type: "GET",
+            success: function (datos) {
+                $(".shopContent").empty();
+                $(".shopContent").html(datos);
+            }
+             });
+    }
 
 </script>
 @stop

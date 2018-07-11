@@ -113,13 +113,9 @@ class RepuestoController extends Controller
         
         if(Auth::user())
         {
-            $repuestos = Repuesto::all()->where('id_usuario', '!=', Auth::user()->id_usuario)->where('estado_repuesto','1')->paginate(15);
+            $repuestos = Repuesto::where('id_usuario', '!=', Auth::user()->id_usuario)->where('estado_repuesto',1)->paginate(10);
         }else{
-<<<<<<< HEAD
-            $repuestos = Repuesto::paginate(15);
-=======
             $repuestos = Repuesto::where('estado_repuesto', 1)->paginate(10);
->>>>>>> c19513c73cc344c46851ab5059d7b715d8c2c526
         }
         $categoriasrepuestos = CategoriaRepuesto::all();
         return view('busqueda.index',compact('repuestos','categoriasrepuestos','marcas'));
@@ -129,9 +125,9 @@ class RepuestoController extends Controller
 
         if(Auth::user())
         {
-            $repuestos = Repuesto::all()->where('id_usuario', '!=', Auth::user()->id_usuario)->where('estado_repuesto',1);
+            $repuestos = Repuesto::where('id_usuario', '!=', Auth::user()->id_usuario)->where('estado_repuesto',1)->paginate(10);
         }else{
-            $repuestos = Repuesto::all()->where('estado_repuesto',1);
+            $repuestos = Repuesto::where('estado_repuesto',1)->paginate(10);
         }
         $categoriasrepuestos = CategoriaRepuesto::all();
         return view('busqueda.resultado',compact('repuestos','categoriasrepuestos'));
@@ -139,7 +135,7 @@ class RepuestoController extends Controller
 
     
     public function busquedaNombreRepuesto($nombre){
-        $repuestos = Repuesto::where('estado_repuesto',1)->Where('nombre_repuesto','like','%'.$nombre.'%')->get();
+        $repuestos = Repuesto::where('estado_repuesto',1)->Where('nombre_repuesto','like','%'.$nombre.'%')->paginate(10);
         \Debugbar::info($repuestos);
         return view('busqueda.resultado',compact('repuestos'));   
     }
@@ -149,7 +145,7 @@ class RepuestoController extends Controller
         $repuestos = Repuesto::all()->where('id_categoriarepuesto', $input["id_categoria"][0]);
         $final = $repuestos->merge(Repuesto::all()->where('id_categoriarepuesto', $input["id_categoria"][1]));
         \Debugbar::info($final);*/
-        $repuestos = Repuesto::all()->whereIn('id_categoriarepuesto', $input["id_categoria"])->where('estado_repuesto',1);
+        $repuestos = Repuesto::whereIn('id_categoriarepuesto', $input["id_categoria"])->where('estado_repuesto',1)->paginate(10);
         return view('busqueda.resultado',compact('repuestos','categoriasrepuestos'));   
     }
 

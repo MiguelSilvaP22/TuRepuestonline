@@ -40,30 +40,18 @@
                     @endif
                 @endforeach
             </div>
-        
-
     </div>
 
-
-    <!-- Shop Page Navigation -->
-
+</div>
+<div class="shop_page_nav d-flex flex-row">
+        {{ $repuestos->links() }}
 
 </div>
-<script>
-    $('#pagination-demo').twbsPagination({
-        totalPages: 35,
-        visiblePages: 7,
-        onPageClick: function (event, page) {
-            $('#page-content').text('Page ' + page);
-        }
-    });
-</script>
+
 
 <script src="/ecommerce/js/shop_custom.js"></script>
 
 @section('script-js')
 
-<script>
 
-</script>
 @stop
