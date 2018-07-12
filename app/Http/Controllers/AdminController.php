@@ -6,8 +6,9 @@ use DB;
 use Carbon\Carbon;
 use App\Usuario;
 use App\User;
-use App\CompraMembresia;
 use App\Venta;
+
+use App\CompraMembresia;
 use App\Membresia;
 use Illuminate\Support\Facades\Auth;
 
@@ -79,6 +80,10 @@ class AdminController extends Controller
       
         $now = new \DateTime();
 
+        $usuarios = User::All()->where('estado_usuario', 1);
+        $repuestos = Repuesto::All()->where('estado_repuesto',1);
+        $ventas = Venta::All();
+
         $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',2)->count();
         $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',3)->count();
         $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',4)->count();
@@ -86,7 +91,7 @@ class AdminController extends Controller
         $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',6)->count();
         $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',7)->count();
         
-        $pdf = \PDF::loadView('perfil.reporte', compact('now')); 
+        $pdf = \PDF::loadView('perfil.reporte', compact('now', 'usuarios', 'repuestos', 'ventas')); 
         return $pdf->download('ReporteEmpresa.pdf');  
     }
 }
