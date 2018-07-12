@@ -71,4 +71,22 @@ class AdminController extends Controller
             return redirect('/login');
         }
     }
+
+
+    public function downloadReporte()
+    {
+        
+      
+        $now = new \DateTime();
+
+        $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',2)->count();
+        $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',3)->count();
+        $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',4)->count();
+        $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',5)->count();
+        $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',6)->count();
+        $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',7)->count();
+        
+        $pdf = \PDF::loadView('perfil.reporte', compact('now')); 
+        return $pdf->download('ReporteEmpresa.pdf');  
+    }
 }
