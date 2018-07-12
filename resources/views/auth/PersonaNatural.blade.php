@@ -33,6 +33,6 @@
         <label for="nombres-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Telefono') }}</label>
 
         <div class="col-md-6">
-            <input id="fono" type="number" class="form-control" name="fono" required>
+            <input id="fono" type="number" class="form-control" name="fono"  nim="10000000" max="100000000" required>
         </div>
     </div>

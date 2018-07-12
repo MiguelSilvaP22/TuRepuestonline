@@ -32,10 +32,6 @@
                             <div class="product_price number">${{  number_format($repuesto->precio_repuesto,0) }}</div>
                             <div class="product_name"><div><a href="detallerepuesto/{{$repuesto->id_repuesto}}" tabindex="0">{{$repuesto->nombre_repuesto}}</a></div></div>
                         </div>
-                        <ul class="product_marks">
-                            <li class="product_mark product_discount">-25%</li>
-                            <li class="product_mark product_new">new</li>
-                        </ul>
                     </div>
                     @endif
                 @endforeach

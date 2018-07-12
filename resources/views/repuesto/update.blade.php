@@ -26,7 +26,7 @@
 						!!}
 					</div>
 					<div class='form-group'>
-						{!! Form::label('', 'Categoria Repuesto:') !!} {!! Form::select('id_categoriarepuesto', $categoriasrepuestos,$repuesto->id_categoriarepuesto
+						{!! Form::label('', 'Categoría Repuesto:') !!} {!! Form::select('id_categoriarepuesto', $categoriasrepuestos,$repuesto->id_categoriarepuesto
 						,['class'=> 'form-control','placeholder'=>'Seleccione una area','id'=>'id_categoriarepuesto']) !!}
 					</div>
 					<div class='form-group'>
@@ -43,7 +43,7 @@
 						=> 'form-control','id'=>'descripcion_repuesto','maxlength'=>'999']) !!}
 					</div>
 					<div class='form-group'>
-						{!! Form::label('', 'Imagenes:') !!}
+						{!! Form::label('', 'Imágenes:') !!}
 					</div>
 					@foreach($repuesto->imagenrepuesto as $imagen)
 					<div class='form-group'>
@@ -85,7 +85,7 @@
 
 
 					<div class='form-group'>
-						{!! Form::submit("Agregar Area", ['class' => 'form-control btn btn-success text-white']) !!}
+						{!! Form::submit("Editar Repuesto", ['class' => 'form-control btn btn-success text-white']) !!}
 					</div>
 					{!! Form::close() !!}
 					<div class='form-group'>

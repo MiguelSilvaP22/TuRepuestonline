@@ -13,14 +13,14 @@
 					<div class="shop_sidebar">
 						<div class="sidebar_section">
                             <form id="formBusqueda2">
-                                <div class="sidebar_title">Busqueda repuesto</div>
+                                <div class="sidebar_title">Búsqueda repuesto</div>
                                 {!! Form::select('id_marca', $marcas,null ,['class' => 'form-control mt-3','placeholder'=>'Seleccione una Marca de Vehiculo','id'=>'selectMarcas', 'style'=>'width:100%']) !!}         
                             </form>
 						</div>
 
                         <form id="formBusqueda">
                             <div class="sidebar_section">
-                                <div class="sidebar_subtitle brands_subtitle">Categorias</div>
+                                <div class="sidebar_subtitle brands_subtitle">Categorías</div>
                                 @foreach($categoriasrepuestos as $categoria)
                                 <div class='form-group'>
                                   {!! Form::checkbox('id_categoria[]', $categoria->id_categoriarepuesto, false, ['class' => 'form-check-input','id'=>'$categoria->id_categoria']) !!}
