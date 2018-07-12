@@ -53,50 +53,80 @@ Hora: {{$now->format('H:i:s')}}
 <h3 class="titulo">Reporte de TuRepuestonline</h3>
 
 <div class="tablaColaborador">
-<h4 class="subtitulo">Informacion Personal Colaborador</h4>
+<h4 class="subtitulo">Informacion general</h4>
 
 <table class="table table-bordered"> 
     <tr>
-    <td class="active">RUN</td>
-    <td>{{ $colaborador->run_usuario }}</td>
+        <td>Cantidad de Usuarios activos</td>
+        <td>{{$usuarios->count()}}</td>
     </tr>
-
     <tr>
-    <td class="active">Nombre</td>
-    <td>{{ $colaborador->nombre_usuario }}</td>
+            <td>Usuarios personas naturales</td>
+            <td>{{$usuarios->where('id_perfil', '1')->count()}}</td>
+    </tr>
+    <tr>
+        <td>Usuarios Empresas</td>
+        <td>{{$usuarios->where('id_perfil', '2')->count()}}</td>
+    </tr>
+    <tr>
+        <td>Cantidad de Repuestos activos</td>
+        <td>{{$repuestos->count()}}</td>
+    </tr>
+    <tr>
+        <td>Cantidad de ventas totales</td>
+        <td>{{$ventas->count()}}</td>
     </tr>
     
-
-    <tr>
-        <td class="active">Apellidos</td>
-        <td>{{ $colaborador->apellidopat_usuario }}  {{ $colaborador->apellidomat_usuario }}</td>
-    </tr>
-
-    <tr>
-        <td class="active">Empresa</td>
-        <td>{{ $colaborador->perfilOcupacional->area->gerencia->empresa->nombre_empresa }}</td>
-    </tr>
-
-    <tr>
-        <td class="active">Gerencia</td>
-        <td>{{  $colaborador->perfilOcupacional->area->gerencia->nombre_gerencia }}</td>
-    </tr>
-
-    <tr>
-        <td class="active">Area</td>
-        <td>{{$colaborador->perfilOcupacional->area->nombre_area }}</td>
-    </tr>
-
-    <tr>
-        <td class="active">Perfil Ocupacional</td>
-        <td>{{$colaborador->perfilOcupacional->nombre_perfilocu }}</td>
-    </tr>
 </table>
+
 
 <br>
 
-
 </div>
+
+<div class="tablaCompetencias">
+    <h4 class="subtitulo">Información de ventas</h4>
+                <table class="table table-bordered" >        
+                    <tr>
+                        <td class="active">Tipo Membresia</td>
+                        <td class="active" style="text-align:center">Cantidad de ventas</td>
+                        <td class="active" style="text-align:center">Estado</td>
+    
+                    </tr>
+                    
+                    @foreach($ventasMembresias as $key => $ventas)
+                        <tr >
+                            <td> 
+                            {{$nombremembre[$key]}}
+                
+                            </td>
+                            <td  style="text-align:center">
+                            {{ $ventas }}
+                            </td>
+                            <td style="text-align:center">
+                                @if($ventas > 100)
+                                <div style="background-color:#90EE90; text-align:center">
+                                Alto
+                                <div>
+                                @endif
+    
+                                    @if($ventas <= 10 && $ventas> 100)
+                                <div style="background-color: 	#FFD700; text-align:center">
+                                Medio
+                                <div>
+                                @endif
+    
+                                    @if($ventas <= 10)
+                                <div style="background-color:	#F08080; text-align:center">
+                                Bajo
+                                <div>
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+    </div>
+    </div>
 
 <script>
 

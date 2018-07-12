@@ -88,6 +88,7 @@
 
                     </div>
                     
+                    <td><button class="btn btn-success" onclick="location.href='/reporte';"> Generar Reporte</button></td>
 
             </div>
 
