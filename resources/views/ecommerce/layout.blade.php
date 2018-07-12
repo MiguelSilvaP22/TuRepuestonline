@@ -62,7 +62,7 @@
 												@csrf
 											</form></li>
 
-											@if(Auth::user()->id_perfil ==2 && Auth::user()->id_perfil ==1)
+											@if(Auth::user()->id_perfil == 2 || Auth::user()->id_perfil == 1)
 											<li><a href="/perfil">Mi Perfil<i class="fas fa-chevron-down"></i></a></li>
 											@endif
 

@@ -90,7 +90,10 @@
                                     <ul class="card-text mt-2">Teléfono: {{ $usuario->personanatural->last()->fono_personanatural }}</ul>
                                     <ul class="card-text mt-2">Correo Electronico: {{ $usuario->email }}</ul>
                                     <ul class="card-text mt-2">Membresia: {{ $usuario->membresia->nombre_membresia }}</ul>
-                                    <ul class="card-text mt-2">Membresia expira en: {{ $expiracionMembresia->format('%m') }} Meses y {{ $expiracionMembresia->format('%d') }} dias </ul>
+                                    @if($usuario->membresia->id_membresia != 1)
+                                        <ul class="card-text mt-2">Membresia expira en: {{ $expiracionMembresia->format('%m') }} Meses y {{ $expiracionMembresia->format('%d') }} dias </ul>
+                                    @endif
+
                                     <ul class="card-text mt-2">promedio nota ventas: 
                                         @if(count($evaluacionVendedor)>0)
                                         {{round(array_sum($evaluacionVendedor)/count($evaluacionVendedor), 1)}}
@@ -134,7 +137,8 @@
                                             <div class="row mt-3">
                                                 <div class="col-md-11">
                 
-                                                    <p>para comprar la membresia porfavor realice un deposito en bla bla bla nla </p>
+                                                    <p>Para realizar la compra de una membresía, por favor seleccione la de su preferencia, y deposite el valor indicado, a la cuenta que se visualiza a continuación. Una vez verificado el pago, su membresía se actualizará automáticamente. </p>
+                                                    <br>
                                                     <p>Numero de cuenta: 558445</p>
                                                     <p>Banco: Chile</p>
                                                     <p>Tipo de cuenta: Cuenta Corriente</p>
@@ -163,7 +167,9 @@
                                     <ul class="card-text mt-2">Teléfono: {{ $usuario->empresa->last()->fono_empresa }}</ul>
                                     <ul class="card-text mt-2">Correo Electronico: {{ $usuario->email }}</ul>
                                     <ul class="card-text mt-2">Membresia: {{ $usuario->membresia->nombre_membresia }}</ul>
-                                    <ul class="card-text mt-2">Membresia expira en: {{ $expiracionMembresia->format('%m') }} Meses y {{ $expiracionMembresia->format('%d') }} dias </ul>
+                                    @if($usuario->membresia->id_membresia != 1)
+                                        <ul class="card-text mt-2">Membresia expira en: {{ $expiracionMembresia->format('%m') }} Meses y {{ $expiracionMembresia->format('%d') }} dias </ul>
+                                    @endif
                                     <ul class="card-text mt-2">promedio nota ventas: 
                                         @if(count($evaluacionVendedor)>0)
                                         {{round(array_sum($evaluacionVendedor)/count($evaluacionVendedorr), 1)}}
@@ -207,7 +213,8 @@
                                             <div class="row mt-3">
                                                 <div class="col-md-11">
                 
-                                                <p>para comprar la membresia porfavor realice un deposito en bla bla bla nla </p>
+                                                <p>Para realizar la compra de una membresía, por favor seleccione la de su preferencia, y deposite el valor indicado, a la cuenta que se visualiza a continuación. Una vez verificado el pago, su membresía se actualizará automáticamente.a </p>
+                                                    <br>
                                                 <p>Numero de cuenta: 558445</p>
                                                 <p>Banco: Chile</p>
                                                 <p>Tipo de cuenta: Cuenta Corriente</p>
