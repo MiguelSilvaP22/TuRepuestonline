@@ -90,8 +90,8 @@ class AdminController extends Controller
         $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',5)->count();
         $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',6)->count();
         $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',7)->count();
-        
-        $pdf = \PDF::loadView('perfil.reporte', compact('now', 'usuarios', 'repuestos', 'ventas')); 
+        $nombremembre = ['plata','oro', 'diamante', 'Básico', 'Top', 'Vip'];
+        $pdf = \PDF::loadView('perfil.reporte', compact('now', 'usuarios', 'repuestos', 'ventas', 'ventasMembresias','nombremembre')); 
         return $pdf->download('ReporteEmpresa.pdf');  
     }
 }

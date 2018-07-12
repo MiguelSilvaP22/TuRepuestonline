@@ -79,10 +79,54 @@ Hora: {{$now->format('H:i:s')}}
     
 </table>
 
+
 <br>
 
-
 </div>
+
+<div class="tablaCompetencias">
+    <h4 class="subtitulo">Información de ventas</h4>
+                <table class="table table-bordered" >        
+                    <tr>
+                        <td class="active">Tipo Membresia</td>
+                        <td class="active" style="text-align:center">Cantidad de ventas</td>
+                        <td class="active" style="text-align:center">Estado</td>
+    
+                    </tr>
+                    
+                    @foreach($ventasMembresias as $key => $ventas)
+                        <tr >
+                            <td> 
+                            {{$nombremembre[$key]}}
+                
+                            </td>
+                            <td  style="text-align:center">
+                            {{ $ventas }}
+                            </td>
+                            <td style="text-align:center">
+                                @if($ventas > 100)
+                                <div style="background-color:#90EE90; text-align:center">
+                                Alto
+                                <div>
+                                @endif
+    
+                                    @if($ventas <= 10 && $ventas> 100)
+                                <div style="background-color: 	#FFD700; text-align:center">
+                                Medio
+                                <div>
+                                @endif
+    
+                                    @if($ventas <= 10)
+                                <div style="background-color:	#F08080; text-align:center">
+                                Bajo
+                                <div>
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+    </div>
+    </div>
 
 <script>
 
