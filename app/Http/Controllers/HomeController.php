@@ -39,7 +39,6 @@ class HomeController extends Controller
         ->where('usuario.id_membresia', '=', 4)
         ->get()
         ->random(2);
-        \Debugbar::info($repuestosSuper);
 
         $repuestosOro = DB::table('repuesto')
         ->where('repuesto.estado_repuesto', '=', 1)
@@ -65,8 +64,6 @@ class HomeController extends Controller
         ->get()
         ->take(15);
 
-
-        \Debugbar::info($repuestosNuevos);
 
 
         return view('welcome', compact('repuestosSuper','repuestosOro','repuestosNuevos'));

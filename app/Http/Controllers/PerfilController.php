@@ -98,7 +98,6 @@ class PerfilController extends Controller
 
     public function favoritos(){
         $favoritos = Auth::user()->favoritos->where('estado_favorito', 1);
-        \Debugbar::info($favoritos);
         return view('perfil.favoritos', compact('favoritos'));
 
     }
@@ -120,7 +119,6 @@ class PerfilController extends Controller
     public function blog($id){
        
         $empresa = User::find($id)->empresa->last();
-        \Debugbar::info($empresa);
         return view('perfil.blog', compact('empresa'));
 
     }

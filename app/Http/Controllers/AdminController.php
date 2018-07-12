@@ -63,7 +63,6 @@ class AdminController extends Controller
                                     ->count();
                 
                 unset($membresias[0]);
-                \Debugbar::info($catidadRepuestos);
                 return view('perfil.admin', compact('usuarios', 'repuestos','membresias', 'ventasMembresias', 'cantidadUsuarios','catidadRepuestos'));
             }
         }

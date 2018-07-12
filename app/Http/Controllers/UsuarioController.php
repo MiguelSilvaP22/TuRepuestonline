@@ -15,7 +15,6 @@ class UsuarioController extends Controller
         if(Auth::user()){
             if(Auth::user()->id_perfil==3 || Auth::user()->id_usuario ==$id ){
                 $usuario = User::find($id);
-                \Debugbar::info($usuario->empresa);
                 return view('auth.update',compact('usuario'));    
             }
             else{

@@ -44,7 +44,6 @@ class RepuestoController extends Controller
                 $marcas = Marca::All()->sortBy('nombre_marca')->pluck('nombre_marca','id_marca');
                 $marcas = Marca::All()->sortBy('nombre_marca')->pluck('nombre_marca','id_marca');
 
-                \Debugbar::info($repuesto);
                 $categoriasrepuestos = CategoriaRepuesto::All()->sortBy('nombre_categoriarepuesto')->pluck('nombre_categoriarepuesto','id_categoriarepuesto');
                 return view('repuesto.update',compact('repuesto','categoriasrepuestos', 'marcas'));    
             }
@@ -137,7 +136,6 @@ class RepuestoController extends Controller
     
     public function busquedaNombreRepuesto($nombre){
         $repuestos = Repuesto::where('estado_repuesto',1)->Where('nombre_repuesto','like','%'.$nombre.'%')->paginate(10);
-        \Debugbar::info($repuestos);
         return view('busqueda.resultado',compact('repuestos'));   
     }
     public function generarBusquedaCategoria(){
@@ -273,7 +271,6 @@ class RepuestoController extends Controller
 
     public function EditarFavorito($id){
         $favorito = Favorito::all()->where('id_repuesto', $id)->where('id_usuario', Auth::user()->id_usuario)->last();
-        \Debugbar::info(Auth::user()->id_usuario);
         if($favorito!=null)
         {
             if($favorito->estado_favorito==1)
