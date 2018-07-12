@@ -15,12 +15,8 @@
 
 <script>
     function validarForm(f){
-        rutFormato = $.rut.formatear($("#run").val());
-        rutFormatoE = $.rut.formatear($("#rut").val());
+        rutFormato = $.rut.formatear($("#rut").val());
         if($.rut.validar(rutFormato)){
-            return true;
-        }
-        else if($.rut.validar(rutFormatoE)){
             return true;
         }
         else{
