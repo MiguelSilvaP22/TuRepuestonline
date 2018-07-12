@@ -77,21 +77,27 @@ class AdminController extends Controller
     public function downloadReporte()
     {
         
-      
-        $now = new \DateTime();
+        if(Auth::user())
+        {
+            if(Auth::user()->id_perfil==3)
+            {
+                $now = new \DateTime();
 
-        $usuarios = User::All()->where('estado_usuario', 1);
-        $repuestos = Repuesto::All()->where('estado_repuesto',1);
-        $ventas = Venta::All();
+                $usuarios = User::All()->where('estado_usuario', 1);
+                $repuestos = Repuesto::All()->where('estado_repuesto',1);
+                $ventas = Venta::All();
 
-        $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',2)->count();
-        $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',3)->count();
-        $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',4)->count();
-        $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',5)->count();
-        $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',6)->count();
-        $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',7)->count();
-        $nombremembre = ['plata','oro', 'diamante', 'Básico', 'Top', 'Vip'];
-        $pdf = \PDF::loadView('perfil.reporte', compact('now', 'usuarios', 'repuestos', 'ventas', 'ventasMembresias','nombremembre')); 
-        return $pdf->download('ReporteEmpresa.pdf');  
+                $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',2)->count();
+                $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',3)->count();
+                $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',4)->count();
+                $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',5)->count();
+                $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',6)->count();
+                $ventasMembresias[] = CompraMembresia::All()->where('estado_compramembresia', '1')->where('id_membresia',7)->count();
+                $nombremembre = ['plata','oro', 'diamante', 'Básico', 'Top', 'Vip'];
+                $pdf = \PDF::loadView('perfil.reporte', compact('now', 'usuarios', 'repuestos', 'ventas', 'ventasMembresias','nombremembre')); 
+                return $pdf->download('ReporteEmpresa.pdf');
+            }     
+        }
+
     }
 }
