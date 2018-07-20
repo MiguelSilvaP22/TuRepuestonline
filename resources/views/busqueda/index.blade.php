@@ -103,6 +103,16 @@
             }
              });
         }
+        else if(($.urlParam("categoria") !=null)){
+             $.ajax({
+            url: "/busquedaCategoriaRepuesto/"+$.urlParam("categoria"),
+            type: "GET",
+            success: function (datos) {
+                $(".shopContent").empty();
+                $(".shopContent").html(datos);
+            }
+             });
+        }
         else{
 
              $.ajax({

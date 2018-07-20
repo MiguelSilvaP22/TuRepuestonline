@@ -23,6 +23,10 @@ Route::get('/busquedaNombreRepuesto/{id}', 'RepuestoController@busquedaNombreRep
 {
     return $id;
 });
+Route::get('/busquedaCategoriaRepuesto/{id}', 'RepuestoController@busquedaCategoriaRepuesto',function($id)
+{
+    return $id;
+});
 //Repuestos
 
 
@@ -148,3 +152,14 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/reporte', 'AdminController@downloadReporte');
+
+
+//CONTACTO//
+
+
+
+Route::resource('contacto', 'ContactoController');
+
+
+
+

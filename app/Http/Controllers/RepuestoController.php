@@ -138,6 +138,10 @@ class RepuestoController extends Controller
         $repuestos = Repuesto::where('estado_repuesto',1)->Where('nombre_repuesto','like','%'.$nombre.'%')->paginate(10);
         return view('busqueda.resultado',compact('repuestos'));   
     }
+    public function busquedaCategoriaRepuesto($id){
+        $repuestos = Repuesto::where('estado_repuesto',1)->Where('id_categoriarepuesto', $id)->paginate(10);
+        return view('busqueda.resultado',compact('repuestos'));   
+    }
     public function generarBusquedaCategoria(){
         $input = request()->all();
         /*\Debugbar::info($input["id_categoria"][0]);
@@ -316,6 +320,13 @@ class RepuestoController extends Controller
                 $evaluacion->estado_evaluacion= 1;
                 $evaluacion->save();
             }
+
+           /* \Mail::raw($request->mensje ."\r \r \r". "fono: ".$request->fono . "\r".$request->nombre, function($message)
+            {
+                $message->subject('Contacto');
+                $message->from(config('mail.from.address'), config("app.name"));
+                $message->to('Richardinacap.cf@gmail.com');
+            });*/
             return redirect('/perfil');
         }
         else{

@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" href="/ecommerce/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="/ecommerce/styles/bootstrap4/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/ecommerce/styles/bootstrap4/bootstrap.min.css.map">
+
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/sc-1.5.0/datatables.min.css"/>
 
 @yield('css')
@@ -175,7 +176,28 @@
 						
 						<div class="main_nav_content d-flex flex-row">
 
-							
+							<!-- Categories Menu -->
+
+							<div class="cat_menu_container">
+								<div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
+									<div class="cat_burger"><span></span><span></span><span></span></div>
+									<div class="cat_menu_text">Categorias </div>
+								</div>
+
+								<ul class="cat_menu">
+									<li><a href="busqueda?categoria=1">Neumáticos <i class="fas fa-chevron-right ml-auto"></i></a></li>
+									<li><a href="busqueda?categoria=2">Accesorios <i class="fas fa-chevron-right ml-auto"></i></a></li>
+									<li><a href="busqueda?categoria=3">Filtros <i class="fas fa-chevron-right ml-auto"></i></a></li>
+									<li><a href="busqueda?categoria=4">Motor <i class="fas fa-chevron-right ml-auto"></i></a></li>
+									<li><a href="busqueda?categoria=5">Rodamientos y Retenes <i class="fas fa-chevron-right ml-auto"></i></a></li>
+									<li><a href="busqueda?categoria=6">Kit de Afinamiento <i class="fas fa-chevron-right ml-auto"></i></a></li>
+									<li><a href="busqueda?categoria=7">Interior <i class="fas fa-chevron-right ml-auto"></i></a></li>
+									<li><a href="busqueda?categoria=8">Lubricantes <i class="fas fa-chevron-right ml-auto"></i></a></li>
+									<li><a href="busqueda?categoria=9">Carrocería <i class="fas fa-chevron-right ml-auto"></i></a></li>
+
+								</ul>
+							</div>
+
 
 							<!-- Main Nav Menu -->
 
@@ -380,16 +402,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="/ecommerce/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/sc-1.5.0/datatables.min.js"></script>
 <script src="/ecommerce/plugins/parallax-js-master/parallax.min.js"></script>
-{{--<script src="/ecommerce/js/shop_custom.js"></script>
-<script src="/ecommerce/js/product_custom.js"></script>--}}
+
 
 <script>
 	function formBusqueda(e){
 		busqueda=$(".header_search_input").val();
 		tipo = $("#selectBusqueda3").val();
-
-		$(location).attr('href','/busqueda?nombre='+busqueda);
-
+		setTimeout(function(){document.location.href = "/busqueda?nombre="+busqueda},500);
 		
 	}
 </script>
