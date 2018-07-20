@@ -22,7 +22,7 @@ class ContactoController extends Controller
         {
             $message->subject('Contacto');
             $message->from(config('mail.from.address'), config("app.name"));
-            $message->to('miguiixx@gmail.com');
+            $message->to('Richardinacap.cf@gmail.com');
         });
 
         return redirect('/');
