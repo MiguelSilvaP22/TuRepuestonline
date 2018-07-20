@@ -208,7 +208,7 @@
 									
 									
 									<li><a href="/busqueda">Busqueda<i class="fas fa-chevron-down"></i></a></li>
-									<li><a href="contact.html">Contacto<i class="fas fa-chevron-down"></i></a></li>
+									<li><a href="/contacto">Contacto<i class="fas fa-chevron-down"></i></a></li>
 								</ul>
 							</div>
 
