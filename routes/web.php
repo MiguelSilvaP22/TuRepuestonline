@@ -157,6 +157,7 @@ Route::get('/reporte', 'AdminController@downloadReporte');
 //CONTACTO//
 
 
+
 Route::resource('contacto', 'ContactoController');
 
 
