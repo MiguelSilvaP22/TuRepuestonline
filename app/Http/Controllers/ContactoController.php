@@ -8,7 +8,7 @@ class ContactoController extends Controller
 {
     public function index()
     {
-        return view('Contacto.Index');
+        return view('Contacto.index');
     }
         /**
      * Store a newly created resource in storage.
