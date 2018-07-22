@@ -41,6 +41,7 @@ class PerfilController extends Controller
                             ->join('usuario', 'venta.id_usuario', '=', 'usuario.id_usuario')
                             ->join('personanatural', 'personanatural.id_usuario', '=','usuario.id_usuario')
                             ->join('evaluacion', 'venta.id_venta', '=','evaluacion.id_venta')
+                            ->join('empresa', 'empresa.id_usuario', '=','usuario.id_usuario')
                             ->get();
 
             $ventasEmpresas = DB::table('venta')

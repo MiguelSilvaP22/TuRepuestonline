@@ -25,7 +25,7 @@
         <label for="nombres-confirm" class="col-md-4 col-form-label text-md-right">{{ __('RUN') }}</label>
 
         <div class="col-md-6">
-            <input id="rut" type="text" class="form-control" name="rut" required>
+            <input id="run_personanatural" type="text" class="form-control" name="run_personanatural" required>
         </div>
     </div>
 

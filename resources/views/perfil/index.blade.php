@@ -475,7 +475,12 @@
                                                 <td>{{ $venta->nombre_repuesto }}</td>
                                                 <td>{{ $venta->cantidad_venta }}</td>
                                                 <td>{{ $venta->precio_repuesto }}</td>
+                                              @if($venta->id_perfil ==1)  
                                                 <td>{{ $venta->nombres_personanatural }} <br>{{ $venta->apellidos_personanatural }}</td>
+                                               @endif
+                                               @if($venta->id_perfil ==2) 
+                                               <td>empresa</td> 
+
                                                 <td>{{ $venta->fecha_reg_venta }}</td>
                                                 @if($venta->estado_venta==1)
                                                 <td>Por confirmar</td>

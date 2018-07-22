@@ -54,6 +54,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|unique:usuario|max:255',
             'password' => 'required|string|min:6|confirmed',
+            'run_personanatural' => 'required|string|unique:personanatural|max:255',
         ]);
     }
 
@@ -80,7 +81,7 @@ class RegisterController extends Controller
             $personanatural->id_usuario = $user->id_usuario;
             $personanatural->nombres_personanatural = $data['name'];
             $personanatural->apellidos_personanatural = $data['apellidos'];
-            $personanatural->run_personanatural = $data['rut'];
+            $personanatural->run_personanatural = $data['run_personanatural'];
             $personanatural->fono_personanatural = $data['fono'];
             $personanatural->estado_personanatural = 1;
             $personanatural->save();
