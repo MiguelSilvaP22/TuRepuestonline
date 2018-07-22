@@ -172,7 +172,7 @@
                                     @endif
                                     <ul class="card-text mt-2">promedio nota ventas: 
                                         @if(count($evaluacionVendedor)>0)
-                                        {{round(array_sum($evaluacionVendedor)/count($evaluacionVendedorr), 1)}}
+                                             {{round(array_sum($evaluacionVendedor)/count($evaluacionVendedor), 1)}}
                                         @else
                                             No tiene ventas evaluadas.
                                         @endif
