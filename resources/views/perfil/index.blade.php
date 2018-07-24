@@ -91,17 +91,17 @@
                                     <ul class="card-text mt-2">Correo Electronico: {{ $usuario->email }}</ul>
                                     <ul class="card-text mt-2">Membresia: {{ $usuario->membresia->nombre_membresia }}</ul>
                                     @if($usuario->membresia->id_membresia != 1)
-                                        <ul class="card-text mt-2">Membresia expira en: {{ $expiracionMembresia->format('%m') }} Meses y {{ $expiracionMembresia->format('%d') }} dias </ul>
+                                        <ul class="card-text mt-2">Membresia expira en: {{ $expiracionMembresia->format('%m') }} Meses y {{ $expiracionMembresia->format('%d') }} días </ul>
                                     @endif
 
-                                    <ul class="card-text mt-2">promedio nota ventas: 
+                                    <ul class="card-text mt-2">Promedio nota ventas: 
                                         @if(count($evaluacionVendedor)>0)
                                         {{round(array_sum($evaluacionVendedor)/count($evaluacionVendedor), 1)}}
                                         @else
                                             No tiene ventas evaluadas.
                                         @endif
                                     </ul>
-                                    <ul class="card-text mt-2">promedio nota compras: 
+                                    <ul class="card-text mt-2">Promedio nota compras: 
                                         @if(count($evaluacionComprador)>0)
                                         {{round(array_sum($evaluacionComprador)/count($evaluacionComprador), 1)}}
                                         @else
@@ -109,8 +109,8 @@
                                         @endif
                                     </ul>
                                     <div class="botonesPerfil mt-3"></div>
-                                                                                    <button class="btn btn btn-warning" id="editUsuario"  onclick="location.href='editarUsuario/{{ $usuario->id_usuario }}';" value=""><i class="fa fa-edit"></i>Editar</button>
-<a href="#" class="btn btn-info" data-toggle="modal" data-target="#ModalMembresiaUsuarioNatural">Comprar Membresia</a>
+                                            <button class="btn btn btn-warning" id="editUsuario"  onclick="location.href='editarUsuario/{{ $usuario->id_usuario }}';" value=""><i class="fa fa-edit"></i>Editar</button>
+                                            <a href="#" class="btn btn-info" data-toggle="modal" data-target="#ModalMembresiaUsuarioNatural">Comprar Membresia</a>
                                     </div>
                 
                 
@@ -139,7 +139,7 @@
                 
                                                     <p>Para realizar la compra de una membresía, por favor seleccione la de su preferencia, y deposite el valor indicado, a la cuenta que se visualiza a continuación. Una vez verificado el pago, su membresía se actualizará automáticamente. </p>
                                                     <br>
-                                                    <p>Numero de cuenta: 558445</p>
+                                                    <p>Número de cuenta: 558445</p>
                                                     <p>Banco: Chile</p>
                                                     <p>Tipo de cuenta: Cuenta Corriente</p>
                 
@@ -165,19 +165,19 @@
                                     <ul class="card-text mt-2">Nombre: {{ $usuario->empresa->last()->nombre_empresa }}</ul>
                                     <ul class="card-text mt-2">Dirección: {{ $usuario->empresa->last()->direccion_empresa }}</ul>
                                     <ul class="card-text mt-2">Teléfono: {{ $usuario->empresa->last()->fono_empresa }}</ul>
-                                    <ul class="card-text mt-2">Correo Electronico: {{ $usuario->email }}</ul>
+                                    <ul class="card-text mt-2">Correo Electrónico: {{ $usuario->email }}</ul>
                                     <ul class="card-text mt-2">Membresia: {{ $usuario->membresia->nombre_membresia }}</ul>
                                     @if($usuario->membresia->id_membresia != 1)
-                                        <ul class="card-text mt-2">Membresia expira en: {{ $expiracionMembresia->format('%m') }} Meses y {{ $expiracionMembresia->format('%d') }} dias </ul>
+                                        <ul class="card-text mt-2">Membresia expira en: {{ $expiracionMembresia->format('%m') }} Meses y {{ $expiracionMembresia->format('%d') }} días  </ul>
                                     @endif
-                                    <ul class="card-text mt-2">promedio nota ventas: 
+                                    <ul class="card-text mt-2">Promedio nota ventas: 
                                         @if(count($evaluacionVendedor)>0)
                                              {{round(array_sum($evaluacionVendedor)/count($evaluacionVendedor), 1)}}
                                         @else
                                             No tiene ventas evaluadas.
                                         @endif
                                     </ul>
-                                    <ul class="card-text mt-2">promedio nota compras: 
+                                    <ul class="card-text mt-2">Promedio nota compras: 
                                         @if(count($evaluacionComprador)>0)
                                             {{round(array_sum($evaluacionComprador)/count($evaluacionComprador), 1)}}
                                         @else
@@ -186,8 +186,8 @@
                                     
                                     </ul>
                                     <div class="botonesPerfil mt-3"></div>
-                                        <a href="#" class="btn btn-info mr-3">Editar perfil</a>
-                                        <a href="#" class="btn btn-info " data-toggle="modal" data-target="#ModalMembresiaUsuarioNatural">Comprar Membresia</a>
+                                        <button class="btn btn btn-warning" id="editUsuario"  onclick="location.href='editarUsuario/{{ $usuario->id_usuario }}';" value=""><i class="fa fa-edit"></i>Editar</button>
+                                        <a href="#" class="btn btn-info " data-toggle="modal" data-target="#ModalMembresiaUsuarioNatural">Comprar de Membresía</a>
                                     </div>
                 
                                     <!-- Modal Compra Membresia  -->
@@ -195,7 +195,7 @@
                                         <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Comprar Membresia</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Comprar Membresía</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -227,7 +227,7 @@
                                             </div>
                                             <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                            <button type="button" class="btn btn-primary"  onclick="confirmarComprarEmpresa()">Comprar Membresia</button>
+                                            <button type="button" class="btn btn-primary"  onclick="confirmarComprarEmpresa()">Comprar Membresía</button>
                                             </div>
                                         </div>
                                         </div>
@@ -253,7 +253,7 @@
                                             <th>Categoría</th>
                                             <th>Precio</th>
                                             <th>Fecha de Registro</th>
-                                            <th>Duracion publicación</th>
+                                            <th>Duración publicación</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
@@ -266,7 +266,7 @@
                                             <td >{{ $repuesto->fecha_reg_repuesto}}</td>
                                             <td>
                                                 @if($now->diffInDays($repuesto->fecha_reg_repuesto->addDays($repuesto->usuario->membresia->dias_duracion_publidacion_membresia), false)>0)
-                                                 {{ $now->diffInDays($repuesto->fecha_reg_repuesto->addDays($repuesto->usuario->membresia->dias_duracion_publidacion_membresia), false) }} dias restantes.
+                                                 {{ $now->diffInDays($repuesto->fecha_reg_repuesto->addDays($repuesto->usuario->membresia->dias_duracion_publidacion_membresia), false) }} días restantes.
                                                  @else
                                                     <p>Publicacion Finalizada por tiempo.</p>
                                                  @endif
@@ -374,14 +374,14 @@
                                                                     <ul class="card-text mt-2">Nombre: {{ $compra->repuesto->usuario->empresa->last()->nombre_empresa }}</ul>
                                                                     <ul class="card-text mt-2">Dirección: {{ $compra->repuesto->usuario->empresa->last()->direccion_empresa }}</ul>
                                                                     <ul class="card-text mt-2">Teléfono: {{ $compra->repuesto->usuario->empresa->last()->fono_empresa }}</ul>
-                                                                    <ul class="card-text mt-2">Correo Electronico: {{ $compra->repuesto->usuario->email }}</ul>
+                                                                    <ul class="card-text mt-2">Correo Electrónico: {{ $compra->repuesto->usuario->email }}</ul>
                                                                     <ul class="card-text mt-2">  Pagina Web:<a href="{{ $compra->repuesto->usuario->empresa->last()->web_empresa }}"> {{ $compra->repuesto->usuario->empresa->last()->web_empresa }} </a></ul>
                                                                 @else 
                                                                     <ul class="card-text mt-4">RUT: {{  $compra->repuesto->usuario->personanatural->last()->run_personanatural }} </ul>
                                                                     <ul class="card-text mt-2">Nombre: {{ $compra->repuesto->usuario->personanatural->last()->nombres_personanatural }}</ul>
                                                                     <ul class="card-text mt-2">Apellido: {{  $compra->repuesto->usuario->personanatural->last()->apellidos_personanatural }}</ul>
                                                                     <ul class="card-text mt-2">Teléfono: {{  $compra->repuesto->usuario->personanatural->last()->fono_personanatural }}</ul>
-                                                                    <ul class="card-text mt-2">Correo Electronico: {{  $compra->repuesto->usuario->email }}</ul>
+                                                                    <ul class="card-text mt-2">Correo Electrónico: {{  $compra->repuesto->usuario->email }}</ul>
                                                                 @endif
                                                             </div>
                                                             <div class="modal-footer">

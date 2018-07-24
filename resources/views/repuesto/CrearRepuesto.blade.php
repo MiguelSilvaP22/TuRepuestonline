@@ -16,22 +16,32 @@
 	function validarForm(f){
 		
 
-		if($(".CompatibilidadRepuesto").length<=0)
+		/*if($(".CompatibilidadRepuesto").length<=0)
 		{
 			alert("Error, debe ingresar un tipo de compatibilidad para el repuesto");
 			return false;
 		}
-		else{
-			alert("OK"); return true;
+		else {
+			if($('#nombre_repuesto').value.match(/[/]/g)>0)
+			{
+				alert("EEOR NOMBRE ARCHIVO");
+				return false;
+			}
+			else{
+			alert("Repuesto Agregado Exitosamente."); return true;
 		}
-	return false;	
+		}*/
+
+		return false;	
+
+	console.log($('#nombre_repuesto').value.match(/[/]/g));
 	}
 </script>
 <div class="container mt-5 mb-5">
 	<div class="row justify-content-center">
 		<div class="col-md-8">
 			<div class="card">
-				<div class="card-header">Crear Repuesto</div>
+				<div class="card-header">Añadir Producto </div>
 
 				<div class="card-body">
 					{!! Form::open(['enctype'=>"multipart/form-data", 'action' => 'RepuestoController@store','id'=>'formRepuesto', 'files' =>
@@ -78,7 +88,7 @@
 					</div>
 						{!! Form::close() !!}
 					<div class='form-group'>
-						<div id="btnVolver" class="form-control btn btn-success text-white"> Volver </div>
+					<div id="btnVolver" class="form-control btn btn-success text-white" onclick="location.href='/perfil';"> Volver </div>
 					</div>
 				</div>
 			</div>
@@ -106,6 +116,10 @@
 					alert('El tipo de imagen no es compatible.');
 					this.value = '';
 			}
+		});
+
+		$('#nombre_repuesto').change(function () {
+			$(this).val($(this).val().replace(/[\\\/:*>"<>|]/g, ''));
 		});
 	});	
 

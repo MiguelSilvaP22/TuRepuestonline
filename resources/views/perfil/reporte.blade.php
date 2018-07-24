@@ -42,7 +42,7 @@ p{
 <img src="./ecommerce/images/logo.png" alt="">
 
 <p class="active"> Fecha: {{$now->format('d-m-Y')}} <br> 
-Hora: {{$now->format('H:i:s')}} 
+          <!--         Hora: {{$now->format('H:i:s')}}  -->
 </p>
 
 
@@ -53,7 +53,7 @@ Hora: {{$now->format('H:i:s')}}
 <h3 class="titulo">Reporte de TuRepuestonline</h3>
 
 <div class="tablaColaborador">
-<h4 class="subtitulo">Informacion general</h4>
+<h4 class="subtitulo">Información general</h4>
 
 <table class="table table-bordered"> 
     <tr>
@@ -88,7 +88,7 @@ Hora: {{$now->format('H:i:s')}}
     <h4 class="subtitulo">Información de ventas</h4>
                 <table class="table table-bordered" >        
                     <tr>
-                        <td class="active">Tipo Membresia</td>
+                        <td class="active">Tipo Membresía</td>
                         <td class="active" style="text-align:center">Cantidad de ventas</td>
                         <td class="active" style="text-align:center">Estado</td>
     

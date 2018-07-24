@@ -88,7 +88,14 @@
                         @if ($errors->has('run_personanatural'))    
                             
                         @endif
+                        @if ($errors->has('rut_empresa'))
+                        <div class="alert alert-danger" role="alert">
+                            El rut ingresado, ya se encuentra registrado.
+                        </div>
+                        @endif
+
                         <div class="form-group row mb-0">
+                        
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Guardar') }}

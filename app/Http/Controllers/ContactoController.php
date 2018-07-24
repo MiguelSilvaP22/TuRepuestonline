@@ -23,9 +23,13 @@ class ContactoController extends Controller
             $message->subject('Contacto');
             $message->from(config('mail.from.address'), config("app.name"));
             $message->to('Richardinacap.cf@gmail.com');
+        
         });
 
-        return redirect('/');
+        return redirect('/'); 
+    }
 
+    public function membresia(){
+        return view('membresia');
     }
 }

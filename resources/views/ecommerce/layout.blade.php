@@ -57,7 +57,7 @@
 										<a href="#">	{{ Auth::user()->email }}<i class="fas fa-chevron-down"></i></a>
 										
 										<ul>
-										 	<li><a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+										 	<li><a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Salir') }}</a>
 
 											<form id="logout-form" action="{{ route('logout') }}" method="POST" >
 												@csrf
@@ -185,15 +185,15 @@
 								</div>
 
 								<ul class="cat_menu">
-									<li><a href="busqueda?categoria=1">Neumáticos <i class="fas fa-chevron-right ml-auto"></i></a></li>
-									<li><a href="busqueda?categoria=2">Accesorios <i class="fas fa-chevron-right ml-auto"></i></a></li>
-									<li><a href="busqueda?categoria=3">Filtros <i class="fas fa-chevron-right ml-auto"></i></a></li>
-									<li><a href="busqueda?categoria=4">Motor <i class="fas fa-chevron-right ml-auto"></i></a></li>
-									<li><a href="busqueda?categoria=5">Rodamientos y Retenes <i class="fas fa-chevron-right ml-auto"></i></a></li>
-									<li><a href="busqueda?categoria=6">Kit de Afinamiento <i class="fas fa-chevron-right ml-auto"></i></a></li>
-									<li><a href="busqueda?categoria=7">Interior <i class="fas fa-chevron-right ml-auto"></i></a></li>
-									<li><a href="busqueda?categoria=8">Lubricantes <i class="fas fa-chevron-right ml-auto"></i></a></li>
-									<li><a href="busqueda?categoria=9">Carrocería <i class="fas fa-chevron-right ml-auto"></i></a></li>
+									<li><a href="/busqueda?categoria=1">Neumáticos <i class="fas fa-chevron-right ml-auto"></i></a></li>
+									<li><a href="/busqueda?categoria=2">Accesorios <i class="fas fa-chevron-right ml-auto"></i></a></li>
+									<li><a href="/busqueda?categoria=3">Filtros <i class="fas fa-chevron-right ml-auto"></i></a></li>
+									<li><a href="/busqueda?categoria=4">Motor <i class="fas fa-chevron-right ml-auto"></i></a></li>
+									<li><a href="/busqueda?categoria=5">Rodamientos y Retenes <i class="fas fa-chevron-right ml-auto"></i></a></li>
+									<li><a href="/busqueda?categoria=6">Kit de Afinamiento <i class="fas fa-chevron-right ml-auto"></i></a></li>
+									<li><a href="/busqueda?categoria=7">Interior <i class="fas fa-chevron-right ml-auto"></i></a></li>
+									<li><a href="/busqueda?categoria=8">Lubricantes <i class="fas fa-chevron-right ml-auto"></i></a></li>
+									<li><a href="/busqueda?categoria=9">Carrocería <i class="fas fa-chevron-right ml-auto"></i></a></li>
 
 								</ul>
 							</div>
@@ -207,8 +207,10 @@
 									
 									
 									
-									<li><a href="/busqueda">Busqueda<i class="fas fa-chevron-down"></i></a></li>
+									<li><a href="/busqueda">búsqueda<i class="fas fa-chevron-down"></i></a></li>
 									<li><a href="/contacto">Contacto<i class="fas fa-chevron-down"></i></a></li>
+									<li><a href="/membresias">Membresías<i class="fas fa-chevron-down"></i></a></li>
+
 								</ul>
 							</div>
 

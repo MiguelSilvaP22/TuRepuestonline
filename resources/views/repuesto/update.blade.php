@@ -89,7 +89,7 @@
 					</div>
 					{!! Form::close() !!}
 					<div class='form-group'>
-						<div id="btnVolver" class="form-control btn btn-success text-white"> Volver </div>
+						<div id="btnVolver" class="form-control btn btn-success text-white" onclick="location.href='/perfil';"> Volver </div>
 					</div>
 				</div>
 			</div>

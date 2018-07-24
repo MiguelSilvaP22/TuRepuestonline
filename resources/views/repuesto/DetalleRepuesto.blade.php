@@ -127,7 +127,7 @@
 				</div>
 				
 				<div class="col-md-5">
-					<h4 class="mb-4">Información del vendor</h4> 
+					<h4 class="mb-4">Información del Vendedor</h4> 
 
 					@if($repuesto->usuario->id_perfil==2)
 						<ul class="card-text mt-2">Nombre: {{ $repuesto->usuario->empresa->last()->nombre_empresa }}</ul>
@@ -137,7 +137,7 @@
 						<ul class="card-text mt-2">Nombre: {{ $repuesto->usuario->personanatural->last()->nombres_personanatural }}</ul>
 						<ul class="card-text mt-2">Apellido: {{  $repuesto->usuario->personanatural->last()->apellidos_personanatural }}</ul>
 					@endif
-			</div>
+				</div>
 
 			</div>
 		</div>

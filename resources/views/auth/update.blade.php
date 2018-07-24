@@ -32,18 +32,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Editar Usuario de nuevo Usuario') }}</div>
+                <div class="card-header">{{ __('Editar Perfil') }}</div>
 
                 <div class="card-body">
                 {!! Form::model($usuario, ['method' => 'PATCH', 'action' => ['UsuarioController@update',$usuario->id_usuario],'id'=>'formCompetencia', 'onsubmit'=>"return validarForm(this)"]) !!}
                         @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo Electronico') }}</label>
-                            <div class="col-md-6">
-                                    {!! Form::email('email', null, ['class' => 'form-control']) !!}
-                            </div>
-                        </div>
 
                         @if($usuario->id_perfil==1)
                         
@@ -68,7 +61,7 @@
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Fono') }}</label>
                             <div class="col-md-6">
-                                    {!! Form::number('fono', $usuario->personanatural->last()->fono_personanatural, ['class' => 'form-control',  'required', 'min'=>'1000000', 'max'=>'1000000000']) !!}
+                                    {!! Form::number('fono', $usuario->personanatural->last()->fono_personanatural, ['class' => 'form-control',  'required', 'min'=>'100000000', 'max'=>'1000000000']) !!}
                             </div>
                         </div>
                         @endif
@@ -89,7 +82,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('RUT') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('RUT Empresa') }}</label>
                             <div class="col-md-6">
                                     {!! Form::text('rut', $usuario->empresa->last()->rut_empresa, ['class' => 'form-control']) !!}
                             </div>
@@ -98,7 +91,7 @@
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Telefono') }}</label>
                             <div class="col-md-6">
-                                    {!! Form::text('fono', $usuario->empresa->last()->fono_empresa, ['class' => 'form-control', 'min'=>'1000000', 'max'=>'100000000']) !!}
+                                    {!! Form::text('fono', $usuario->empresa->last()->fono_empresa, ['class' => 'form-control', 'min'=>'100000000', 'max'=>'100000000']) !!}
                             </div>
                         </div>
 
@@ -111,15 +104,12 @@
 
                         @endif
 
-
-                    
-                        <div class='form-group'>
+                <div class='form-group'>
                             </div>
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                            {!! Form::submit("Editar Competencia", ['class' => 'form-control btn btn-primary ']) !!}
-                                    
+                                            {!! Form::submit("Editar Perfil", ['class' => 'form-control btn btn-primary ']) !!}
                                 </div>
                             </div>
                     {!! Form::close() !!}

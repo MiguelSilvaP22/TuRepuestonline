@@ -50,12 +50,26 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|unique:usuario|max:255',
-            'password' => 'required|string|min:6|confirmed',
-            'run_personanatural' => 'required|string|unique:personanatural|max:255',
-        ]);
+        if( $data['tipoUsuario']==1)
+        {
+            return Validator::make($data, [
+                'name' => 'required|string|max:255',
+                'email' => 'required|string|unique:usuario|max:255',
+                'password' => 'required|string|min:6|confirmed',
+                'run_personanatural' => 'required|string|unique:personanatural|max:255',
+            ]);
+        }
+
+        if( $data['tipoUsuario']==2)
+        {
+            return Validator::make($data, [
+                'name' => 'required|string|max:255',
+                'email' => 'required|string|unique:usuario|max:255',
+                'password' => 'required|string|min:6|confirmed',
+                'rut_empresa' => 'required|string|unique:empresa|max:255',
+            ]);
+        }
+        
     }
 
     /**
@@ -93,7 +107,7 @@ class RegisterController extends Controller
             $empresa->id_usuario = $user->id_usuario;
             $empresa->nombre_empresa = $data['name'];
             $empresa->direccion_empresa = $data['direccion'];
-            $empresa->rut_empresa = $data['rut'];
+            $empresa->rut_empresa = $data['rut_empresa'];
             $empresa->fono_empresa = $data['fono'];
             $empresa->web_empresa = $data['web'];
             $empresa->estado_empresa = 1;

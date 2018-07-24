@@ -96,7 +96,7 @@
                 <div class="card card-body">
                     <div class="card">
                         <div class="card-header">
-                            Administración de membresias
+                            Administración de membresías
                         </div>
 
                         <div class="card-body">
@@ -105,7 +105,7 @@
                                     <tr>
                                         <th>Nombre Usuario</th>
                                         <th>Fecha de compra</th>
-                                        <th>Membresia</th>
+                                        <th>membresía</th>
                                         <th>Valor</th>
                                         <th>estado</th>
                                         <th>Acciones</th>
@@ -151,7 +151,7 @@
                                     <tr>
                                         <th>Email</th>
                                         <th>Perfil</th>
-                                        <th>Membresia</th>
+                                        <th>Membresía</th>
                                         <th>Repuestos</th>
                                         <th>Acciones</th>
                                     </tr>
@@ -178,7 +178,7 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        ¿Esta seguro que desea eliminar al usuario: {{ $usuario->email}} ?
+                                                        ¿Està seguro que desea eliminar al usuario: {{ $usuario->email}} ?
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -238,7 +238,7 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    ¿Esta seguro que desea eliminar el Repuesto: {{ $repuesto->nombre_repuesto }} ?
+                                                                    ¿Està seguro que desea eliminar el Repuesto: {{ $repuesto->nombre_repuesto }} ?
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -301,7 +301,7 @@ var myChart = new Chart(ctx, {
             @endforeach
         ],
         datasets: [{
-            label: '# Cantidad de ventas de membresias',
+            label: '# Cantidad de ventas de membresías',
             data: [
                 @foreach($ventasMembresias as $ventaMembresia)
                 {!! $ventaMembresia !!},
