@@ -15,7 +15,8 @@
 <br><br>
 <div class="row justify-content-center">
  <div class="col-md-8">
- 	<h1>Membresias</h1>
+ 	<h1> 
+Membresías</h1>
  </div>
 </div>
 
