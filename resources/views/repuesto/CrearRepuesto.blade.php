@@ -24,7 +24,7 @@
 
 		else{
 		alert("Repuesto Agregado Exitosamente."); return true;
-	}
+		}
 
 		return false;	
 

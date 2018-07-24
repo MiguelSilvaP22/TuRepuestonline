@@ -86,7 +86,9 @@
                         </div>
                         <div id="PersonaNatural"></div>
                         @if ($errors->has('run_personanatural'))    
-                            
+                        <div class="alert alert-danger" role="alert">
+                            El rut ingresado, ya se encuentra registrado.
+                        </div>
                         @endif
                         @if ($errors->has('rut_empresa'))
                         <div class="alert alert-danger" role="alert">

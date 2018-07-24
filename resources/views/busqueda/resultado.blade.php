@@ -2,16 +2,6 @@
     <div class="shop_bar clearfix">
         <div class="shop_product_count"><span>{{$repuestos->count()}}</span> Repuestos Encontrados</div>
         <div class="shop_sorting">
-            <span>Ordenar por:</span>
-            <ul>
-                <li>
-                    <span class="sorting_text">Nombre<i class="fas fa-chevron-down"></span></i>
-                    <ul>
-                        <li class="shop_sorting_button" data-isotope-option='{ "sortBy": "original-order" }'>Nombre</li>
-                        <li class="shop_sorting_button" data-isotope-option='{ "sortBy": "product_name" }'>Precio</li>
-                    </ul>
-                </li>
-            </ul>
         </div>
     </div>
 

@@ -207,7 +207,7 @@
 									
 									
 									
-									<li><a href="/busqueda">búsqueda<i class="fas fa-chevron-down"></i></a></li>
+									<li><a href="/busqueda">Búsqueda<i class="fas fa-chevron-down"></i></a></li>
 									<li><a href="/contacto">Contacto<i class="fas fa-chevron-down"></i></a></li>
 									<li><a href="/membresias">Membresías<i class="fas fa-chevron-down"></i></a></li>
 
@@ -303,8 +303,8 @@
 						
 						<div class="footer_phone">+56 9 5678 6578</div>
 						<div class="footer_contact_text">
-							<p>Calle Falsa 666</p>
-							<p>Santiago, CL</p>
+							<p>Avenida Sucre 2680, Ñuñoa</p>
+							<p>Región Metropolitana, CL</p>
 						</div>
 						<div class="footer_social">
 							<ul>
