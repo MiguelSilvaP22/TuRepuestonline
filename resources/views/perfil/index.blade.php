@@ -395,7 +395,7 @@
         
                                             <td>
                                                 @if($compra->estado_venta==2 && $compra->nota_vendedor_evaluacion==0)
-                                                <td> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">Evaluar Comprador</button></td>
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">Evaluar Comprador</button>
         
                                                 <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
@@ -527,7 +527,7 @@
         
                                                     @endif 
                                                     @if($venta->estado_venta==2 && $venta->nota_comprador_evaluacion==0)
-                                                    <td> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">Evaluar Comprador</button>
+                                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">Evaluar Comprador</button>
         
                                                     <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
