@@ -16,21 +16,15 @@
 	function validarForm(f){
 		
 
-		/*if($(".CompatibilidadRepuesto").length<=0)
+	*if($(".CompatibilidadRepuesto").length<=0)
 		{
 			alert("Error, debe ingresar un tipo de compatibilidad para el repuesto");
 			return false;
 		}
-		else {
-			if($('#nombre_repuesto').value.match(/[/]/g)>0)
-			{
-				alert("EEOR NOMBRE ARCHIVO");
-				return false;
-			}
-			else{
-			alert("Repuesto Agregado Exitosamente."); return true;
-		}
-		}*/
+
+		else{
+		alert("Repuesto Agregado Exitosamente."); return true;
+	}
 
 		return false;	
 
