@@ -567,7 +567,40 @@
                                                     </div>
                                                     @endif
         
-                                                
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalInfoVendedor{{ $venta->id_venta }}">
+                                                        Info Comprador
+                                                    </button>         
+                                                <div class="modal fade" id="modalInfoVendedor{{ $venta->id_venta }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                              <h5 class="modal-title" id="exampleModalLongTitle">Informacion Vendedor</h5>
+                                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                              </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                @if($venta->id_perfil==2)
+                                                                    <ul class="card-text mt-4">RUT: {{ $venta->rut_empresa }}</ul>
+                                                                    <ul class="card-text mt-2">Nombre: {{ $venta->nombre_empresa }}</ul>
+                                                                    <ul class="card-text mt-2">Dirección: {{ $venta->direccion_empresa }}</ul>
+                                                                    <ul class="card-text mt-2">Teléfono: {{ $venta->fono_empresa }}</ul>
+                                                                    <ul class="card-text mt-2">Correo Electrónico: {{ $venta->email }}</ul>
+                                                                    <ul class="card-text mt-2"> Pagina Web:<a href="{{ $compra->repuesto->usuario->empresa->last()->web_empresa }}"> {{ $compra->repuesto->usuario->empresa->last()->web_empresa }} </a></ul>
+                                                                @else 
+                                                                    <ul class="card-text mt-4">RUT: {{  $venta->run_personanatural }} </ul>
+                                                                    <ul class="card-text mt-2">Nombre: {{ $venta->nombres_personanatural }}</ul>
+                                                                    <ul class="card-text mt-2">Apellido: {{  $venta->apellidos_personanatural }}</ul>
+                                                                    <ul class="card-text mt-2">Teléfono: {{  $venta->fono_personanatural }}</ul>
+                                                                    <ul class="card-text mt-2">Correo Electrónico: {{  $venta->email }}</ul>
+                                                                @endif
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 </td>
         
                                             </tr>
@@ -663,7 +696,42 @@
                                                     </div>
                                                 </div>
                                                 @endif
-        
+
+
+                                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalInfoVendedor{{ $venta->id_venta }}">
+                                                        Info Comprador
+                                                    </button>         
+                                                <div class="modal fade" id="modalInfoVendedor{{ $venta->id_venta }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                              <h5 class="modal-title" id="exampleModalLongTitle">Informacion Vendedor</h5>
+                                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                              </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                @if($venta->id_perfil==2)
+                                                                    <ul class="card-text mt-4">RUT: {{ $venta->rut_empresa }}</ul>
+                                                                    <ul class="card-text mt-2">Nombre: {{ $venta->nombre_empresa }}</ul>
+                                                                    <ul class="card-text mt-2">Dirección: {{ $venta->direccion_empresa }}</ul>
+                                                                    <ul class="card-text mt-2">Teléfono: {{ $venta->fono_empresa }}</ul>
+                                                                    <ul class="card-text mt-2">Correo Electrónico: {{ $venta->email }}</ul>
+                                                                    <ul class="card-text mt-2"> Pagina Web:<a href="{{ $venta->web_empresa }}"> {{ $venta->web_empresa }} </a></ul>
+                                                                @else 
+                                                                    <ul class="card-text mt-4">RUT: {{  $venta->run_personanatural }} </ul>
+                                                                    <ul class="card-text mt-2">Nombre: {{ $venta->nombres_personanatural }}</ul>
+                                                                    <ul class="card-text mt-2">Apellido: {{  $venta->apellidos_personanatural }}</ul>
+                                                                    <ul class="card-text mt-2">Teléfono: {{  $venta->fono_personanatural }}</ul>
+                                                                    <ul class="card-text mt-2">Correo Electrónico: {{  $venta->email }}</ul>
+                                                                @endif
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                
                                             </td>
         
