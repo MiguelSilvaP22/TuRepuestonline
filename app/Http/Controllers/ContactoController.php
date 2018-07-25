@@ -32,4 +32,10 @@ class ContactoController extends Controller
     public function membresia(){
         return view('membresia');
     }
+
+
+    public function registro()
+    {
+        return view('Contacto.registro');
+    }
 }

@@ -160,6 +160,7 @@ Route::get('/reporte', 'AdminController@downloadReporte');
 
 Route::resource('contacto', 'ContactoController');
 Route::get('/membresias', 'ContactoController@membresia');
+Route::get('/registroCompleto', 'ContactoController@registro');
 
 
 

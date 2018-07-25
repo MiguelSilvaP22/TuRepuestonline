@@ -116,7 +116,7 @@
 
                            @if ($errors->has('fono'))
                         <div class="alert alert-danger" role="alert">
-                            El Telefono ingresado, no es válido.
+                            El Teléfono ingresado, no es válido.
                         </div>
                         @endif
 
