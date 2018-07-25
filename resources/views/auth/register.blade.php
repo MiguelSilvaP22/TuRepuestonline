@@ -114,6 +114,12 @@
                         </div>
                         @endif
 
+                           @if ($errors->has('fono'))
+                        <div class="alert alert-danger" role="alert">
+                            El Telefono ingresado, no es válido.
+                        </div>
+                        @endif
+
                         <div class="form-group row mb-0">
                         
                             <div class="col-md-6 offset-md-4">
