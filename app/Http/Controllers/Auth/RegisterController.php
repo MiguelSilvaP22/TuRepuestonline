@@ -142,7 +142,7 @@ class RegisterController extends Controller
             $empresa->id_usuario = $user->id_usuario;
             $empresa->nombre_empresa = $data['name'];
             $empresa->direccion_empresa = $data['direccion'];
-            $empresa->rut_empresa = str_replace('.', '', $data['run_empresa']);
+            $empresa->rut_empresa = str_replace('.', '', $data['rut_empresa']);
             $empresa->fono_empresa = $data['fono'];
             $empresa->web_empresa = $data['web'];
             $empresa->estado_empresa = 1;
