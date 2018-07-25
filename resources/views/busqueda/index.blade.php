@@ -14,7 +14,7 @@
 						<div class="sidebar_section">
                             <form id="formBusqueda2">
                                 <div class="sidebar_title">Búsqueda repuesto</div>
-                                {!! Form::select('id_marca', $marcas,null ,['class' => 'form-control mt-3','placeholder'=>'Seleccione una Marca de Vehiculo','id'=>'selectMarcas', 'style'=>'width:100%']) !!}         
+                                {!! Form::select('id_marca', $marcas,null ,['class' => 'form-control mt-3','placeholder'=>'Seleccione una Marca de Vehículo','id'=>'selectMarcas', 'style'=>'width:100%']) !!}         
                             </form>
 						</div>
 

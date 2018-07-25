@@ -40,6 +40,10 @@
 						!!}
 					</div>
 					<div class='form-group'>
+						{!! Form::label('', 'Correo Eletrónico:') !!} {!! Form::email('fono', null, ['class' => 'form-control','id'=>'correo_electronico','maxlength'=>'199', 'required'])
+						!!}
+					</div
+					<div class='form-group'>
 						{!! Form::label('', 'Fono:') !!} {!! Form::number('fono', null, ['class' => 'form-control','id'=>'nombre_repuesto','maxlength'=>'199', 'required'])
 						!!}
 					</div>

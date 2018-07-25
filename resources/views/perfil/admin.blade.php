@@ -122,7 +122,7 @@
                                         <td>
                                             <p>sin confirmar</p>
                                         </td>
-                                        <td><button class="btn btn-success" onclick="location.href='activarMembresia/{{ $usuario->compramembresia->last()->id_compramembresia }}';"> Activar membresia</button></td>
+                                        <td><button class="btn btn-success" onclick="location.href='activarMembresia/{{ $usuario->compramembresia->last()->id_compramembresia }}';"> Activar membresía</button></td>
                                         @endif @if( $usuario->compramembresia->last()->estado_compramembresia==1)
                                         <td>
                                             <p>Activada</p>

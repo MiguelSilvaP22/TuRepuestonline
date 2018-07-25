@@ -363,7 +363,7 @@
                                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                              <h5 class="modal-title" id="exampleModalLongTitle">Informacion Vendedor</h5>
+                                                              <h5 class="modal-title" id="exampleModalLongTitle">Información Vendedor</h5>
                                                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                               </button>
@@ -515,7 +515,7 @@
                                                                 </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    Esta seguro que desea confirmar la venta del repuesto: {{ $venta->nombre_repuesto }}
+                                                                    ¿Está seguro que desea confirmar la venta del repuesto: {{ $venta->nombre_repuesto }}?
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Calcelar venta</button>
@@ -574,7 +574,7 @@
                                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                              <h5 class="modal-title" id="exampleModalLongTitle">Informacion Vendedor</h5>
+                                                              <h5 class="modal-title" id="exampleModalLongTitle">Información Vendedor</h5>
                                                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                               </button>
@@ -706,7 +706,7 @@
                                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                              <h5 class="modal-title" id="exampleModalLongTitle">Informacion Vendedor</h5>
+                                                              <h5 class="modal-title" id="exampleModalLongTitle">Información Vendedor</h5>
                                                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                               </button>
@@ -779,7 +779,7 @@ function confirmarComprar() {
         url: '/solicitudMembresia/'+$("#selectMembresiaUsuario option:selected").val(),
         type: "GET",
         success: function () {
-            $(".modalMembresia").html("Membresía Solicitada, una vez realizado el pago a la cuenta, se activara su cuenta en 24horas.")
+            $(".modalMembresia").html("Membresía Solicitada, una vez realizado el pago a la cuenta, se activará su cuenta en 24horas.")
             $(".membresiaBotonCompra").remove(); 
         }
         });
@@ -791,7 +791,7 @@ function confirmarComprarEmpresa() {
         type: "GET",
         success: function () {
             console.log("Ok")
-            $(".modalMembresia").html("Membresía Solicitada, una vez realizado el pago a la cuenta, se activara su cuenta en 24horas.")
+            $(".modalMembresia").html("Membresía Solicitada, una vez realizado el pago a la cuenta, se activará su cuenta en 24horas.")
             $(".membresiaBotonCompra").remove(); 
         }
         });
