@@ -200,13 +200,13 @@
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                             </div>
-                                            <div class="modal-body">
+                                            <div class="modal-body modalMembresia2">
                                             <div class="row">
                                                 <div class="col-md-11">
                                                     <select name="" id="selectMembresiaEmpresa" class="form-control">
-                                                            <option value="4">Plata $24.000</option>
-                                                            <option value="5">Oro $28.600</option>
-                                                            <option value="6">Diamante $33.600</option>
+                                                            <option value="5">Básica $24.000</option>
+                                                            <option value="6">Top $28.600</option>
+                                                            <option value="7">Vip $33.600</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -227,7 +227,7 @@
                                             </div>
                                             <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                            <button type="button" class="btn btn-primary"  onclick="confirmarComprarEmpresa()">Comprar Membresía</button>
+                                            <button type="button" class="btn btn-primary membresiaBotonCompra2"  onclick="confirmarComprarEmpresa()">Comprar Membresía</button>
                                             </div>
                                         </div>
                                         </div>
@@ -790,9 +790,8 @@ function confirmarComprarEmpresa() {
         url: '/solicitudMembresia/'+$("#selectMembresiaEmpresa option:selected").val(),
         type: "GET",
         success: function () {
-            console.log("Ok")
-            $(".modalMembresia").html("Membresía Solicitada, una vez realizado el pago a la cuenta, se activará su cuenta en 24horas.")
-            $(".membresiaBotonCompra").remove(); 
+            $(".modalMembresia2").html("Membresía Solicitada, una vez realizado el pago a la cuenta, se activará su cuenta en 24horas.");
+            $(".membresiaBotonCompra2").remove(); 
         }
         });
 }

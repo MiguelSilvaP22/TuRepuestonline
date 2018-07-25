@@ -95,6 +95,56 @@ p{
     
                     </tr>
                     
+                    <tr>
+                        <td>$nombremembre[0]</td>
+                        <td>$ventasMembresias[0]</td>
+                        <td>230</td>
+                        <td style="text-align:center">
+                            @if($ventasMembresias[0] > 230)
+                            <div style="background-color:#90EE90; text-align:center">
+                            Alto
+                            <div>
+                            @endif
+
+                                @if($ventasMembresias[0] <= 230/4 && $ventasMembresias[0]> 230)
+                            <div style="background-color: 	#FFD700; text-align:center">
+                            Medio
+                            <div>
+                            @endif
+
+                                @if($ventasMembresias[0] <= 230/4)
+                            <div style="background-color:	#F08080; text-align:center">
+                            Bajo
+                            <div>
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>$nombremembre[1]</td>
+                        <td>$ventasMembresias[1]</td>
+                        <td>330</td>
+                    </tr>
+                    <tr>
+                        <td>$nombremembre[2]</td>
+                        <td>$ventasMembresias[2]</td>
+                        <td>135</td>
+                    </tr>
+                    <tr>
+                        <td>$nombremembre[3]</td>
+                        <td>$ventasMembresias[3]</td>
+                        <td>15</td>
+
+                    </tr>
+                    <tr>
+                        <td>$nombremembre[4]</td>
+                        <td>$ventasMembresias[4]</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>$nombremembre[5]</td>
+                        <td>$ventasMembresias[5]</td>
+                        <td>4</td>
+                    </tr>
                     @foreach($ventasMembresias as $key => $ventas)
                         <tr >
                             <td> 
