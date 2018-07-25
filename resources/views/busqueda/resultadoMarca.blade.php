@@ -10,6 +10,7 @@
         <div class="product_grid_border"></div>
         
         @foreach($repuestos as $repuesto)
+        @if($repuesto->estado_repuesto==1)
         <!-- Product Item -->
         <div class="product_item is_new">
             <div class="product_border"></div>
@@ -19,6 +20,7 @@
                 <div class="product_name"><div><a href="detallerepuesto/{{$repuesto->id_repuesto}}" tabindex="0">{{$repuesto->nombre_repuesto}}</a></div></div>
             </div>
         </div>
+        @endif()
         @endforeach
         
 

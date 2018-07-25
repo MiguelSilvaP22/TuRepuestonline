@@ -167,7 +167,6 @@ class RepuestoController extends Controller
                         ->join('modelo', 'modelo.id_marca', '=', 'marca.id_marca')
                         ->join('repuestomodelo', 'repuestomodelo.id_modelo', '=','modelo.id_modelo')
                         ->join('repuesto', 'repuestomodelo.id_repuesto', '=','repuesto.id_repuesto')
-                        ->where('repuesto', 'estado_repuesto', '=', '1')
                         ->join('imagenrepuesto', 'imagenrepuesto.id_repuesto', '=','repuesto.id_repuesto')
                         ->paginate(10);
         }
@@ -178,7 +177,6 @@ class RepuestoController extends Controller
                         ->where("modelo.id_modelo", '=', $input["id_modelos"][0])
                         ->join('repuestomodelo', 'repuestomodelo.id_modelo', '=','modelo.id_modelo')
                         ->join('repuesto', 'repuestomodelo.id_repuesto', '=','repuesto.id_repuesto')
-                        ->where('repuesto', 'estado_repuesto', '=', '1')
                         ->join('imagenrepuesto', 'imagenrepuesto.id_repuesto', '=','repuesto.id_repuesto')
                         ->paginate(10);
         }
