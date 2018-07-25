@@ -202,7 +202,7 @@ p{
                             <div>
                             @endif
 
-                                @if($ventasMembresias[4] <= 6/4 && $ventasMembresias[4]> 6)
+                                @if($ventasMembresias[4] <= 6 && $ventasMembresias[4]> 6/4)
                             <div style="background-color: 	#FFD700; text-align:center">
                             Medio
                             <div>
@@ -226,16 +226,16 @@ p{
                             <div>
                             @endif
 
-                                @if($ventasMembresias[5] <= 4/4 && $ventasMembresias[5]> 4)
+                            @if($ventasMembresias[5] <= 4 && $ventasMembresias[5]> 4/4)
                             <div style="background-color: 	#FFD700; text-align:center">
                             Medio
                             <div>
                             @endif
 
                                 @if($ventasMembresias[5] <= 4/4)
-                            <div style="background-color:	#F08080; text-align:center">
-                            Bajo
-                            <div>
+                                <div style="background-color:	#F08080; text-align:center">
+                                Bajo
+                                <div>
                             @endif
                         </td>
                     </tr>
