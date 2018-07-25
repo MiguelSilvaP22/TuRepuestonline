@@ -20,6 +20,7 @@ class Modelo extends Model
         return $this->belongsTo(Marca::Class, 'id_marca');
     }
 
+
     public function compatibilidad()
     {
         return $this->belongsToMany(Repuesto::Class, 'repuestomodelo', 'id_modelo', 'id_repuesto');

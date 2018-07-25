@@ -42,6 +42,6 @@
 
         $( "#run_personanatural" ).keyup(function() {
             console.log($(this).val($(this).val().replace('.', '')));
-        });
-        });
+            });
+    });
     </script>

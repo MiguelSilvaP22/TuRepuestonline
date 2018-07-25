@@ -22,7 +22,7 @@
             return true;
             }
             else{
-                alert("Error: el rut ingresado no es valido")
+                alert("Error: el rut ingresado no es válido")
                 return false;
             }
         }
@@ -33,7 +33,7 @@
             return true;
             }
             else{
-                alert("Error: el rut ingresado no es valido")
+                alert("Error: el rut ingresado no es válido")
                 return false;
             }
         }
@@ -54,7 +54,7 @@
 
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo Electronico') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo Electrónico') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
@@ -70,7 +70,7 @@
 
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
+                                        <strong>Error, las contraseñas no coinciden</strong>
                                     </span>
                                 @endif
                             </div>

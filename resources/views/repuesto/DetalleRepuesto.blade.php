@@ -93,17 +93,16 @@
 
 			<div class="row justify-content-md-center mt-5"></div>
 			<div class="row justify-content-md-center mt-5">
-				<div class="col-md-5">
+				<div class="col-md-7">
 					<h4 class="mb-4">Este repuesto es compatible con:</h4> 
 					@if($repuesto->compatibilidad->count()>0)
-						<div class="col-lg-6">
+						<div class="col-lg-8">
 						<table class="table table-bordered table-hover">
 								<thead>
 									<tr>
-									<th scope="col">#</th>
 									<th scope="col">Modelo</th>
 									<th scope="col">Marca</th>
-
+									<th>Año</th>
 									</tr>
 						</thead>
 							<tbody>
@@ -111,10 +110,10 @@
 							@foreach($repuesto->compatibilidad as $key => $modelo)
 					
 								<tr >
-								<td >{{$key}}</td>
 								<td>{{$modelo->nombre_modelo}}</td>
 
-									<td>{{$modelo->marca->nombre_marca}}</td>
+								<td>{{$modelo->marca->nombre_marca}} </td>
+								<td>{{$modelo->ano_modelo}}</td>
 								<tr>
 							@endforeach
 							</tbody>

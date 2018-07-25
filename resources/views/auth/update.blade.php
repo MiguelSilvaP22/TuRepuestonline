@@ -15,17 +15,8 @@
 
 <script>
     function validarForm(f){
-        rutFormato = $.rut.formatear($("#run").val());
-        if($.rut.validar(rutFormato)){
-            return true;
-        }
-        else if($.rut.validar(rutFormatoE) ){
-            return true;
-        }
-        else{
-            alert("Error: el rut ingresado no es valido")
-            return false;
-        }
+
+        
     }
 </script>
 <div class="container mt-5">
@@ -52,12 +43,7 @@
                                         {!! Form::text('Apellidos', $usuario->personanatural->last()->apellidos_personanatural, ['class' => 'form-control', 'required']) !!}
                                 </div>
                             </div>
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('RUN') }}</label>
-                            <div class="col-md-6">
-                                    {!! Form::text('RUN', $usuario->personanatural->last()->run_personanatural, ['class' => 'form-control', 'required', 'id'=>'run']) !!}
-                            </div>
-                        </div>
+
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Fono') }}</label>
                             <div class="col-md-6">
@@ -81,12 +67,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('RUT Empresa') }}</label>
-                            <div class="col-md-6">
-                                    {!! Form::text('rut', $usuario->empresa->last()->rut_empresa, ['class' => 'form-control']) !!}
-                            </div>
-                        </div>
 
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Telefono') }}</label>
