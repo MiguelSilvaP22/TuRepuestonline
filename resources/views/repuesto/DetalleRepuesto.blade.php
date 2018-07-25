@@ -62,8 +62,8 @@
 											  </button>
 											</div>
 											<div class="modal-body">
-											 <p> ¿Esta seguro que desea Adquirir el siguiente repuesto?</p>
-											 <p> Se enviaran los datos del vendedor poder contactarse con el.</p>
+											 <p> ¿Está seguro que desea adquirir el siguiente repuesto?</p>
+											 <p> Se enviaran los datos del vendedor poder contactar con el.</p>
 											</div>
 											<div class="modal-footer">
 											  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -100,19 +100,17 @@
 						<table class="table table-bordered table-hover">
 								<thead>
 									<tr>
-									<th scope="col">Modelo</th>
 									<th scope="col">Marca</th>
+									<th scope="col">Modelo</th>
 									<th>Año</th>
 									</tr>
 						</thead>
 							<tbody>
 
 							@foreach($repuesto->compatibilidad as $key => $modelo)
-					
 								<tr >
-								<td>{{$modelo->nombre_modelo}}</td>
-
 								<td>{{$modelo->marca->nombre_marca}} </td>
+								<td>{{$modelo->nombre_modelo}}</td>
 								<td>{{$modelo->ano_modelo}}</td>
 								<tr>
 							@endforeach
