@@ -90,6 +90,7 @@ p{
                     <tr>
                         <td class="active">Tipo Membresía</td>
                         <td class="active" style="text-align:center">Cantidad de ventas</td>
+                        <td class="active" style="text-align:center">Meta (Mensual)</td>
                         <td class="active" style="text-align:center">Estado</td>
     
                     </tr>

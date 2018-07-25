@@ -37,21 +37,18 @@ class UsuarioController extends Controller
     public function update(Request $request, $id)
     {
         $usuario = User::find($id);
-        $usuario->email=$request->email;
         $usuario->save();
         if($usuario->id_perfil==1){
             $personanatural = PersonaNatural::all()->where('id_usuario', $id)->last();
             $personanatural->nombres_personanatural = $request->nombres;
             $personanatural->apellidos_personanatural =$request->Apellidos;
             $personanatural->fono_personanatural = $request->fono;
-            $personanatural->run_personanatural = $request->RUN;
             $personanatural->save(); 
         }
         if($usuario->id_perfil==2){
             $empresa = Empresa::all()->where('id_usuario', $id)->last();
             $empresa->nombre_empresa = $request->nombres;
             $empresa->direccion_empresa = $request->direccion;
-            $empresa->rut_empresa = $request->rut;
             $empresa->fono_empresa = $request->fono;
             $empresa->web_empresa = $request->web;
             $empresa->save();
