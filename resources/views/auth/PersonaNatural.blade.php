@@ -36,3 +36,12 @@
             <input id="fono" type="number" class="form-control" name="fono"  nim="100000000" max="1000000000" required>
         </div>
     </div>
+
+    <script>
+     $(function() {
+
+        $( "#run_personanatural" ).keyup(function() {
+            console.log($(this).val($(this).val().replace('.', '')));
+        });
+        });
+    </script>

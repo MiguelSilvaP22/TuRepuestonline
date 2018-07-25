@@ -44,3 +44,13 @@
             <input id="web" type="text" class="form-control" name="web" >
         </div>
 </div>
+
+
+<script>
+     $(function() {
+
+        $( "#rut_empresa" ).keyup(function() {
+            console.log($(this).val($(this).val().replace('.', '')));
+            });
+    });
+    </script>

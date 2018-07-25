@@ -15,14 +15,30 @@
 
 <script>
     function validarForm(f){
-        rutFormato = $.rut.formatear($("#rut").val());
-        if($.rut.validar(rutFormato)){
+
+        if($( "#selectTipoUsuario" ).val()==1){
+            rutFormato = $.rut.formatear($("#run_personanatural").val());
+            if($.rut.validar(rutFormato)){
             return true;
+            }
+            else{
+                alert("Error: el rut ingresado no es valido")
+                return false;
+            }
         }
-        else{
-            alert("Error: el rut ingresado no es valido")
-            return false;
+
+        if($( "#selectTipoUsuario" ).val()==2){
+            rutFormato = $.rut.formatear($("#rut_empresa").val());
+            if($.rut.validar(rutFormato)){
+            return true;
+            }
+            else{
+                alert("Error: el rut ingresado no es valido")
+                return false;
+            }
         }
+
+        
     }
 </script>
 <div class="container mt-5">
@@ -43,11 +59,6 @@
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
 
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
                             </div>
                         </div>
 
@@ -96,6 +107,13 @@
                         </div>
                         @endif
 
+                        
+                        @if ($errors->has('email'))
+                        <div class="alert alert-danger" role="alert">
+                            El correo ingresado, ya se encuentra registrado.
+                        </div>
+                        @endif
+
                         <div class="form-group row mb-0">
                         
                             <div class="col-md-6 offset-md-4">
@@ -135,8 +153,16 @@
                 }
             });
     }
+    $(function() {
+
+        $( "#run_personanatural" ).keyup(function() {
+            console.log("MEOW");
+        });
+  });
+   
 
 }
+
 
 
        /* var selectMarca = this;
