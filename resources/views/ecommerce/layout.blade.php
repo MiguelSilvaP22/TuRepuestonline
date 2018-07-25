@@ -65,6 +65,8 @@
 
 											@if(Auth::user()->id_perfil == 2 || Auth::user()->id_perfil == 1)
 											<li><a href="/perfil">Mi Perfil<i class="fas fa-chevron-down"></i></a></li>
+											<li><a href="/cambiarPass/{{Auth::user()->id_usuario}}">Cambiar Pass<i class="fas fa-chevron-down"></i></a></li>
+
 											@endif
 
 											@if(Auth::user()->id_perfil ==3)

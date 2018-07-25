@@ -118,6 +118,11 @@ Route::get('/eliminarUsuario/{id}', 'UsuarioController@EliminarUsuario',function
 {
     return $id;
 });
+
+Route::get('/cambiarPass/{id}', 'UsuarioController@cambiarPass',function($id)
+{
+    return $id;
+});
 Route::get('/editarUsuario/{id}', 'UsuarioController@edit',function($id)
 {
     return $id;

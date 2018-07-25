@@ -66,6 +66,42 @@ class UsuarioController extends Controller
 
     }
 
+    
+    public function cambiarPass($id){
+
+        if(Auth::user())
+        {
+            if(Auth::user()->id_perfil==3 || Auth::user()->id_usuario == $id){
+                $usuario = User::find($id);
+                return view('auth.updatePass',compact('usuario'));    
+            }
+            else{
+                return redirect('/');
+            }
+        }
+        else{
+            return redirect('/');
+        }
+    }
+
+    public function store(Request $request){
+        if(Auth::user())
+        {
+            if(Auth::user()->id_perfil==3 || Auth::user()->id_usuario == $request->id_usuario){
+                $usuario = User::find($request->id_usuario);
+                $usuario->password = \Hash::make($request->contrasena);
+                $usuario->save();
+                return redirect('/perfil');
+            }
+            else{
+                return redirect('/');
+            }
+        }
+        else{
+            return redirect('/');
+        }
+    }
+
     public function EliminarUsuario($id){
         
         if(Auth::user()->id_perfil==3){

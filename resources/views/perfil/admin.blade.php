@@ -165,7 +165,8 @@
                                         <td>{{ $usuario->repuestos->count() }}</td>
                                         <td>
                                             <button class="btn btn btn-warning" id="editUsuario"  onclick="location.href='editarUsuario/{{ $usuario->id_usuario }}';" value=""><i class="fa fa-edit"></i>Editar</button>
-                                            <button class="btn btn btn-danger" data-toggle="modal" data-target="#eliminarUsuarioModal{{ $usuario->id_usuario }}" ><i class="fa fa-eraser"></i>Eliminar</button></td>
+                                            <button class="btn btn btn-danger" data-toggle="modal" data-target="#eliminarUsuarioModal{{ $usuario->id_usuario }}" ><i class="fa fa-eraser"></i>Eliminar</button>
+                                            <button type="button" class="btn btn-danger" onclick="location.href='cambiarPass/{{ $usuario->id_usuario }}';">Editar Pass</button></td>
 
                                         <!-- Modal -->
                                         <div class="modal fade" id="eliminarUsuarioModal{{ $usuario->id_usuario }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
