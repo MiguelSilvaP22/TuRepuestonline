@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\User;
 use App\PersonaNatural;
 use App\Empresa;
+use App\Repuesto;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -65,10 +67,24 @@ class UsuarioController extends Controller
     }
 
     public function EliminarUsuario($id){
+        
+        if(Auth::user()->id_perfil==3){
+          
         $usuario = User::find($id);
         $usuario->estado_usuario =0;
+        $repuestos = Repuesto::all()->where('id_usuario', $id);
+
+        foreach ($repuestos as $repuesto){
+            $repuesto->estado_repuesto =0;
+            $repuesto->save();
+        }
         $usuario->save();
-        return redirect('/perfil');
+        return redirect('/admin');
+        }
+        else{
+            return redirect('/');
+
+        }
  
      }
 }

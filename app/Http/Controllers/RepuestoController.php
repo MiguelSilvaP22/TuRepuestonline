@@ -29,7 +29,7 @@ class RepuestoController extends Controller
 
     public function index()
     {
-        $repuestos = Repuesto::all();
+        $repuestos = Repuesto::all()->where('estado_repuesto',1);
         $categoriasrepuestos = CategoriaRepuesto::all();
         return view('ecommerce.prueba',compact('repuestos','categoriasrepuestos'));
 
@@ -345,19 +345,27 @@ class RepuestoController extends Controller
     public function show($id)
     {
         $now = Carbon::now();
-        $repuesto = Repuesto::all()->where('id_repuesto', $id)->last();
-        if($now->diffInDays($repuesto->fecha_reg_repuesto->addDays($repuesto->usuario->membresia->dias_duracion_publidacion_membresia), false)>0){
-            if(Auth::user()){
-                $favorito = Favorito::all()->where('id_repuesto', $id)->where('id_usuario', Auth::user()->id_usuario)->last();
+        $repuesto = Repuesto::all()->where('id_repuesto', $id)->where('estado_repuesto', 1)->last();
+
+        if($repuesto != null)
+        {
+            if($now->diffInDays($repuesto->fecha_reg_repuesto->addDays($repuesto->usuario->membresia->dias_duracion_publidacion_membresia), false)>0){
+                if(Auth::user()){
+                    $favorito = Favorito::all()->where('id_repuesto', $id)->where('id_usuario', Auth::user()->id_usuario)->last();
+                }
+                else{
+                    $favorito =null;
+                }
+                return view('repuesto.DetalleRepuesto',compact('repuesto', 'favorito'));
+
             }
             else{
-                $favorito =null;
+                return view('repuesto.repuestoFinalizado');
             }
-            return view('repuesto.DetalleRepuesto',compact('repuesto', 'favorito'));
-
         }
         else{
-            return view('repuesto.repuestoFinalizado');
+            return redirect('/');
+
         }
         
     }

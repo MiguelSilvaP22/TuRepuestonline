@@ -23,7 +23,7 @@
 		}
 
 		else{
-		alert("Repuesto Agregado Exitosamente."); return true;
+		alert("Producto Agregado Exitosamente."); return true;
 		}
 
 		return false;	
