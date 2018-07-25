@@ -47,7 +47,7 @@
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Fono') }}</label>
                             <div class="col-md-6">
-                                    {!! Form::number('fono', $usuario->personanatural->last()->fono_personanatural, ['class' => 'form-control',  'required', 'min'=>'100000000', 'max'=>'1000000000']) !!}
+                                    {!! Form::number('fono', $usuario->personanatural->last()->fono_personanatural, ['class' => 'form-control',  'required']) !!}
                             </div>
                         </div>
                         @endif
@@ -71,7 +71,7 @@
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Telefono') }}</label>
                             <div class="col-md-6">
-                                    {!! Form::text('fono', $usuario->empresa->last()->fono_empresa, ['class' => 'form-control', 'min'=>'100000000', 'max'=>'100000000']) !!}
+                                    {!! Form::text('fono', $usuario->empresa->last()->fono_empresa, ['class' => 'form-control','required']) !!}
                             </div>
                         </div>
 
