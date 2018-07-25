@@ -88,10 +88,10 @@
                                     <ul class="card-text mt-2">Nombre: {{ $usuario->personanatural->last()->nombres_personanatural }}</ul>
                                     <ul class="card-text mt-2">Apellido: {{ $usuario->personanatural->last()->apellidos_personanatural }}</ul>
                                     <ul class="card-text mt-2">Teléfono: {{ $usuario->personanatural->last()->fono_personanatural }}</ul>
-                                    <ul class="card-text mt-2">Correo Electronico: {{ $usuario->email }}</ul>
-                                    <ul class="card-text mt-2">Membresia: {{ $usuario->membresia->nombre_membresia }}</ul>
+                                    <ul class="card-text mt-2">Correo Electrónico: {{ $usuario->email }}</ul>
+                                    <ul class="card-text mt-2">Membresía: {{ $usuario->membresia->nombre_membresia }}</ul>
                                     @if($usuario->membresia->id_membresia != 1)
-                                        <ul class="card-text mt-2">Membresia expira en: {{ $expiracionMembresia->format('%m') }} Meses y {{ $expiracionMembresia->format('%d') }} días </ul>
+                                        <ul class="card-text mt-2">Membresía expira en: {{ $expiracionMembresia->format('%m') }} Meses y {{ $expiracionMembresia->format('%d') }} días </ul>
                                     @endif
 
                                     <ul class="card-text mt-2">Promedio nota ventas: 
@@ -110,7 +110,7 @@
                                     </ul>
                                     <div class="botonesPerfil mt-3"></div>
                                             <button class="btn btn btn-warning" id="editUsuario"  onclick="location.href='editarUsuario/{{ $usuario->id_usuario }}';" value=""><i class="fa fa-edit"></i>Editar</button>
-                                            <a href="#" class="btn btn-info" data-toggle="modal" data-target="#ModalMembresiaUsuarioNatural">Comprar Membresia</a>
+                                            <a href="#" class="btn btn-info" data-toggle="modal" data-target="#ModalMembresiaUsuarioNatural">Comprar Membresía</a>
                                     </div>
                 
                 
@@ -119,7 +119,7 @@
                                         <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Comprar Membresia</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Comprar Membresía</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -151,7 +151,7 @@
                                             </div>
                                             <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                            <button type="button" class="btn btn-primary membresiaBotonCompra" onclick="confirmarComprar()">Comprar Membresia</button>
+                                            <button type="button" class="btn btn-primary membresiaBotonCompra" onclick="confirmarComprar()">Comprar Membresía</button>
                                             </div>
                                         </div>
                                         </div>
@@ -166,9 +166,9 @@
                                     <ul class="card-text mt-2">Dirección: {{ $usuario->empresa->last()->direccion_empresa }}</ul>
                                     <ul class="card-text mt-2">Teléfono: {{ $usuario->empresa->last()->fono_empresa }}</ul>
                                     <ul class="card-text mt-2">Correo Electrónico: {{ $usuario->email }}</ul>
-                                    <ul class="card-text mt-2">Membresia: {{ $usuario->membresia->nombre_membresia }}</ul>
+                                    <ul class="card-text mt-2">Membresía: {{ $usuario->membresia->nombre_membresia }}</ul>
                                     @if($usuario->membresia->id_membresia != 1)
-                                        <ul class="card-text mt-2">Membresia expira en: {{ $expiracionMembresia->format('%m') }} Meses y {{ $expiracionMembresia->format('%d') }} días  </ul>
+                                        <ul class="card-text mt-2">Membresía expira en: {{ $expiracionMembresia->format('%m') }} Meses y {{ $expiracionMembresia->format('%d') }} días  </ul>
                                     @endif
                                     <ul class="card-text mt-2">Promedio nota ventas: 
                                         @if(count($evaluacionVendedor)>0)
@@ -779,7 +779,7 @@ function confirmarComprar() {
         url: '/solicitudMembresia/'+$("#selectMembresiaUsuario option:selected").val(),
         type: "GET",
         success: function () {
-            $(".modalMembresia").html("Membresia Solicitada, una vez realizado el pago a la cuenta, se activara su cuenta en 24horas.")
+            $(".modalMembresia").html("Membresía Solicitada, una vez realizado el pago a la cuenta, se activara su cuenta en 24horas.")
             $(".membresiaBotonCompra").remove(); 
         }
         });
@@ -791,7 +791,7 @@ function confirmarComprarEmpresa() {
         type: "GET",
         success: function () {
             console.log("Ok")
-            $(".modalMembresia").html("Membresia Solicitada, una vez realizado el pago a la cuenta, se activara su cuenta en 24horas.")
+            $(".modalMembresia").html("Membresía Solicitada, una vez realizado el pago a la cuenta, se activara su cuenta en 24horas.")
             $(".membresiaBotonCompra").remove(); 
         }
         });

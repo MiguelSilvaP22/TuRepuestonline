@@ -45,7 +45,7 @@
 						!!}
 					</div>
 					<div class='form-group'>
-						{!! Form::label('', 'Categoría Repuesto:') !!} {!! Form::select('id_categoriarepuesto', $categoriasrepuestos,null ,['class'=> 'form-control','placeholder'=>'Seleccione una area','id'=>'id_categoriarepuesto', 'required']) !!}
+						{!! Form::label('', 'Categoría Repuesto:') !!} {!! Form::select('id_categoriarepuesto', $categoriasrepuestos,null ,['class'=> 'form-control','placeholder'=>'Seleccione una área','id'=>'id_categoriarepuesto', 'required']) !!}
 					</div>
 					<div class='form-group'>
 						{!! Form::label('', 'Precio:') !!} {!! Form::number('precio_repuesto', null, ['class' => 'form-control','min'=> '0', 'id'=>'precio_repuesto','maxlength'=>'199', 'required'])

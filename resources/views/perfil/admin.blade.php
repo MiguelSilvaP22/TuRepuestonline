@@ -209,7 +209,7 @@
                                                 <th>Nombre Usuario</th>
                                                 <th>Fecha de compra</th>
                                                 <th>Fecha de Registro</th>
-                                                <th>dueño</th>
+                                                <th>Dueño</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>

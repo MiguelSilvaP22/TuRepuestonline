@@ -221,7 +221,7 @@
 												<div class="product_extras">
 													<div class="product_color">
 													</div>
-													<button class="product_cart_button active" onclick="location.href='detallerepuesto/{{$repuesto->id_repuesto}}';">Ver información</button>
+													<button class="product_cart_button active" onclick="location.href='detallerepuesto/{{$repuesto->id_repuesto}}';">Ver Repuesto</button>
 												</div>
 											</div>
 											<div class="product_fav"><i class="fas fa-heart"></i></div>
