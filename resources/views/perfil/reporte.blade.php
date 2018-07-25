@@ -106,7 +106,7 @@ p{
                             <div>
                             @endif
 
-                                @if($ventasMembresias[0] <= 230/4 && $ventasMembresias[0]> 230)
+                                @if($ventasMembresias[0] <= 230 && $ventasMembresias[0]> 230/4)
                             <div style="background-color: 	#FFD700; text-align:center">
                             Medio
                             <div>
@@ -130,7 +130,7 @@ p{
                             <div>
                             @endif
 
-                                @if($ventasMembresias[1] <= 330/4 && $ventasMembresias[1]> 330)
+                                @if($ventasMembresias[1] <= 330 && $ventasMembresias[1]> 330/4)
                             <div style="background-color: 	#FFD700; text-align:center">
                             Medio
                             <div>
@@ -154,7 +154,7 @@ p{
                             <div>
                             @endif
 
-                                @if($ventasMembresias[2] <= 135/4 && $ventasMembresias[2]> 135)
+                                @if($ventasMembresias[2] <= 135 && $ventasMembresias[2]> 135/4
                             <div style="background-color: 	#FFD700; text-align:center">
                             Medio
                             <div>
@@ -178,7 +178,7 @@ p{
                             <div>
                             @endif
 
-                                @if($ventasMembresias[3] <= 15/4 && $ventasMembresias[3]> 15)
+                                @if($ventasMembresias[3] <= 15 && $ventasMembresias[3]> 15/4)
                             <div style="background-color: 	#FFD700; text-align:center">
                             Medio
                             <div>

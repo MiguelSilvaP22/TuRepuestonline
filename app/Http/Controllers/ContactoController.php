@@ -18,7 +18,7 @@ class ContactoController extends Controller
      */
     public function store(Request $request)
     {
-        \Mail::raw($request->mensje ."\r \r \r". "fono: ".$request->fono . "\r".$request->nombre, function($message)
+        \Mail::raw($request->mensje ."\r \r \r". "fono: ".$request->fono . "\r".$request->nombre.  "\r".$request->correo_electronico, function($message)
         {
             $message->subject('Contacto');
             $message->from(config('mail.from.address'), config("app.name"));

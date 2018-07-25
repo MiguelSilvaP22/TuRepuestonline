@@ -30,7 +30,7 @@
     </div>
 
     <div class="form-group row">
-        <label for="nombres-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Telefono') }}</label>
+        <label for="nombres-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Teléfono') }}</label>
 
         <div class="col-md-6">
             <input id="fono" type="number" class="form-control" name="fono"  required>
