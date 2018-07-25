@@ -154,7 +154,7 @@ p{
                             <div>
                             @endif
 
-                                @if($ventasMembresias[2] <= 135 && $ventasMembresias[2]> 135/4
+                                @if($ventasMembresias[2] <= 135 && $ventasMembresias[2]> 135/4)
                             <div style="background-color: 	#FFD700; text-align:center">
                             Medio
                             <div>
